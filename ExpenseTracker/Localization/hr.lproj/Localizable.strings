@@ -20,6 +20,7 @@
 "next_button" = "Dalje";
 "password_confirmation_placeholder" = "Potvrdite lozinku";
 "confirm_button" = "Potvrdite";
-"are_you_sure_you_want_to_quit_alert_title" = "Da li ste sigurni da želite da odustanete?";
+"warning_alert_title" = "Upozorenje!";
+"are_you_sure_you_want_to_quit_alert_message" = "Da li ste sigurni da želite da odustanete?";
 "no" = "Ne";
 "yes" = "Da";

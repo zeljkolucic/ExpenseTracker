@@ -22,7 +22,8 @@ struct Strings {
     static let next = "next_button"
     static let passwordConfirmation = "password_confirmation_placeholder"
     static let confirm = "confirm_button"
-    static let alertTitle = "are_you_sure_you_want_to_quit_alert_title"
+    static let alertTitle = "warning_alert_title"
+    static let alertMessage = "are_you_sure_you_want_to_quit_alert_message"
     static let no = "no"
     static let yes = "yes"
 }

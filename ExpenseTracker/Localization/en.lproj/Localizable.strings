@@ -20,6 +20,7 @@
 "next_button" = "Next";
 "password_confirmation_placeholder" = "Confirm password";
 "confirm_button" = "Confirm";
-"are_you_sure_you_want_to_quit_alert_title" = "Are you sure you want to quit?";
+"warning_alert_title" = "Warning";
+"are_you_sure_you_want_to_quit_alert_message" = "Are you sure you want to quit?";
 "no" = "No";
 "yes" = "Yes";

@@ -26,6 +26,7 @@ class FirstStepRegistrationViewController: UIViewController {
         super.viewDidLoad()
         
         configureLabels()
+        configureNavigationBar()
         defineActions()
     }
     
@@ -40,6 +41,10 @@ class FirstStepRegistrationViewController: UIViewController {
         nextButton.setTitle(Strings.next.localized, for: .normal)
     }
     
+    private func configureNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(presentAlert))
+    }
+    
     private func defineActions() {
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
     }
@@ -48,6 +53,15 @@ class FirstStepRegistrationViewController: UIViewController {
     
     @objc private func didTapNextButton() {
         
+    }
+    
+    @objc private func presentAlert() {
+        let alert = UIAlertController(title: Strings.alertTitle.localized, message: Strings.alertMessage.localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
+        alert.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true)
     }
     
 }
