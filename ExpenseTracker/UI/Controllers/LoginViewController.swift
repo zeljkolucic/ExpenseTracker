@@ -18,6 +18,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var registerButton: RoundedButton!
     
+    private lazy var backgroundLabel: UILabel = {
+        let label = UILabel()
+        label.text = "E"
+        label.textColor = .systemGray4
+        label.font = .systemFont(ofSize: 850, weight: .black)
+        label.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let viewModel = LoginViewModel()
     
     // MARK: - View Controller Lifecycle
@@ -31,11 +41,16 @@ class LoginViewController: UIViewController {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     // MARK: - Configuration
     
     private func configureLayout() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+        view.addSubview(backgroundLabel)
+        view.sendSubviewToBack(backgroundLabel)
     }
     
     private func configureLabels() {

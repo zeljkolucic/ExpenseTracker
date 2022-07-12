@@ -23,21 +23,21 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVD-CT-nls" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kco-hA-yax">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Image" translatesAutoresizingMaskIntoConstraints="NO" id="kco-hA-yax">
                                                 <rect key="frame" x="167" y="20" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="DLb-KE-Ofw"/>
                                                     <constraint firstAttribute="height" constant="80" id="XTE-Ek-ugH"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-0Y-894">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-0Y-894">
                                                 <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="erI-7I-of5">
-                                                <rect key="frame" x="25" y="151.5" width="364" height="471.5"/>
+                                                <rect key="frame" x="25" y="140" width="364" height="471.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfR-dG-Foh">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="29"/>
@@ -145,9 +145,9 @@
                                             <constraint firstItem="9yZ-0Y-894" firstAttribute="leading" secondItem="wVD-CT-nls" secondAttribute="leading" constant="25" id="5p0-Ps-Iq7"/>
                                             <constraint firstItem="kco-hA-yax" firstAttribute="centerX" secondItem="wVD-CT-nls" secondAttribute="centerX" id="E6n-vZ-L8U"/>
                                             <constraint firstItem="9yZ-0Y-894" firstAttribute="top" relation="greaterThanOrEqual" secondItem="erI-7I-of5" secondAttribute="bottom" constant="60" id="YBM-Yg-MTE"/>
+                                            <constraint firstItem="erI-7I-of5" firstAttribute="top" secondItem="kco-hA-yax" secondAttribute="bottom" constant="40" id="YbJ-dh-Q5I"/>
                                             <constraint firstAttribute="bottom" secondItem="9yZ-0Y-894" secondAttribute="bottom" constant="10" id="cfZ-EG-6br"/>
                                             <constraint firstItem="kco-hA-yax" firstAttribute="top" secondItem="wVD-CT-nls" secondAttribute="top" constant="20" id="h9V-Ey-kpR"/>
-                                            <constraint firstItem="erI-7I-of5" firstAttribute="centerY" secondItem="wVD-CT-nls" secondAttribute="centerY" id="hAU-Vu-ltD"/>
                                             <constraint firstItem="erI-7I-of5" firstAttribute="leading" secondItem="wVD-CT-nls" secondAttribute="leading" constant="25" id="jHF-il-WQV"/>
                                             <constraint firstAttribute="trailing" secondItem="erI-7I-of5" secondAttribute="trailing" constant="25" id="vQI-sW-dL7"/>
                                         </constraints>
@@ -455,6 +455,7 @@
     </scenes>
     <resources>
         <image name="Female Gender Image" width="16" height="25"/>
+        <image name="Logo Image" width="94" height="94"/>
         <image name="Male Gender Image" width="25" height="25"/>
         <namedColor name="Background Color">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

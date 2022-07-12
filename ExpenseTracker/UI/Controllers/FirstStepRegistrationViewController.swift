@@ -45,6 +45,7 @@ class FirstStepRegistrationViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(presentAlert))
     }
     
