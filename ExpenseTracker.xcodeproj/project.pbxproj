@@ -17,6 +17,7 @@
 		670A80FC287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A80FB287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift */; };
 		6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B036287C1B84003F3259 /* LoginViewController.swift */; };
 		6729B042287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */; };
+		6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B046287D5E7A003F3259 /* FirstStepRegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		670A80FB287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6729B036287C1B84003F3259 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndRegisterFlow.storyboard; sourceTree = "<group>"; };
+		6729B046287D5E7A003F3259 /* FirstStepRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepRegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				6729B036287C1B84003F3259 /* LoginViewController.swift */,
+				6729B046287D5E7A003F3259 /* FirstStepRegistrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */,
 				670A80DD287BFE6400606DEA /* ViewController.swift in Sources */,
+				6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
 			);
