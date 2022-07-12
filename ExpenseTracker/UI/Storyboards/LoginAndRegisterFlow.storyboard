@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,7 +47,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nPC-ud-5Bw">
                                                         <rect key="frame" x="0.0" y="69" width="364" height="143"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-JC-qtM">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-JC-qtM" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,7 +58,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vs-8B-KGl">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vs-8B-KGl" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="79" width="364" height="64"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,6 +174,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3OO-K6-tyS"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="eIM-JC-qtM" id="z8Y-21-oq2"/>
+                        <outlet property="passwordTextField" destination="8vs-8B-KGl" id="6hB-9u-8U6"/>
+                        <outlet property="registerButton" destination="X7r-eG-hOq" id="EXd-zh-zYP"/>
+                        <outlet property="signInButton" destination="8iI-94-Cx2" id="9cb-gR-iiM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +202,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-tQ-Uqq">
                                                 <rect key="frame" x="25" y="25" width="364" height="301"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-lo-tDB">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-lo-tDB" userLabel="First Name Text Field" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -207,7 +212,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4m-WO-ThJ">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4m-WO-ThJ" userLabel="Last Name Text Field" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="79" width="364" height="64"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -227,7 +232,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-Yy-xNF">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-Yy-xNF" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="237" width="364" height="64"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -248,6 +253,9 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Button">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="CGY-Ni-YnF" kind="show" id="5QO-zu-rA0"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
                                                 <rect key="frame" x="25" y="730" width="364" height="21.5"/>
@@ -258,25 +266,25 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="bRG-sV-M9b">
                                                 <rect key="frame" x="92" y="366" width="230" height="80"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DQ-QF-vDw">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DQ-QF-vDw" customClass="GenderButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="ait-Mp-y9i"/>
                                                             <constraint firstAttribute="width" constant="80" id="eLw-Bb-fm6"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSf-0x-cjv">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSf-0x-cjv" customClass="GenderButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="150" y="0.0" width="80" height="80"/>
-                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="80" id="aA8-4p-RcE"/>
                                                             <constraint firstAttribute="height" constant="80" id="wKk-Bq-RRr"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -319,10 +327,102 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WOj-nu-Ei9"/>
+                    <connections>
+                        <outlet property="femaleGenderButton" destination="cSf-0x-cjv" id="T0a-DY-eJh"/>
+                        <outlet property="firstnameTextField" destination="IBy-lo-tDB" id="REm-Yr-cli"/>
+                        <outlet property="lastnameTextField" destination="b4m-WO-ThJ" id="cE9-sr-CNn"/>
+                        <outlet property="maleGenderButton" destination="9DQ-QF-vDw" id="YFl-el-v5V"/>
+                        <outlet property="phoneNumberTextField" destination="Adn-Yy-xNF" id="ACl-me-yDr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZt-Qv-xHB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1971.0144927536232" y="42.857142857142854"/>
+        </scene>
+        <!--Second Step Registration View Controller-->
+        <scene sceneID="Bqz-9J-1EW">
+            <objects>
+                <viewController id="CGY-Ni-YnF" customClass="SecondStepRegistrationViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SwT-TU-5zd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bb0-tk-W70">
+                                <rect key="frame" x="25" y="113" width="364" height="222"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-wd-8Kz" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="8ki-SK-Jxq"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldD-w2-aSv" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="79" width="364" height="64"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="d79-f9-0hR"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eit-65-k1k" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="158" width="364" height="64"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="cws-Td-l4H"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-fO-fWo">
+                                <rect key="frame" x="25" y="716.5" width="364" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="7hy-Di-ya7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
+                                <rect key="frame" x="25" y="820.5" width="364" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0kd-gN-n7W"/>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="bb0-tk-W70" firstAttribute="top" secondItem="0kd-gN-n7W" secondAttribute="top" constant="25" id="3Rd-SD-dxl"/>
+                            <constraint firstItem="GvC-QM-wZw" firstAttribute="top" secondItem="xhc-fO-fWo" secondAttribute="bottom" constant="40" id="BiI-np-nXu"/>
+                            <constraint firstItem="0kd-gN-n7W" firstAttribute="trailing" secondItem="bb0-tk-W70" secondAttribute="trailing" constant="25" id="Ch6-61-oxl"/>
+                            <constraint firstItem="bb0-tk-W70" firstAttribute="leading" secondItem="0kd-gN-n7W" secondAttribute="leading" constant="25" id="EOU-8N-MnH"/>
+                            <constraint firstItem="0kd-gN-n7W" firstAttribute="trailing" secondItem="xhc-fO-fWo" secondAttribute="trailing" constant="25" id="KzB-ts-25d"/>
+                            <constraint firstItem="xhc-fO-fWo" firstAttribute="leading" secondItem="0kd-gN-n7W" secondAttribute="leading" constant="25" id="Wkq-z5-h3G"/>
+                            <constraint firstItem="GvC-QM-wZw" firstAttribute="leading" secondItem="0kd-gN-n7W" secondAttribute="leading" constant="25" id="nvN-7u-y0f"/>
+                            <constraint firstItem="0kd-gN-n7W" firstAttribute="trailing" secondItem="GvC-QM-wZw" secondAttribute="trailing" constant="25" id="rUN-aj-0Uv"/>
+                            <constraint firstItem="0kd-gN-n7W" firstAttribute="bottom" secondItem="GvC-QM-wZw" secondAttribute="bottom" constant="20" id="szT-gz-z4l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kpA-ON-yc2"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="HHr-wd-8Kz" id="iDg-Vh-H8P"/>
+                        <outlet property="passwordConfirmationTextField" destination="eit-65-k1k" id="gCo-RE-0wF"/>
+                        <outlet property="passwordTextField" destination="ldD-w2-aSv" id="qKR-wb-gHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYI-2o-xzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2891" y="43"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sb9-Xh-OG3">
@@ -347,8 +447,5 @@
         <namedColor name="Background Color">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
