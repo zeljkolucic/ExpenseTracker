@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="LoginViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
         <!--First Step Registration View Controller-->
         <scene sceneID="oQU-hC-Vj7">
             <objects>
-                <viewController id="MW8-UA-NJ1" customClass="FirstStepRegistrationViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstStepRegistrationViewController" id="MW8-UA-NJ1" customClass="FirstStepRegistrationViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WMC-OT-51N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,7 +349,7 @@
         <!--Second Step Registration View Controller-->
         <scene sceneID="Bqz-9J-1EW">
             <objects>
-                <viewController id="CGY-Ni-YnF" customClass="SecondStepRegistrationViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondStepRegistrationViewController" id="CGY-Ni-YnF" customClass="SecondStepRegistrationViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwT-TU-5zd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

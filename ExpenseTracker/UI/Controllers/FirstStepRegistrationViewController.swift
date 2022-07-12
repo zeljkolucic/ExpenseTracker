@@ -52,7 +52,9 @@ class FirstStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapNextButton() {
-        
+        let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "SecondStepRegistrationViewController") as? SecondStepRegistrationViewController else { return }
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc private func presentAlert() {
