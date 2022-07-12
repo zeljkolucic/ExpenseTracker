@@ -14,9 +14,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signInButton: RoundedButton!
     @IBOutlet weak var orLabel: UILabel!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var registerButton: RoundedButton!
     
     // MARK: - View Controller Lifecycle
     
@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
     
     private func configureLayout() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     private func configureLabels() {

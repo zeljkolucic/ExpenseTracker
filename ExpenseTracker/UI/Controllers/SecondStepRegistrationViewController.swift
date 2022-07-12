@@ -14,7 +14,7 @@ class SecondStepRegistrationViewController: UIViewController {
     @IBOutlet weak var emailTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!
     @IBOutlet weak var passwordConfirmationTextField: RoundedTextField!
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var confirmButton: RoundedButton!
     
     // MARK: - View Controller Lifecycle
     

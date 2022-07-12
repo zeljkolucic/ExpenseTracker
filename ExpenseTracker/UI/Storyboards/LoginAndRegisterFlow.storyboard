@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,33 +75,36 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="9K9-H2-y6N">
                                                         <rect key="frame" x="0.0" y="252" width="364" height="219.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-94-Cx2">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-94-Cx2" customClass="RoundedButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
+                                                                <color key="backgroundColor" systemColor="tintColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="WOz-u5-uHl"/>
                                                                 </constraints>
-                                                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                                </buttonConfiguration>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="U1e-zN-ePn">
                                                                 <rect key="frame" x="0.0" y="97" width="364" height="25.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfc-Wm-ZtZ">
-                                                                        <rect key="frame" x="0.0" y="12.5" width="144" height="1"/>
+                                                                        <rect key="frame" x="0.0" y="12.5" width="143.5" height="1"/>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="DLk-5i-Hjh"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1c-f8-o5r">
-                                                                        <rect key="frame" x="157" y="0.0" width="50" height="25.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                        <rect key="frame" x="156.5" y="0.0" width="51.5" height="25.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpL-mj-J5S">
-                                                                        <rect key="frame" x="220" y="12.5" width="144" height="1"/>
+                                                                        <rect key="frame" x="221" y="12.5" width="143" height="1"/>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="h1r-Vj-lzx"/>
@@ -111,15 +115,16 @@
                                                                     <constraint firstItem="b1c-f8-o5r" firstAttribute="centerX" secondItem="U1e-zN-ePn" secondAttribute="centerX" id="2Pj-Vj-3cZ"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7r-eG-hOq">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7r-eG-hOq" customClass="RoundedButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="155.5" width="364" height="64"/>
+                                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="q8k-fh-TEr"/>
                                                                 </constraints>
-                                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                                </buttonConfiguration>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button"/>
                                                                 <connections>
                                                                     <segue destination="MW8-UA-NJ1" kind="show" id="ZRU-4D-byR"/>
                                                                 </connections>
@@ -178,8 +183,8 @@
                         <outlet property="emailTextField" destination="eIM-JC-qtM" id="z8Y-21-oq2"/>
                         <outlet property="orLabel" destination="b1c-f8-o5r" id="aVk-AE-fCu"/>
                         <outlet property="passwordTextField" destination="8vs-8B-KGl" id="6hB-9u-8U6"/>
-                        <outlet property="registerButton" destination="X7r-eG-hOq" id="EXd-zh-zYP"/>
-                        <outlet property="signInButton" destination="8iI-94-Cx2" id="9cb-gR-iiM"/>
+                        <outlet property="registerButton" destination="X7r-eG-hOq" id="bUG-cF-dfM"/>
+                        <outlet property="signInButton" destination="8iI-94-Cx2" id="btX-Eu-tjI"/>
                         <outlet property="welcomeLabel" destination="QfR-dG-Foh" id="Vat-2Y-CfH"/>
                     </connections>
                 </viewController>
@@ -246,15 +251,17 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-zd-7dM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-zd-7dM" customClass="RoundedButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="638.5" width="364" height="64"/>
+                                                <color key="backgroundColor" systemColor="tintColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="N9y-83-jIT"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="CGY-Ni-YnF" kind="show" id="5QO-zu-rA0"/>
                                                 </connections>
@@ -335,7 +342,7 @@
                         <outlet property="firstnameTextField" destination="IBy-lo-tDB" id="REm-Yr-cli"/>
                         <outlet property="lastnameTextField" destination="b4m-WO-ThJ" id="cE9-sr-CNn"/>
                         <outlet property="maleGenderButton" destination="9DQ-QF-vDw" id="YFl-el-v5V"/>
-                        <outlet property="nextButton" destination="IrM-zd-7dM" id="YJz-ks-LnB"/>
+                        <outlet property="nextButton" destination="IrM-zd-7dM" id="YlI-jT-Cft"/>
                         <outlet property="phoneNumberTextField" destination="Adn-Yy-xNF" id="ACl-me-yDr"/>
                     </connections>
                 </viewController>
@@ -386,15 +393,17 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-fO-fWo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-fO-fWo" customClass="RoundedButton" customModule="ExpenseTracker" customModuleProvider="target">
                                 <rect key="frame" x="25" y="726.5" width="364" height="64"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="7hy-Di-ya7"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
                                 <rect key="frame" x="25" y="830.5" width="364" height="21.5"/>
@@ -419,7 +428,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kpA-ON-yc2"/>
                     <connections>
-                        <outlet property="confirmButton" destination="xhc-fO-fWo" id="eSt-6c-jbn"/>
+                        <outlet property="confirmButton" destination="xhc-fO-fWo" id="AOq-uR-Pr6"/>
                         <outlet property="emailTextField" destination="HHr-wd-8Kz" id="iDg-Vh-H8P"/>
                         <outlet property="passwordConfirmationTextField" destination="eit-65-k1k" id="gCo-RE-0wF"/>
                         <outlet property="passwordTextField" destination="ldD-w2-aSv" id="qKR-wb-gHB"/>
@@ -455,5 +464,8 @@
         <namedColor name="Dark Gray Color">
             <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

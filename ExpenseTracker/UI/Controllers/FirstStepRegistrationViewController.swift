@@ -17,7 +17,8 @@ class FirstStepRegistrationViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: RoundedTextField!
     @IBOutlet weak var maleGenderButton: GenderButton!
     @IBOutlet weak var femaleGenderButton: GenderButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: RoundedButton!
+    
     
     // MARK: - View Controller Lifecycle
     
