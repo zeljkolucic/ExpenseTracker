@@ -125,9 +125,6 @@
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <connections>
-                                                                    <segue destination="MW8-UA-NJ1" kind="show" id="ZRU-4D-byR"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -186,6 +183,7 @@
                         <outlet property="registerButton" destination="X7r-eG-hOq" id="bUG-cF-dfM"/>
                         <outlet property="signInButton" destination="8iI-94-Cx2" id="btX-Eu-tjI"/>
                         <outlet property="welcomeLabel" destination="QfR-dG-Foh" id="Vat-2Y-CfH"/>
+                        <segue destination="MW8-UA-NJ1" kind="show" identifier="LoginRegistrationSegue" id="OZc-wx-lGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,9 +260,6 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="CGY-Ni-YnF" kind="show" id="5QO-zu-rA0"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
                                                 <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
@@ -344,6 +339,7 @@
                         <outlet property="maleGenderButton" destination="9DQ-QF-vDw" id="YFl-el-v5V"/>
                         <outlet property="nextButton" destination="IrM-zd-7dM" id="YlI-jT-Cft"/>
                         <outlet property="phoneNumberTextField" destination="Adn-Yy-xNF" id="ACl-me-yDr"/>
+                        <segue destination="CGY-Ni-YnF" kind="show" identifier="RegistrationSegue" id="1bH-Ls-Ev5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZt-Qv-xHB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
