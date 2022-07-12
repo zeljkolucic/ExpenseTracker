@@ -11,9 +11,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
     // MARK: - View Controller Lifecycle
@@ -22,12 +24,22 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
            
         configureLayout()
+        configureLabels()
     }
     
-    // MARK: - Layout
+    // MARK: - Configuration
     
     private func configureLayout() {
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func configureLabels() {
+        welcomeLabel.text = Strings.welcome.localized
+        emailTextField.placeholder = Strings.email.localized
+        passwordTextField.placeholder = Strings.password.localized
+        signInButton.setTitle(Strings.signIn.localized, for: .normal)
+        orLabel.text = Strings.or.localized
+        registerButton.setTitle(Strings.register.localized, for: .normal)
     }
     
 }

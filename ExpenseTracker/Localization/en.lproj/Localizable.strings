@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  ExpenseTracker
+
+  Created by Željko Lučić on 7/12/22.
+  
+*/
+
+"welcome_title" = "Welcome!";
+"email_placeholder" = "Email";
+"password_placeholder" = "Password";
+"sign_in_button" = "Sign in";
+"or_label" = "or";
+"register_button" = "Register";
+"registration_title" = "Registration";
+"firstname_placeholder" = "Firstname";
+"lastname_placeholder" = "Lastname";
+"date_of_birth_placeholder" = "Date of birth";
+"phone_number_placeholder" = "Phone number";
+"next_button" = "Next";
+"password_confirmation_placeholder" = "Confirm password";
+"confirm_button" = "Confirm";
+"are_you_sure_you_want_to_quit_alert_title" = "Are you sure you want to quit?";
+"no" = "No";
+"yes" = "Yes";

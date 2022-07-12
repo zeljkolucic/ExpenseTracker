@@ -29,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="80" id="XTE-Ek-ugH"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-0Y-894">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-0Y-894">
                                                 <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,9 +176,11 @@
                     <navigationItem key="navigationItem" id="3OO-K6-tyS"/>
                     <connections>
                         <outlet property="emailTextField" destination="eIM-JC-qtM" id="z8Y-21-oq2"/>
+                        <outlet property="orLabel" destination="b1c-f8-o5r" id="aVk-AE-fCu"/>
                         <outlet property="passwordTextField" destination="8vs-8B-KGl" id="6hB-9u-8U6"/>
                         <outlet property="registerButton" destination="X7r-eG-hOq" id="EXd-zh-zYP"/>
                         <outlet property="signInButton" destination="8iI-94-Cx2" id="9cb-gR-iiM"/>
+                        <outlet property="welcomeLabel" destination="QfR-dG-Foh" id="Vat-2Y-CfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,7 +259,7 @@
                                                     <segue destination="CGY-Ni-YnF" kind="show" id="5QO-zu-rA0"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
                                                 <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -333,6 +335,7 @@
                         <outlet property="firstnameTextField" destination="IBy-lo-tDB" id="REm-Yr-cli"/>
                         <outlet property="lastnameTextField" destination="b4m-WO-ThJ" id="cE9-sr-CNn"/>
                         <outlet property="maleGenderButton" destination="9DQ-QF-vDw" id="YFl-el-v5V"/>
+                        <outlet property="nextButton" destination="IrM-zd-7dM" id="YJz-ks-LnB"/>
                         <outlet property="phoneNumberTextField" destination="Adn-Yy-xNF" id="ACl-me-yDr"/>
                     </connections>
                 </viewController>
@@ -393,7 +396,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
                                 <rect key="frame" x="25" y="830.5" width="364" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,6 +419,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kpA-ON-yc2"/>
                     <connections>
+                        <outlet property="confirmButton" destination="xhc-fO-fWo" id="eSt-6c-jbn"/>
                         <outlet property="emailTextField" destination="HHr-wd-8Kz" id="iDg-Vh-H8P"/>
                         <outlet property="passwordConfirmationTextField" destination="eit-65-k1k" id="gCo-RE-0wF"/>
                         <outlet property="passwordTextField" destination="ldD-w2-aSv" id="qKR-wb-gHB"/>

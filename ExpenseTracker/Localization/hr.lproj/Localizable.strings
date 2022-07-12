@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  ExpenseTracker
+
+  Created by Željko Lučić on 7/12/22.
+  
+*/
+
+"welcome_title" = "Dobrodošli!";
+"email_placeholder" = "Adresa";
+"password_placeholder" = "Lozinka";
+"sign_in_button" = "Prijava";
+"or_label" = "ili";
+"register_button" = "Registracija";
+"registration_title" = "Registracija";
+"firstname_placeholder" = "Ime";
+"lastname_placeholder" = "Prezime";
+"date_of_birth_placeholder" = "Datum rođenja";
+"phone_number_placeholder" = "Broj telefona";
+"next_button" = "Dalje";
+"password_confirmation_placeholder" = "Potvrdite lozinku";
+"confirm_button" = "Potvrdite";
+"are_you_sure_you_want_to_quit_alert_title" = "Da li ste sigurni da želite da odustanete?";
+"no" = "Ne";
+"yes" = "Da";

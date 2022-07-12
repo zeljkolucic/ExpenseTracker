@@ -17,19 +17,25 @@ class FirstStepRegistrationViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: RoundedTextField!
     @IBOutlet weak var maleGenderButton: GenderButton!
     @IBOutlet weak var femaleGenderButton: GenderButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureLayout()
+        configureLabels()
     }
     
-    // MARK: - Layout
+    // MARK: - Configuration
     
-    private func configureLayout() {
-        
+    private func configureLabels() {
+        navigationItem.title = Strings.registration.localized
+        firstnameTextField.placeholder = Strings.firstname.localized
+        lastnameTextField.placeholder = Strings.lastname.localized
+        dateOfBirthInputField.placeholder = Strings.dateOfBirth.localized
+        phoneNumberTextField.placeholder = Strings.phoneNumber.localized
+        nextButton.setTitle(Strings.next.localized, for: .normal)
     }
     
 }
