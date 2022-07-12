@@ -15,6 +15,8 @@
 		670A80F0287BFE6600606DEA /* ExpenseTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A80EF287BFE6600606DEA /* ExpenseTrackerTests.swift */; };
 		670A80FA287BFE6600606DEA /* ExpenseTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A80F9287BFE6600606DEA /* ExpenseTrackerUITests.swift */; };
 		670A80FC287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A80FB287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift */; };
+		6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B036287C1B84003F3259 /* LoginViewController.swift */; };
+		6729B042287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		670A80F5287BFE6600606DEA /* ExpenseTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenseTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		670A80F9287BFE6600606DEA /* ExpenseTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerUITests.swift; sourceTree = "<group>"; };
 		670A80FB287BFE6600606DEA /* ExpenseTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6729B036287C1B84003F3259 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndRegisterFlow.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		670A80D7287BFE6300606DEA /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6729B035287C1B71003F3259 /* UI */,
 				670A8108287BFF0100606DEA /* Supporting Files */,
 				670A80DC287BFE6400606DEA /* ViewController.swift */,
 			);
@@ -130,6 +135,31 @@
 				670A80E6287BFE6600606DEA /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6729B035287C1B71003F3259 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6729B040287D3FD2003F3259 /* Storyboards */,
+				6729B038287C1BB0003F3259 /* Controllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6729B038287C1BB0003F3259 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6729B036287C1B84003F3259 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6729B040287D3FD2003F3259 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				670A80E5287BFE6600606DEA /* LaunchScreen.storyboard in Resources */,
+				6729B042287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard in Resources */,
 				670A80E2287BFE6600606DEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */,
 				670A80DD287BFE6400606DEA /* ViewController.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
@@ -437,6 +469,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ExpenseTracker/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ExpenseTracker;
+				INFOPLIST_KEY_NSMainNibFile = LoginAndRegisterFlow;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -466,6 +499,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ExpenseTracker/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ExpenseTracker;
+				INFOPLIST_KEY_NSMainNibFile = LoginAndRegisterFlow;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
