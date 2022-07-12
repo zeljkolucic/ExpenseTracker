@@ -15,7 +15,6 @@ class SecondStepRegistrationViewController: UIViewController {
     @IBOutlet weak var passwordTextField: RoundedTextField!
     @IBOutlet weak var passwordConfirmationTextField: RoundedTextField!
     
-    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -27,9 +26,7 @@ class SecondStepRegistrationViewController: UIViewController {
     // MARK: - Layout
     
     private func configureLayout() {
-        emailTextField.configureLayout()
-        passwordTextField.configureLayout()
-        passwordConfirmationTextField.configureLayout()
+        
     }
     
 }

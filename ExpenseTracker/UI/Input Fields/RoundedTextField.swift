@@ -8,10 +8,15 @@
 import UIKit
 
 class RoundedTextField: UITextField {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureLayout()
+    }
 
     func configureLayout() {
         layer.cornerRadius = 5
-        layer.borderWidth = 0.7
+        layer.borderWidth = 0.5
         layer.borderColor = UIColor.lightGray.cgColor
     }
 

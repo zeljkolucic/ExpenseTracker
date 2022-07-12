@@ -13,6 +13,7 @@ class FirstStepRegistrationViewController: UIViewController {
     
     @IBOutlet weak var firstnameTextField: RoundedTextField!
     @IBOutlet weak var lastnameTextField: RoundedTextField!
+    @IBOutlet weak var dateOfBirthInputField: DateInputField!
     @IBOutlet weak var phoneNumberTextField: RoundedTextField!
     @IBOutlet weak var maleGenderButton: GenderButton!
     @IBOutlet weak var femaleGenderButton: GenderButton!
@@ -25,12 +26,10 @@ class FirstStepRegistrationViewController: UIViewController {
         configureLayout()
     }
     
+    // MARK: - Layout
+    
     private func configureLayout() {
-        firstnameTextField.configureLayout()
-        lastnameTextField.configureLayout()
-        phoneNumberTextField.configureLayout()
-        maleGenderButton.configureLayout()
-        femaleGenderButton.configureLayout()
+        
     }
     
 }

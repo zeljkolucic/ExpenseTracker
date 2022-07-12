@@ -30,7 +30,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-0Y-894">
-                                                <rect key="frame" x="25" y="732.5" width="364" height="21.5"/>
+                                                <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -49,18 +49,18 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-JC-qtM" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
-                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="Dark Gray Color"/>
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="OGr-zd-IG4"/>
                                                                 </constraints>
-                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vs-8B-KGl" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="79" width="364" height="64"/>
-                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="Dark Gray Color"/>
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="MaF-SZ-ose"/>
@@ -143,7 +143,7 @@
                                             <constraint firstItem="9yZ-0Y-894" firstAttribute="leading" secondItem="wVD-CT-nls" secondAttribute="leading" constant="25" id="5p0-Ps-Iq7"/>
                                             <constraint firstItem="kco-hA-yax" firstAttribute="centerX" secondItem="wVD-CT-nls" secondAttribute="centerX" id="E6n-vZ-L8U"/>
                                             <constraint firstItem="9yZ-0Y-894" firstAttribute="top" relation="greaterThanOrEqual" secondItem="erI-7I-of5" secondAttribute="bottom" constant="60" id="YBM-Yg-MTE"/>
-                                            <constraint firstAttribute="bottom" secondItem="9yZ-0Y-894" secondAttribute="bottom" constant="20" id="cfZ-EG-6br"/>
+                                            <constraint firstAttribute="bottom" secondItem="9yZ-0Y-894" secondAttribute="bottom" constant="10" id="cfZ-EG-6br"/>
                                             <constraint firstItem="kco-hA-yax" firstAttribute="top" secondItem="wVD-CT-nls" secondAttribute="top" constant="20" id="h9V-Ey-kpR"/>
                                             <constraint firstItem="erI-7I-of5" firstAttribute="centerY" secondItem="wVD-CT-nls" secondAttribute="centerY" id="hAU-Vu-ltD"/>
                                             <constraint firstItem="erI-7I-of5" firstAttribute="leading" secondItem="wVD-CT-nls" secondAttribute="leading" constant="25" id="jHF-il-WQV"/>
@@ -166,11 +166,11 @@
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="LNx-Sg-JLs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0gH-dk-OVg"/>
-                            <constraint firstItem="LNx-Sg-JLs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" symbolic="YES" id="0u3-JO-K9u"/>
+                            <constraint firstItem="LNx-Sg-JLs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" symbolic="YES" id="0u3-JO-K9u"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LNx-Sg-JLs" secondAttribute="trailing" id="4cn-af-c9T"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LNx-Sg-JLs" secondAttribute="bottom" id="C4h-T7-oYT"/>
                             <constraint firstItem="wVD-CT-nls" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="FcF-09-D5H"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9yZ-0Y-894" secondAttribute="bottom" constant="20" id="uDW-aR-LvP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9yZ-0Y-894" secondAttribute="bottom" constant="10" id="uDW-aR-LvP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3OO-K6-tyS"/>
@@ -197,14 +197,14 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aum-jR-4hY" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="771.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-tQ-Uqq">
                                                 <rect key="frame" x="25" y="25" width="364" height="301"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-lo-tDB" userLabel="First Name Text Field" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
-                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="HUV-ni-8WK"/>
                                                         </constraints>
@@ -214,7 +214,7 @@
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4m-WO-ThJ" userLabel="Last Name Text Field" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="79" width="364" height="64"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="KRH-PR-5QU"/>
                                                         </constraints>
@@ -222,9 +222,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rG-Ve-Awf">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rG-Ve-Awf" customClass="DateInputField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="158" width="364" height="64"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="JtZ-iP-Val"/>
                                                         </constraints>
@@ -234,7 +234,7 @@
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-Yy-xNF" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="237" width="364" height="64"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="Xom-GR-Cdx"/>
                                                         </constraints>
@@ -245,7 +245,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-zd-7dM">
-                                                <rect key="frame" x="25" y="626" width="364" height="64"/>
+                                                <rect key="frame" x="25" y="638.5" width="364" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="N9y-83-jIT"/>
                                                 </constraints>
@@ -258,7 +258,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
-                                                <rect key="frame" x="25" y="730" width="364" height="21.5"/>
+                                                <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -291,10 +291,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="IrM-zd-7dM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRG-sV-M9b" secondAttribute="bottom" constant="60" id="2yw-Sa-Amn"/>
+                                            <constraint firstItem="IrM-zd-7dM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRG-sV-M9b" secondAttribute="bottom" constant="15" id="2yw-Sa-Amn"/>
                                             <constraint firstItem="IrM-zd-7dM" firstAttribute="leading" secondItem="aum-jR-4hY" secondAttribute="leading" constant="25" id="5Tq-nD-qdN"/>
                                             <constraint firstItem="yNP-Yn-mjd" firstAttribute="leading" secondItem="aum-jR-4hY" secondAttribute="leading" constant="25" id="8BE-oK-zCi"/>
-                                            <constraint firstAttribute="bottom" secondItem="yNP-Yn-mjd" secondAttribute="bottom" constant="20" id="J77-k3-dom"/>
+                                            <constraint firstAttribute="bottom" secondItem="yNP-Yn-mjd" secondAttribute="bottom" constant="10" id="J77-k3-dom"/>
                                             <constraint firstItem="bRG-sV-M9b" firstAttribute="top" secondItem="cbM-tQ-Uqq" secondAttribute="bottom" constant="40" id="QuA-kl-UaU"/>
                                             <constraint firstItem="yNP-Yn-mjd" firstAttribute="top" secondItem="IrM-zd-7dM" secondAttribute="bottom" constant="40" id="UIx-Xk-Lmm"/>
                                             <constraint firstItem="bRG-sV-M9b" firstAttribute="centerX" secondItem="aum-jR-4hY" secondAttribute="centerX" id="jn1-Wk-YMJ"/>
@@ -319,7 +319,7 @@
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="0ak-pf-E2x" firstAttribute="trailing" secondItem="QRE-Bg-6xm" secondAttribute="trailing" id="2wI-Sj-F29"/>
-                            <constraint firstItem="0ak-pf-E2x" firstAttribute="bottom" secondItem="yNP-Yn-mjd" secondAttribute="bottom" constant="22.5" id="3OB-jr-DEF"/>
+                            <constraint firstItem="0ak-pf-E2x" firstAttribute="bottom" secondItem="yNP-Yn-mjd" secondAttribute="bottom" constant="10" id="3OB-jr-DEF"/>
                             <constraint firstItem="QRE-Bg-6xm" firstAttribute="top" secondItem="0ak-pf-E2x" secondAttribute="top" id="WLT-fu-KJE"/>
                             <constraint firstItem="0ak-pf-E2x" firstAttribute="bottom" secondItem="QRE-Bg-6xm" secondAttribute="bottom" id="bq4-r5-5mH"/>
                             <constraint firstItem="QRE-Bg-6xm" firstAttribute="leading" secondItem="0ak-pf-E2x" secondAttribute="leading" id="vU0-FY-6Ky"/>
@@ -328,6 +328,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WOj-nu-Ei9"/>
                     <connections>
+                        <outlet property="dateOfBirthInputField" destination="7rG-Ve-Awf" id="Ucq-pG-3Sk"/>
                         <outlet property="femaleGenderButton" destination="cSf-0x-cjv" id="T0a-DY-eJh"/>
                         <outlet property="firstnameTextField" destination="IBy-lo-tDB" id="REm-Yr-cli"/>
                         <outlet property="lastnameTextField" destination="b4m-WO-ThJ" id="cE9-sr-CNn"/>
@@ -352,7 +353,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-wd-8Kz" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="64"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="8ki-SK-Jxq"/>
                                         </constraints>
@@ -362,7 +363,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldD-w2-aSv" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="79" width="364" height="64"/>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="d79-f9-0hR"/>
                                         </constraints>
@@ -372,7 +373,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eit-65-k1k" customClass="RoundedTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="158" width="364" height="64"/>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Dark Gray Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="cws-Td-l4H"/>
                                         </constraints>
@@ -383,7 +384,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-fO-fWo">
-                                <rect key="frame" x="25" y="716.5" width="364" height="64"/>
+                                <rect key="frame" x="25" y="726.5" width="364" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="7hy-Di-ya7"/>
                                 </constraints>
@@ -393,7 +394,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
-                                <rect key="frame" x="25" y="820.5" width="364" height="21.5"/>
+                                <rect key="frame" x="25" y="830.5" width="364" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -410,7 +411,7 @@
                             <constraint firstItem="xhc-fO-fWo" firstAttribute="leading" secondItem="0kd-gN-n7W" secondAttribute="leading" constant="25" id="Wkq-z5-h3G"/>
                             <constraint firstItem="GvC-QM-wZw" firstAttribute="leading" secondItem="0kd-gN-n7W" secondAttribute="leading" constant="25" id="nvN-7u-y0f"/>
                             <constraint firstItem="0kd-gN-n7W" firstAttribute="trailing" secondItem="GvC-QM-wZw" secondAttribute="trailing" constant="25" id="rUN-aj-0Uv"/>
-                            <constraint firstItem="0kd-gN-n7W" firstAttribute="bottom" secondItem="GvC-QM-wZw" secondAttribute="bottom" constant="20" id="szT-gz-z4l"/>
+                            <constraint firstItem="0kd-gN-n7W" firstAttribute="bottom" secondItem="GvC-QM-wZw" secondAttribute="bottom" constant="10" id="szT-gz-z4l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kpA-ON-yc2"/>
@@ -446,6 +447,9 @@
     <resources>
         <namedColor name="Background Color">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Dark Gray Color">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

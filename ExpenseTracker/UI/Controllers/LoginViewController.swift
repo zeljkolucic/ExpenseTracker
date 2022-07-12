@@ -27,8 +27,7 @@ class LoginViewController: UIViewController {
     // MARK: - Layout
     
     private func configureLayout() {
-        emailTextField.configureLayout()
-        passwordTextField.configureLayout()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
