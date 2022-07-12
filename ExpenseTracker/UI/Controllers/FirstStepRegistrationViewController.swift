@@ -26,6 +26,7 @@ class FirstStepRegistrationViewController: UIViewController {
         super.viewDidLoad()
         
         configureLabels()
+        defineActions()
     }
     
     // MARK: - Configuration
@@ -37,6 +38,16 @@ class FirstStepRegistrationViewController: UIViewController {
         dateOfBirthInputField.placeholder = Strings.dateOfBirth.localized
         phoneNumberTextField.placeholder = Strings.phoneNumber.localized
         nextButton.setTitle(Strings.next.localized, for: .normal)
+    }
+    
+    private func defineActions() {
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapNextButton() {
+        
     }
     
 }

@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
            
         configureLayout()
         configureLabels()
+        defineActions()
     }
     
     // MARK: - Configuration
@@ -41,6 +42,21 @@ class LoginViewController: UIViewController {
         signInButton.setTitle(Strings.signIn.localized, for: .normal)
         orLabel.text = Strings.or.localized
         registerButton.setTitle(Strings.register.localized, for: .normal)
+    }
+    
+    private func defineActions() {
+        signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapSignInButton() {
+        
+    }
+    
+    @objc private func didTapRegisterButton() {
+        
     }
     
 }

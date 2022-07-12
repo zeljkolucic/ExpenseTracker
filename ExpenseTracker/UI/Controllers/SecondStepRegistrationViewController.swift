@@ -22,6 +22,7 @@ class SecondStepRegistrationViewController: UIViewController {
         super.viewDidLoad()
      
         configureLabels()
+        defineActions()
     }
     
     // MARK: - Configuration
@@ -32,6 +33,16 @@ class SecondStepRegistrationViewController: UIViewController {
         passwordTextField.placeholder = Strings.password.localized
         passwordConfirmationTextField.placeholder = Strings.passwordConfirmation.localized
         confirmButton.setTitle(Strings.confirm.localized, for: .normal)
+    }
+    
+    private func defineActions() {
+        confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapConfirmButton() {
+        
     }
     
 }
