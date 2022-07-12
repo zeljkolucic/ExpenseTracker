@@ -9,7 +9,7 @@ import UIKit
 
 class FirstStepRegistrationViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - Properties
     
     @IBOutlet weak var firstnameTextField: RoundedTextField!
     @IBOutlet weak var lastnameTextField: RoundedTextField!
@@ -18,6 +18,8 @@ class FirstStepRegistrationViewController: UIViewController {
     @IBOutlet weak var maleGenderButton: GenderButton!
     @IBOutlet weak var femaleGenderButton: GenderButton!
     @IBOutlet weak var nextButton: RoundedButton!
+    
+    private let viewModel = RegistrationViewModel()
     
     
     // MARK: - View Controller Lifecycle
@@ -28,6 +30,7 @@ class FirstStepRegistrationViewController: UIViewController {
         configureLabels()
         configureNavigationBar()
         defineActions()
+        bind()
     }
     
     // MARK: - Configuration
@@ -47,6 +50,23 @@ class FirstStepRegistrationViewController: UIViewController {
     
     private func defineActions() {
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        maleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
+        femaleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
+    }
+    
+    private func bind() {
+        viewModel.gender.bindAndFire { [weak self] gender in
+            guard let self = self else { return }
+            
+            switch(gender) {
+            case .male:
+                self.maleGenderButton.select()
+                self.femaleGenderButton.deselect()
+            case .female:
+                self.maleGenderButton.deselect()
+                self.femaleGenderButton.select()
+            }
+        }
     }
     
     // MARK: - Actions
@@ -55,6 +75,14 @@ class FirstStepRegistrationViewController: UIViewController {
         let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "SecondStepRegistrationViewController") as? SecondStepRegistrationViewController else { return }
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc private func didTapGenderButton(_ sender: UIButton) {
+        if sender == maleGenderButton {
+            viewModel.gender.value = .male
+        } else {
+            viewModel.gender.value = .female
+        }
     }
     
     @objc private func presentAlert() {

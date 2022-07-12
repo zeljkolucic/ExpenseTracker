@@ -19,5 +19,13 @@ class GenderButton: UIButton {
         layer.borderWidth = 0.7
         layer.borderColor = UIColor.lightGray.cgColor
     }
-
+    
+    func select() {
+        backgroundColor = .systemGray3
+    }
+    
+    func deselect() {
+        backgroundColor = .clear
+    }
+    
 }

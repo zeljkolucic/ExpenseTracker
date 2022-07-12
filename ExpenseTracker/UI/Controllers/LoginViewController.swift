@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - Properties
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailTextField: RoundedTextField!
@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInButton: RoundedButton!
     @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var registerButton: RoundedButton!
+    
+    private let viewModel = LoginViewModel()
     
     // MARK: - View Controller Lifecycle
     
@@ -26,6 +28,7 @@ class LoginViewController: UIViewController {
         configureLayout()
         configureLabels()
         defineActions()
+        bind()
     }
     
     // MARK: - Configuration
@@ -47,6 +50,10 @@ class LoginViewController: UIViewController {
     private func defineActions() {
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+    }
+    
+    private func bind() {
+        
     }
     
     // MARK: - Actions

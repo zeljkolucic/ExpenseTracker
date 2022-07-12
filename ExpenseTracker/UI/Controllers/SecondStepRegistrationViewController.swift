@@ -9,7 +9,7 @@ import UIKit
 
 class SecondStepRegistrationViewController: UIViewController {
     
-    // MARK: - Layout
+    // MARK: - Properties
     
     @IBOutlet weak var emailTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!

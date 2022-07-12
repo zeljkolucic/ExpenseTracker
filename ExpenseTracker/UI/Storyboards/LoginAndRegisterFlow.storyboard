@@ -278,7 +278,7 @@
                                                             <constraint firstAttribute="width" constant="80" id="eLw-Bb-fm6"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="Male Gender Image"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSf-0x-cjv" customClass="GenderButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="150" y="0.0" width="80" height="80"/>
@@ -288,7 +288,7 @@
                                                             <constraint firstAttribute="height" constant="80" id="wKk-Bq-RRr"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="Female Gender Image"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -454,6 +454,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Female Gender Image" width="16" height="25"/>
+        <image name="Male Gender Image" width="25" height="25"/>
         <namedColor name="Background Color">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
