@@ -22,6 +22,7 @@ class SecondStepRegistrationViewController: UIViewController {
         super.viewDidLoad()
      
         configureLabels()
+        dismissKeyboardWhenTouchOutside()
         defineActions()
     }
     
@@ -42,7 +43,12 @@ class SecondStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapConfirmButton() {
-        
+        let alertController = UIAlertController(title: Strings.emailSentAlertTitle.localized, message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: Strings.ok, style: .default) { _ in
+
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
     
 }

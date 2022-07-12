@@ -29,6 +29,7 @@ class FirstStepRegistrationViewController: UIViewController {
         
         configureLabels()
         configureNavigationBar()
+        dismissKeyboardWhenTouchOutside()
         defineActions()
         bind()
     }
@@ -87,12 +88,12 @@ class FirstStepRegistrationViewController: UIViewController {
     }
     
     @objc private func presentAlert() {
-        let alert = UIAlertController(title: Strings.alertTitle.localized, message: Strings.alertMessage.localized, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
-        alert.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
+        let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.quittingAlertMessage.localized, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
+        alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }))
-        present(alert, animated: true)
+        present(alertController, animated: true)
     }
     
 }

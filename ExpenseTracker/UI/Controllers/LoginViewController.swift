@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
            
         configureLayout()
         configureLabels()
+        dismissKeyboardWhenTouchOutside()
         defineActions()
         bind()
     }

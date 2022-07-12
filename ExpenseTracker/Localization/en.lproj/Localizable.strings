@@ -24,3 +24,5 @@
 "are_you_sure_you_want_to_quit_alert_message" = "Are you sure you want to quit?";
 "no" = "No";
 "yes" = "Yes";
+"email_sent_alert_title" = "An email has been sent to your address. Plesase confirm registration.";
+
