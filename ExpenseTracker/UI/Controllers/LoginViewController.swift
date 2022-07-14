@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         dismissKeyboardWhenTouchOutside()
         defineActions()
         bind()
+        configureTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +70,22 @@ class LoginViewController: UIViewController {
     }
     
     private func bind() {
+        viewModel.email.bindAndFire { [weak self] email in
+            self?.emailTextField.text = email
+        }
         
+        viewModel.password.bindAndFire { [weak self] password in
+            self?.passwordTextField.text = password
+        }
+    }
+    
+    private func configureTextFields() {
+        emailTextField.delegate = self
+        emailTextField.returnKeyType = .next
+        emailTextField.keyboardType = .emailAddress
+        
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .done
     }
     
     // MARK: - Actions
@@ -82,6 +98,22 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "FirstStepRegistrationViewController") as? FirstStepRegistrationViewController else { return }
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+// MARK: - Text Field Delegate
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            view.endEditing(true)
+        }
+        
+        return true
     }
     
 }

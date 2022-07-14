@@ -13,7 +13,7 @@ class FirstStepRegistrationViewController: UIViewController {
     
     @IBOutlet weak var firstnameTextField: RoundedTextField!
     @IBOutlet weak var lastnameTextField: RoundedTextField!
-    @IBOutlet weak var dateOfBirthInputField: DateInputField!
+    @IBOutlet weak var dateOfBirthTextField: DateTextField!
     @IBOutlet weak var phoneNumberTextField: RoundedTextField!
     @IBOutlet weak var maleGenderButton: GenderButton!
     @IBOutlet weak var femaleGenderButton: GenderButton!
@@ -31,6 +31,7 @@ class FirstStepRegistrationViewController: UIViewController {
         configureNavigationBar()
         dismissKeyboardWhenTouchOutside()
         defineActions()
+        configureTextFields()
         bind()
     }
     
@@ -40,7 +41,7 @@ class FirstStepRegistrationViewController: UIViewController {
         navigationItem.title = Strings.registration.localized
         firstnameTextField.placeholder = Strings.firstname.localized
         lastnameTextField.placeholder = Strings.lastname.localized
-        dateOfBirthInputField.placeholder = Strings.dateOfBirth.localized
+        dateOfBirthTextField.placeholder = Strings.dateOfBirth.localized
         phoneNumberTextField.placeholder = Strings.phoneNumber.localized
         nextButton.setTitle(Strings.next.localized, for: .normal)
     }
@@ -51,9 +52,24 @@ class FirstStepRegistrationViewController: UIViewController {
     }
     
     private func defineActions() {
-        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
         maleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
         femaleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+    }
+    
+    private func configureTextFields() {
+        firstnameTextField.delegate = self
+        firstnameTextField.returnKeyType = .next
+        
+        lastnameTextField.delegate = self
+        lastnameTextField.returnKeyType = .next
+        
+        dateOfBirthTextField.delegate = self
+        configureDateOfBirthTextFieldInput()
+        
+        phoneNumberTextField.delegate = self
+        phoneNumberTextField.returnKeyType = .done
+        phoneNumberTextField.keyboardType = .phonePad
     }
     
     private func bind() {
@@ -69,6 +85,21 @@ class FirstStepRegistrationViewController: UIViewController {
                 self.femaleGenderButton.select()
             }
         }
+    }
+    
+    private func configureDateOfBirthTextFieldInput() {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        dateOfBirthTextField.inputView = datePicker
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelToolbarButton))
+        let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneToolbarButton))
+        toolbar.setItems([cancelBarButton, spacing, doneBarButton], animated: true)
+        dateOfBirthTextField.inputAccessoryView = toolbar
     }
     
     // MARK: - Actions
@@ -94,6 +125,46 @@ class FirstStepRegistrationViewController: UIViewController {
             self?.navigationController?.popViewController(animated: true)
         }))
         present(alertController, animated: true)
+    }
+    
+    @objc private func didTapCancelToolbarButton() {
+        view.endEditing(true)
+    }
+    
+    @objc private func didTapDoneToolbarButton() {
+        phoneNumberTextField.becomeFirstResponder()
+    }
+    
+}
+
+// MARK: - Text Field Delegate
+
+extension FirstStepRegistrationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return true }
+        
+        if textField == firstnameTextField {
+            viewModel.firstname.value = text
+        } else if textField == lastnameTextField {
+            viewModel.lastname.value = text
+        } else if textField == phoneNumberTextField {
+            viewModel.phoneNumber.value = text
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstnameTextField {
+            lastnameTextField.becomeFirstResponder()
+        } else if textField == lastnameTextField {
+            dateOfBirthTextField.becomeFirstResponder()
+        } else if textField == phoneNumberTextField {
+            view.endEditing(true)
+        }
+        
+        return true
     }
     
 }

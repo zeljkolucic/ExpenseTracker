@@ -24,6 +24,7 @@ class SecondStepRegistrationViewController: UIViewController {
         configureLabels()
         dismissKeyboardWhenTouchOutside()
         defineActions()
+        configureTextFields()
     }
     
     // MARK: - Configuration
@@ -40,15 +41,45 @@ class SecondStepRegistrationViewController: UIViewController {
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
+    private func configureTextFields() {
+        emailTextField.delegate = self
+        emailTextField.returnKeyType = .next
+        emailTextField.keyboardType = .emailAddress
+        
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .next
+        
+        passwordConfirmationTextField.delegate = self
+        passwordConfirmationTextField.returnKeyType = .done
+    }
+    
     // MARK: - Actions
     
     @objc private func didTapConfirmButton() {
         let alertController = UIAlertController(title: Strings.emailSentAlertTitle.localized, message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: Strings.ok, style: .default) { _ in
-
+        let alertAction = UIAlertAction(title: Strings.ok, style: .default) { [weak self] _ in
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         alertController.addAction(alertAction)
         present(alertController, animated: true)
+    }
+    
+}
+
+// MARK: - Text Field Delegate
+
+extension SecondStepRegistrationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            passwordConfirmationTextField.becomeFirstResponder()
+        } else if textField == passwordConfirmationTextField {
+            view.endEditing(true)
+        }
+        
+        return true
     }
     
 }

@@ -227,7 +227,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rG-Ve-Awf" customClass="DateInputField" customModule="ExpenseTracker" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rG-Ve-Awf" customClass="DateTextField" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="158" width="364" height="64"/>
                                                         <color key="backgroundColor" name="Dark Gray Color"/>
                                                         <constraints>
@@ -295,7 +295,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="IrM-zd-7dM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRG-sV-M9b" secondAttribute="bottom" constant="15" id="2yw-Sa-Amn"/>
                                             <constraint firstItem="IrM-zd-7dM" firstAttribute="leading" secondItem="aum-jR-4hY" secondAttribute="leading" constant="25" id="5Tq-nD-qdN"/>
                                             <constraint firstItem="yNP-Yn-mjd" firstAttribute="leading" secondItem="aum-jR-4hY" secondAttribute="leading" constant="25" id="8BE-oK-zCi"/>
                                             <constraint firstAttribute="bottom" secondItem="yNP-Yn-mjd" secondAttribute="bottom" constant="10" id="J77-k3-dom"/>
@@ -332,7 +331,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WOj-nu-Ei9"/>
                     <connections>
-                        <outlet property="dateOfBirthInputField" destination="7rG-Ve-Awf" id="Ucq-pG-3Sk"/>
+                        <outlet property="dateOfBirthTextField" destination="7rG-Ve-Awf" id="Ucq-pG-3Sk"/>
                         <outlet property="femaleGenderButton" destination="cSf-0x-cjv" id="T0a-DY-eJh"/>
                         <outlet property="firstnameTextField" destination="IBy-lo-tDB" id="REm-Yr-cli"/>
                         <outlet property="lastnameTextField" destination="b4m-WO-ThJ" id="cE9-sr-CNn"/>

@@ -20,7 +20,7 @@
 		6729B049287D6344003F3259 /* SecondStepRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B048287D6344003F3259 /* SecondStepRegistrationViewController.swift */; };
 		6729B04C287D63AB003F3259 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B04B287D63AB003F3259 /* GenderButton.swift */; };
 		6729B04F287D688D003F3259 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B04E287D688D003F3259 /* RoundedTextField.swift */; };
-		67DF68B9287D740E00F205F7 /* DateInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68B8287D740E00F205F7 /* DateInputField.swift */; };
+		67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68B8287D740E00F205F7 /* DateTextField.swift */; };
 		67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68BE287D764700F205F7 /* SFSymbols.swift */; };
 		67DF68C1287D809800F205F7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68C0287D809800F205F7 /* Strings.swift */; };
 		67DF68C5287D828800F205F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67DF68C7287D828800F205F7 /* Localizable.strings */; };
@@ -67,7 +67,7 @@
 		6729B048287D6344003F3259 /* SecondStepRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepRegistrationViewController.swift; sourceTree = "<group>"; };
 		6729B04B287D63AB003F3259 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
 		6729B04E287D688D003F3259 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
-		67DF68B8287D740E00F205F7 /* DateInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInputField.swift; sourceTree = "<group>"; };
+		67DF68B8287D740E00F205F7 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		67DF68BE287D764700F205F7 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		67DF68C0287D809800F205F7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		67DF68C6287D828800F205F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				67DF68D5287DBAAD00F205F7 /* Extensions */,
-				6729B04D287D6875003F3259 /* Input Fields */,
+				6729B04D287D6875003F3259 /* Text Fields */,
 				6729B04A287D6396003F3259 /* Buttons */,
 				6729B040287D3FD2003F3259 /* Storyboards */,
 				6729B038287C1BB0003F3259 /* Controllers */,
@@ -206,13 +206,13 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		6729B04D287D6875003F3259 /* Input Fields */ = {
+		6729B04D287D6875003F3259 /* Text Fields */ = {
 			isa = PBXGroup;
 			children = (
 				6729B04E287D688D003F3259 /* RoundedTextField.swift */,
-				67DF68B8287D740E00F205F7 /* DateInputField.swift */,
+				67DF68B8287D740E00F205F7 /* DateTextField.swift */,
 			);
-			path = "Input Fields";
+			path = "Text Fields";
 			sourceTree = "<group>";
 		};
 		67DF68B5287D6E8900F205F7 /* Constants */ = {
@@ -399,7 +399,7 @@
 				6729B04C287D63AB003F3259 /* GenderButton.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
-				67DF68B9287D740E00F205F7 /* DateInputField.swift in Sources */,
+				67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
