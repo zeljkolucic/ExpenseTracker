@@ -28,4 +28,5 @@ struct Strings {
     static let yes = "yes"
     static let emailSentAlertTitle = "email_sent_alert_title"
     static let ok = "OK"
+    static let transactionsTitle = "transactions_title"
 }

@@ -9,15 +9,28 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
+    @IBOutlet weak var transactionImageView: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var subcategoryLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
+    // MARK: - Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        configureLayout()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Configuration
+    
+    private func configureLayout() {
+        backgroundColor = .clear
+        accessoryType = .disclosureIndicator
+        transactionImageView.contentMode = .scaleAspectFit
     }
     
 }

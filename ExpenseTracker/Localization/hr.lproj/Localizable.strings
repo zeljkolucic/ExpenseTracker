@@ -25,3 +25,4 @@
 "no" = "Ne";
 "yes" = "Da";
 "email_sent_alert_title" = "Poslat Vam je mejl. Molimo da potvrdite registraciju.";
+"transactions_title" = "Transakcije";

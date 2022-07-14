@@ -91,7 +91,10 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapSignInButton() {
-        
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else { return }
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true)
     }
     
     @objc private func didTapRegisterButton() {
