@@ -26,4 +26,5 @@
 "yes" = "Yes";
 "email_sent_alert_title" = "An email has been sent to your address. Plesase confirm registration.";
 "transactions_title" = "Transactions";
+"log_out" = "Log out";
 

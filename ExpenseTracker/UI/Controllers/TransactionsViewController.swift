@@ -19,14 +19,13 @@ class TransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureLayout()
-        configureLabels()
+        configureNavigationBar()
         configureTableView()
     }
     
     // MARK: - Configuration
     
-    private func configureLayout() {
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = Strings.transactionsTitle.localized
         
@@ -34,13 +33,14 @@ class TransactionsViewController: UIViewController {
         let shareBarButton = UIBarButtonItem(image: shareImage, style: .plain, target: self, action: #selector(didTapShareButton))
         navigationItem.leftBarButtonItem = shareBarButton
         
-        let userImage = UIImage(systemName: SFSymbols.user)
-        let userBarButton = UIBarButtonItem(image: userImage, style: .plain, target: self, action: #selector(didTapUserButton))
-        navigationItem.rightBarButtonItem = userBarButton
-    }
-    
-    private func configureLabels() {
         
+        let logOutAction = UIAction(title: Strings.logOut.localized) { [weak self] action in
+            self?.logOut()
+        }
+        let contextMenu = UIMenu(title: "", children: [logOutAction])
+        let userImage = UIImage(systemName: SFSymbols.user)
+        let userBarButton = UIBarButtonItem(title: nil, image: userImage, primaryAction: nil, menu: contextMenu)
+        navigationItem.rightBarButtonItem = userBarButton
     }
     
     private func configureTableView() {
@@ -57,11 +57,13 @@ class TransactionsViewController: UIViewController {
         
     }
     
-    @objc private func didTapUserButton() {
-        
+    private func logOut() {
+        dismiss(animated: true)
     }
     
 }
+
+// MARK: - Table View Delegate and Data Source
 
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
