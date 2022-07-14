@@ -54,7 +54,19 @@ class TransactionsViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapShareButton() {
+        let actionSheet = UIAlertController(title: nil, message: Strings.shareAlertMessage.localized, preferredStyle: .actionSheet)
         
+        let shareAction = UIAlertAction(title: Strings.shareAlertActionTitle.localized, style: .default) { _ in
+            
+        }
+        let exportAction = UIAlertAction(title: Strings.exportAlertActionTitle.localized, style: .default) { _ in
+            
+        }
+        
+        actionSheet.addAction(shareAction)
+        actionSheet.addAction(exportAction)
+        
+        present(actionSheet, animated: true)
     }
     
     private func logOut() {

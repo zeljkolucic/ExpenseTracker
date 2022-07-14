@@ -30,4 +30,7 @@ struct Strings {
     static let ok = "OK"
     static let transactionsTitle = "transactions_title"
     static let logOut = "log_out"
+    static let shareAlertMessage = "share_alert_message"
+    static let shareAlertActionTitle = "share_alert_action_title"
+    static let exportAlertActionTitle = "export_csv_alert_action_title"
 }

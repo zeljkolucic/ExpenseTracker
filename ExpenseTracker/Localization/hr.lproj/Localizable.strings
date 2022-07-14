@@ -27,3 +27,6 @@
 "email_sent_alert_title" = "Poslat Vam je mejl. Molimo da potvrdite registraciju.";
 "transactions_title" = "Transakcije";
 "log_out" = "Odjavi se";
+"share_alert_message" = "Šta želite da uradite sa ovim?";
+"share_alert_action_title" = "Podeli";
+"export_csv_alert_action_title" = "Izvezi kao CSV";

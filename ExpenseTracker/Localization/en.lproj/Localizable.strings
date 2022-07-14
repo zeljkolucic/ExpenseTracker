@@ -27,4 +27,6 @@
 "email_sent_alert_title" = "An email has been sent to your address. Plesase confirm registration.";
 "transactions_title" = "Transactions";
 "log_out" = "Log out";
-
+"share_alert_message" = "What do you want to do with this?";
+"share_alert_action_title" = "Share";
+"export_csv_alert_action_title" = "Export as CSV";
