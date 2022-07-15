@@ -106,7 +106,7 @@ class FirstStepRegistrationViewController: UIViewController {
     
     @objc private func didTapNextButton() {
         let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "SecondStepRegistrationViewController") as? SecondStepRegistrationViewController else { return }
+        guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
         navigationController?.pushViewController(viewController, animated: true)
     }
     

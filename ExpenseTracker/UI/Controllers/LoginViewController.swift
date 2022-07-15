@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapRegisterButton() {
         let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "FirstStepRegistrationViewController") as? FirstStepRegistrationViewController else { return }
+        guard let viewController = storyboard.instantiateViewController(FirstStepRegistrationViewController.self) else { return }
         navigationController?.pushViewController(viewController, animated: true)
     }
     
