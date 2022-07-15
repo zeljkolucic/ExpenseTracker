@@ -28,7 +28,6 @@ class TransactionTableViewCell: UITableViewCell {
     // MARK: - Configuration
     
     private func configureLayout() {
-        backgroundColor = .clear
         accessoryType = .disclosureIndicator
         transactionImageView.contentMode = .scaleAspectFit
     }

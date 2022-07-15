@@ -66,7 +66,6 @@ class TransactionsViewController: UIViewController {
     private func selectCollectionViewLastItem() {
         let indexPath = IndexPath(row: 9, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
-        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
     }
     
     // MARK: - Actions
@@ -145,11 +144,11 @@ extension TransactionsViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
         cell.select()
-        print("Did select cell")
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
         cell.deselect()
     }
+    
 }
