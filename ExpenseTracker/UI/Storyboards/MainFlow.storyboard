@@ -70,21 +70,21 @@
             </objects>
             <point key="canvasLocation" x="760.86956521739137" y="332.8125"/>
         </scene>
-        <!--Item-->
+        <!--Statistics View Controller-->
         <scene sceneID="DIO-UO-BHL">
             <objects>
-                <viewController id="M1L-qn-S3j" sceneMemberID="viewController">
+                <viewController id="M1L-qn-S3j" customClass="StatisticsViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SA2-Ur-gh5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2dt-mg-aVh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Color"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="i71-y2-m17"/>
+                    <navigationItem key="navigationItem" id="eOw-30-1aC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATM-Hv-sw6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-149" y="-479"/>
+            <point key="canvasLocation" x="760.86956521739137" y="-480.80357142857139"/>
         </scene>
         <!--Shared With You View Controller-->
         <scene sceneID="YQP-f2-SV6">
@@ -127,7 +127,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="M1L-qn-S3j" kind="relationship" relationship="viewControllers" id="MWF-V1-HtQ"/>
+                        <segue destination="UCk-vZ-cAK" kind="relationship" relationship="viewControllers" id="MWF-V1-HtQ"/>
                         <segue destination="con-cV-pPp" kind="relationship" relationship="viewControllers" id="ypC-w2-gdv"/>
                         <segue destination="a98-Mw-Y1F" kind="relationship" relationship="viewControllers" id="aQk-3v-Day"/>
                     </connections>
@@ -173,6 +173,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMk-9f-Zii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="1181.9196428571429"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="vhs-qR-eFN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UCk-vZ-cAK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="i71-y2-m17"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w6f-f6-AYs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M1L-qn-S3j" kind="relationship" relationship="rootViewController" id="Svh-oe-qms"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZF-Hc-50e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-149.27536231884059" y="-481.47321428571428"/>
         </scene>
     </scenes>
     <resources>
