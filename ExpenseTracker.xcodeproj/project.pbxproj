@@ -31,6 +31,11 @@
 		6785D26328815AE9008881B4 /* SharedWithYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D26228815AE9008881B4 /* SharedWithYouViewController.swift */; };
 		6785D26628815B8B008881B4 /* TransactionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D26428815B8B008881B4 /* TransactionsListTableViewCell.swift */; };
 		6785D26728815B8B008881B4 /* TransactionsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D26528815B8B008881B4 /* TransactionsListTableViewCell.xib */; };
+		6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D268288162D1008881B4 /* DetailTransactionViewController.swift */; };
+		6785D26B288162D1008881B4 /* DetailTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D269288162D1008881B4 /* DetailTransactionViewController.xib */; };
+		6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D26C2881976A008881B4 /* TransactionDetailTableViewCell.swift */; };
+		6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */; };
+		6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */; };
 		67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68B8287D740E00F205F7 /* DateTextField.swift */; };
 		67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68BE287D764700F205F7 /* SFSymbols.swift */; };
 		67DF68C1287D809800F205F7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68C0287D809800F205F7 /* Strings.swift */; };
@@ -89,6 +94,11 @@
 		6785D26228815AE9008881B4 /* SharedWithYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedWithYouViewController.swift; sourceTree = "<group>"; };
 		6785D26428815B8B008881B4 /* TransactionsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListTableViewCell.swift; sourceTree = "<group>"; };
 		6785D26528815B8B008881B4 /* TransactionsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsListTableViewCell.xib; sourceTree = "<group>"; };
+		6785D268288162D1008881B4 /* DetailTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionViewController.swift; sourceTree = "<group>"; };
+		6785D269288162D1008881B4 /* DetailTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTransactionViewController.xib; sourceTree = "<group>"; };
+		6785D26C2881976A008881B4 /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailTableViewCell.xib; sourceTree = "<group>"; };
+		6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		67DF68B8287D740E00F205F7 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		67DF68BE287D764700F205F7 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		67DF68C0287D809800F205F7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -210,6 +220,8 @@
 				6729B048287D6344003F3259 /* SecondStepRegistrationViewController.swift */,
 				6739A9C928809D6500B3807B /* TransactionsViewController.swift */,
 				6785D26228815AE9008881B4 /* SharedWithYouViewController.swift */,
+				6785D268288162D1008881B4 /* DetailTransactionViewController.swift */,
+				6785D269288162D1008881B4 /* DetailTransactionViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +262,8 @@
 				6785D25D28814EDF008881B4 /* MonthCollectionViewCell.xib */,
 				6785D26428815B8B008881B4 /* TransactionsListTableViewCell.swift */,
 				6785D26528815B8B008881B4 /* TransactionsListTableViewCell.xib */,
+				6785D26C2881976A008881B4 /* TransactionDetailTableViewCell.swift */,
+				6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -288,6 +302,7 @@
 				67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */,
 				6785D25A2880A7EE008881B4 /* UITableView+Extension.swift */,
 				6785D2602881509D008881B4 /* UICollectionView+Extension.swift */,
+				6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,8 +412,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6785D26B288162D1008881B4 /* DetailTransactionViewController.xib in Resources */,
 				6739A9C828809CAF00B3807B /* MainFlow.storyboard in Resources */,
 				6785D25F28814EDF008881B4 /* MonthCollectionViewCell.xib in Resources */,
+				6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */,
 				670A80E5287BFE6600606DEA /* LaunchScreen.storyboard in Resources */,
 				67DF68C5287D828800F205F7 /* Localizable.strings in Resources */,
 				6729B042287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard in Resources */,
@@ -429,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */,
 				67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */,
 				6785D25E28814EDF008881B4 /* MonthCollectionViewCell.swift in Sources */,
 				6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */,
@@ -440,11 +458,13 @@
 				67DF68C1287D809800F205F7 /* Strings.swift in Sources */,
 				6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */,
 				6729B04F287D688D003F3259 /* RoundedTextField.swift in Sources */,
+				6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */,
 				6729B049287D6344003F3259 /* SecondStepRegistrationViewController.swift in Sources */,
 				6739A9CA28809D6500B3807B /* TransactionsViewController.swift in Sources */,
 				67DF68D4287DA81D00F205F7 /* LoginViewModel.swift in Sources */,
 				67DF68CD287D8DA600F205F7 /* RoundedButton.swift in Sources */,
 				67DF68D0287DA5AA00F205F7 /* RegistrationViewModel.swift in Sources */,
+				6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */,
 				6785D2612881509D008881B4 /* UICollectionView+Extension.swift in Sources */,
 				6729B04C287D63AB003F3259 /* GenderButton.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,

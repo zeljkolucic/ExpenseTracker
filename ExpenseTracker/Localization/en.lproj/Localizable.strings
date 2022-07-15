@@ -32,3 +32,4 @@
 "export_csv_alert_action_title" = "Export as CSV";
 "cancel_alert_action_title" = "Cancel";
 "shared_with_you_title" = "Shared with you";
+"delete_alert_message" = "Are you sure you want to delete this transaction?";

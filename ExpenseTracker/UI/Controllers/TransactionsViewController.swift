@@ -24,15 +24,24 @@ class TransactionsViewController: UIViewController {
         configureCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         selectCollectionViewLastItem()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     // MARK: - Configuration
     
     private func configureNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = Strings.transactionsTitle.localized
         
         let shareImage = UIImage(systemName: SFSymbols.share)
@@ -117,6 +126,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

@@ -11,4 +11,6 @@ struct SFSymbols {
     static let calendar = "calendar"
     static let share = "square.and.arrow.up"
     static let user = "person.crop.circle"
+    static let edit = "pencil"
+    static let delete = "trash"
 }
