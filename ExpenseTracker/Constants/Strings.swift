@@ -33,4 +33,5 @@ struct Strings {
     static let shareAlertMessage = "share_alert_message"
     static let shareAlertActionTitle = "share_alert_action_title"
     static let exportAlertActionTitle = "export_csv_alert_action_title"
+    static let cancelAlertActionTitle = "cancel_alert_action_title"
 }

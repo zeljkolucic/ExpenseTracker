@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zeO-sR-Ygf">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Image" translatesAutoresizingMaskIntoConstraints="NO" id="zeO-sR-Ygf">
                         <rect key="frame" x="14" y="14" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="RI4-gA-pB8"/>
@@ -76,4 +76,7 @@
             <point key="canvasLocation" x="207.24637681159422" y="91.071428571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Logo Image" width="94" height="94"/>
+    </resources>
 </document>

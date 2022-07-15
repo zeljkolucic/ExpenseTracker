@@ -21,6 +21,12 @@ class TransactionsViewController: UIViewController {
         
         configureNavigationBar()
         configureTableView()
+        configureCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        selectCollectionViewLastItem()
     }
     
     // MARK: - Configuration
@@ -44,11 +50,23 @@ class TransactionsViewController: UIViewController {
     }
     
     private func configureTableView() {
+        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TransactionTableViewCell.self)
-        
-        tableView.backgroundColor = .clear
+    }
+    
+    private func configureCollectionView() {
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MonthCollectionViewCell.self)
+    }
+    
+    private func selectCollectionViewLastItem() {
+        let indexPath = IndexPath(row: 9, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
     }
     
     // MARK: - Actions
@@ -62,9 +80,11 @@ class TransactionsViewController: UIViewController {
         let exportAction = UIAlertAction(title: Strings.exportAlertActionTitle.localized, style: .default) { _ in
             
         }
+        let cancelAction = UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .cancel)
         
         actionSheet.addAction(shareAction)
         actionSheet.addAction(exportAction)
+        actionSheet.addAction(cancelAction)
         
         present(actionSheet, animated: true)
     }
@@ -88,10 +108,10 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
-        cell.transactionImageView.image = UIImage(systemName: "gearshape")
         cell.categoryLabel.text = "Electricity"
         cell.subcategoryLabel.text = "Utilities"
         cell.dateLabel.text = "Jun 27, 2022"
+        cell.valueLabel.text = "-2397.0 RSD"
         
         return cell
     }
@@ -100,4 +120,36 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+// MARK: - Collection View Delegate and Data Source
+
+extension TransactionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(MonthCollectionViewCell.self, indexPath: indexPath) else { return UICollectionViewCell() }
+        
+        if indexPath.row % 2 == 0 {
+            cell.monthLabel.text = "November 2021"
+        } else {
+            cell.monthLabel.text = "Jun 2022"
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
+        cell.select()
+        print("Did select cell")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
+        cell.deselect()
+    }
 }

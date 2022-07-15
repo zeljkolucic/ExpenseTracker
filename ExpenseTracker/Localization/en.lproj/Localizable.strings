@@ -30,3 +30,4 @@
 "share_alert_message" = "What do you want to do with this?";
 "share_alert_action_title" = "Share";
 "export_csv_alert_action_title" = "Export as CSV";
+"cancel_alert_action_title" = "Cancel";
