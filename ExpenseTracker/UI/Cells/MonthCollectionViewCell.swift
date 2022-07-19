@@ -24,16 +24,13 @@ class MonthCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
     
     private func configureLayout() {
-        contentView.layer.cornerRadius = 10
-        contentView.backgroundColor = .systemGray3
-    }
-    
-    func select() {
-        contentView.backgroundColor = .systemBlue
-    }
-    
-    func deselect() {
-        contentView.backgroundColor = .systemGray3
+        backgroundColor = .systemGray3
+        layer.cornerRadius = 10
+        
+        let bgView = UIView()
+        bgView.layer.cornerRadius = 10
+        bgView.backgroundColor = .systemBlue
+        selectedBackgroundView = bgView
     }
 
 }

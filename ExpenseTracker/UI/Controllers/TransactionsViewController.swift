@@ -75,6 +75,7 @@ class TransactionsViewController: UIViewController {
     private func selectCollectionViewLastItem() {
         let indexPath = IndexPath(row: 9, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
     }
     
     // MARK: - Actions
@@ -141,7 +142,9 @@ extension TransactionsViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(MonthCollectionViewCell.self, indexPath: indexPath) else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(MonthCollectionViewCell.self, indexPath: indexPath) else {
+            return UICollectionViewCell()
+        }
         
         if indexPath.row % 2 == 0 {
             cell.monthLabel.text = "November 2021"
@@ -153,13 +156,7 @@ extension TransactionsViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
-        cell.select()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
-        cell.deselect()
+        guard let _ = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
     }
     
 }
