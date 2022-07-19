@@ -11,6 +11,7 @@ class StatisticsViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Controller Lifecycle
     
@@ -18,6 +19,7 @@ class StatisticsViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        configureTableView()
     }
     
     // MARK: - Configuration
@@ -35,9 +37,40 @@ class StatisticsViewController: UIViewController {
         navigationItem.rightBarButtonItem = userBarButton
     }
     
+    private func configureTableView() {
+        tableView.register(StatisticsTableViewCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     // MARK: - Actions
     
     @objc private func logOut() {
         dismiss(animated: true)
     }
+}
+
+// MARK: - Table View Delegate and Data Source
+
+extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(StatisticsTableViewCell.self) else {
+            return UITableViewCell()
+        }
+        
+        cell.titleLabel.text = "Expenses by month"
+        cell.descriptionLabel.text = "Check out your expenses based on month"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
