@@ -117,16 +117,17 @@
             </objects>
             <point key="canvasLocation" x="760.86956521739137" y="1181.9196428571429"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="za2-u6-zvy">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" id="h7r-pY-7Rm" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="h7r-pY-7Rm" customClass="MainTabBarController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gL4-GZ-sdN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="gL4-GZ-sdN" id="3rC-x1-68M"/>
                         <segue destination="UCk-vZ-cAK" kind="relationship" relationship="viewControllers" id="MWF-V1-HtQ"/>
                         <segue destination="con-cV-pPp" kind="relationship" relationship="viewControllers" id="ypC-w2-gdv"/>
                         <segue destination="a98-Mw-Y1F" kind="relationship" relationship="viewControllers" id="aQk-3v-Day"/>
