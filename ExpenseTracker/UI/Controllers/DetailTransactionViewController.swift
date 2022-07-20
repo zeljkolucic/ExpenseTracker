@@ -27,6 +27,9 @@ class DetailTransactionViewController: UIViewController {
     // MARK: - Configuration
     
     private func configureNavigationBar() {
+        let closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapCancelButton))
+        navigationItem.leftBarButtonItem = closeBarButton
+        
         let editImage = UIImage(systemName: SFSymbols.edit)
         let editBarButton = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(didTapEditButton))
         
@@ -46,6 +49,10 @@ class DetailTransactionViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc private func didTapCancelButton() {
+        dismiss(animated: true)
+    }
     
     @objc private func didTapEditButton() {
         

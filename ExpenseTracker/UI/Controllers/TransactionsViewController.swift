@@ -13,6 +13,8 @@ class TransactionsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var floatingButton: UIButton!
     
     // MARK: - View Controller Lifecycle
     
@@ -22,6 +24,7 @@ class TransactionsViewController: UIViewController {
         configureNavigationBar()
         configureTableView()
         configureCollectionView()
+        configureLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,14 +32,14 @@ class TransactionsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        selectCollectionViewLastItem()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        selectCollectionViewLastItem()
     }
     
     // MARK: - Configuration
@@ -78,6 +81,20 @@ class TransactionsViewController: UIViewController {
         collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
     }
     
+    private func configureLayout() {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = containerView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        containerView.insertSubview(blurEffectView, at: 0)
+
+        floatingButton.layer.cornerRadius = floatingButton.bounds.width / 2
+        floatingButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        floatingButton.layer.shadowOffset = CGSize(width: 4.0, height: 6.0)
+        floatingButton.layer.shadowOpacity = 1.0
+        floatingButton.layer.shadowRadius = 4.0
+    }
+    
     // MARK: - Actions
     
     @objc private func didTapShareButton() {
@@ -100,6 +117,23 @@ class TransactionsViewController: UIViewController {
     
     private func logOut() {
         dismiss(animated: true)
+    }
+    
+    @IBAction func didTapFloatingButton(_ sender: Any) {
+        let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: .main)
+        let navigationViewController = UINavigationController(rootViewController: viewController)
+        present(navigationViewController, animated: true)
+    }
+    
+    private func presentAlert() {
+        let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.deleteAlertMessage.localized, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .cancel))
+        alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive) { _ in
+            
+        })
+        
+        present(alertController, animated: true)
     }
     
 }
@@ -128,7 +162,14 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
-        navigationController?.pushViewController(viewController, animated: true)
+        let navigationViewController = UINavigationController(rootViewController: viewController)
+        present(navigationViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presentAlert()
+        }
     }
     
 }
