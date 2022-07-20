@@ -72,6 +72,9 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(SharedTransactionsViewController.self) else { return }
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

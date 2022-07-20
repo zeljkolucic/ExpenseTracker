@@ -12,7 +12,8 @@ class DetailTransactionViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Controller Lifecycle

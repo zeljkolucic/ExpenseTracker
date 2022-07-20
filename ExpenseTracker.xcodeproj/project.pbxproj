@@ -50,6 +50,7 @@
 		67DF68D2287DA5D400F205F7 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68D1287DA5D400F205F7 /* Binding.swift */; };
 		67DF68D4287DA81D00F205F7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68D3287DA81D00F205F7 /* LoginViewModel.swift */; };
 		67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */; };
+		67F7487B28883495001CB439 /* SharedTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		67DF68D1287DA5D400F205F7 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		67DF68D3287DA81D00F205F7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTransactionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				6785D269288162D1008881B4 /* DetailTransactionViewController.xib */,
 				6785D2722881A37E008881B4 /* StatisticsViewController.swift */,
 				673EA7092886CD2B004A532F /* MainTabBarController.swift */,
+				67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				6785D2612881509D008881B4 /* UICollectionView+Extension.swift in Sources */,
 				6729B04C287D63AB003F3259 /* GenderButton.swift in Sources */,
 				6785D2732881A37E008881B4 /* StatisticsViewController.swift in Sources */,
+				67F7487B28883495001CB439 /* SharedTransactionsViewController.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
 				6739A9CE28809E1400B3807B /* TransactionTableViewCell.swift in Sources */,

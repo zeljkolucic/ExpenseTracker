@@ -15,6 +15,7 @@ class TransactionsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var floatingButton: UIButton!
+    @IBOutlet weak var totalValueLabel: UILabel!
     
     // MARK: - View Controller Lifecycle
     
@@ -93,6 +94,9 @@ class TransactionsViewController: UIViewController {
         floatingButton.layer.shadowOffset = CGSize(width: 4.0, height: 6.0)
         floatingButton.layer.shadowOpacity = 1.0
         floatingButton.layer.shadowRadius = 4.0
+        
+        // Since table view is behind containerView, adding edgeInsets will provide that the most bottom cell is visible
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
     }
     
     // MARK: - Actions
