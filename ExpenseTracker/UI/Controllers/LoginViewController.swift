@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         configureLabels()
         dismissKeyboardWhenTouchOutside()
         defineActions()
-        bind()
         configureTextFields()
     }
     
@@ -69,16 +68,6 @@ class LoginViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
     
-    private func bind() {
-        viewModel.email.bindAndFire { [weak self] email in
-            self?.emailTextField.text = email
-        }
-        
-        viewModel.password.bindAndFire { [weak self] password in
-            self?.passwordTextField.text = password
-        }
-    }
-    
     private func configureTextFields() {
         emailTextField.delegate = self
         emailTextField.returnKeyType = .next
@@ -86,6 +75,7 @@ class LoginViewController: UIViewController {
         
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .done
+        passwordTextField.isSecureTextEntry = true
     }
     
     // MARK: - Actions
@@ -113,7 +103,7 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {
-            view.endEditing(true)
+            passwordTextField.resignFirstResponder()
         }
         
         return true
