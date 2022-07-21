@@ -48,3 +48,5 @@
 "phone_number_invalid_format" = "Broj telefona nije u odgovarajućem formatu.";
 "email_invalid_format" = "Mejl adresa nije u odgovarajućem formatu.";
 "date_of_birth_error_message" = "Morate imati preko 13 godina!";
+"password_too_weak" = "Lozinka je slaba!";
+"non_matching_passwords" = "Lozinke se ne podudaraju!";

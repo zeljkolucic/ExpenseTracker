@@ -16,6 +16,8 @@ class SecondStepRegistrationViewController: UIViewController {
     @IBOutlet weak var passwordConfirmationTextField: RoundedTextField!
     @IBOutlet weak var confirmButton: RoundedButton!
     
+    var viewModel: RegistrationViewModel!
+    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -45,24 +47,42 @@ class SecondStepRegistrationViewController: UIViewController {
         emailTextField.delegate = self
         emailTextField.returnKeyType = .next
         emailTextField.keyboardType = .emailAddress
+        emailTextField.autocapitalizationType = .none
         
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .next
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.isSecureTextEntry = true
         
         passwordConfirmationTextField.delegate = self
         passwordConfirmationTextField.returnKeyType = .done
+        passwordConfirmationTextField.autocapitalizationType = .none
+        passwordConfirmationTextField.isSecureTextEntry = true
     }
     
     // MARK: - Actions
     
     @objc private func didTapConfirmButton() {
-        let alertController = UIAlertController(title: Strings.emailSentAlertTitle.localized, message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: Strings.ok, style: .default) { [weak self] _ in
-            self?.navigationController?.popToRootViewController(animated: true)
+        viewModel.verifySecondStepRegistrationData { [weak self] in
+            guard let self = self else { return }
+            self.presentAlert(title: Strings.emailSentAlertTitle.localized) { [weak self] _ in
+                guard let self = self else { return }
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            
+        } failure: { [weak self] errorMessage in
+            guard let self = self else { return }
+            self.presentAlert(title: Strings.errorAlertTitle.localized, message: errorMessage)
         }
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
     }
+    
+    private func presentAlert(title: String, message: String? = nil, handler: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Strings.ok, style: .default, handler: handler))
+        self.present(alertController, animated: true)
+    }
+    
+    
     
 }
 
@@ -70,13 +90,25 @@ class SecondStepRegistrationViewController: UIViewController {
 
 extension SecondStepRegistrationViewController: UITextFieldDelegate {
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if textField == emailTextField {
+            viewModel.email.value = text
+        } else if textField == passwordTextField {
+            viewModel.password.value = text
+        } else if textField == passwordConfirmationTextField {
+            viewModel.passwordConfirmation.value = text
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {
             passwordConfirmationTextField.becomeFirstResponder()
         } else if textField == passwordConfirmationTextField {
-            view.endEditing(true)
+            passwordConfirmationTextField.resignFirstResponder()
         }
         
         return true

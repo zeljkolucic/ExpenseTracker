@@ -123,9 +123,11 @@ class FirstStepRegistrationViewController: UIViewController {
     
     @objc private func didTapNextButton() {
         viewModel.verifyFirstStepRegistrationData { [weak self] in
+            guard let self = self else { return }
             let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
             guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
-            self?.navigationController?.pushViewController(viewController, animated: true)
+            viewController.viewModel = self.viewModel
+            self.navigationController?.pushViewController(viewController, animated: true)
             
         } failure: { [weak self] errorMessage in
             let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: errorMessage, preferredStyle: .alert)
@@ -196,7 +198,7 @@ extension FirstStepRegistrationViewController: UITextFieldDelegate {
         } else if textField == lastnameTextField {
             dateOfBirthTextField.becomeFirstResponder()
         } else if textField == phoneNumberTextField {
-            view.endEditing(true)
+            phoneNumberTextField.resignFirstResponder()
         }
         
         return true

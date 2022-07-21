@@ -25,6 +25,7 @@ class RegistrationViewModel {
     private let namePattern = "^[A-Z][a-z]+$"
     private let phoneNumberPattern = "^\\d{8,10}$"
     private let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    private let passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
     
     func verifyFirstStepRegistrationData(success: @escaping (() -> Void), failure: @escaping ((String) -> Void)) {
         if !firstname.value.matches(pattern: namePattern) {
@@ -35,9 +36,21 @@ class RegistrationViewModel {
             failure(Strings.dateOfBirthErrorMessage.localized)
         } else if !phoneNumber.value.matches(pattern: phoneNumberPattern) {
             failure(Strings.phoneNumberInvalidFormat.localized)
+        } else {
+            success()
         }
-        
-        success()
+    }
+    
+    func verifySecondStepRegistrationData(success: @escaping (() -> Void), failure: @escaping ((String) -> Void)) {
+        if !email.value.matches(pattern: emailPattern) {
+            failure(Strings.emailInvalidFormat.localized)
+        } else if !password.value.matches(pattern: passwordPattern) {
+            failure(Strings.passwordTooWeak.localized)
+        } else if password.value != passwordConfirmation.value {
+            failure(Strings.nonMathingPasswords.localized)
+        } else {
+            success()
+        }
     }
     
 }

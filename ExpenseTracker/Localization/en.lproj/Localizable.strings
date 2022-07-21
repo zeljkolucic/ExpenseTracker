@@ -48,3 +48,5 @@
 "phone_number_invalid_format" = "Phone number is not in the right format.";
 "email_invalid_format" = "Email is not in the right format.";
 "date_of_birth_error_message" = "You must be over 13!";
+"password_too_weak" = "Password is too weak!";
+"non_matching_passwords" = "Passwords do not match!";
