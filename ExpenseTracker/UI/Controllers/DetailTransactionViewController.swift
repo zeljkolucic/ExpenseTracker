@@ -192,6 +192,40 @@ class DetailTransactionViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @objc private func didTapCancelMethodOfPaymentToolbarButton() {
+        dismissMethodOfPaymentPicker()
+    }
+    
+    @objc private func didTapDoneMethodOfPaymentToolbarButton() {
+        let methodOfPaymentIndex = methodOfPaymentPicker.selectedRow(inComponent: 0)
+        let methodOfPayment = MethodOfPayment.allCases[methodOfPaymentIndex]
+        viewModel.methodOfPayment = methodOfPayment
+        dismissMethodOfPaymentPicker()
+        tableView.reloadData()
+    }
+    
+    private func didSelectCategory() {
+        
+    }
+    
+    private func didSelectSubcategory() {
+        
+    }
+    
+    private func didSelectDate() {
+        presentDatePicker()
+    }
+    
+    private func didSelectMethodOfPayment() {
+        presentMethodOfPaymentPicker()
+    }
+    
+    // MARK: - Presentation
+    
+    private func presentSubcategoriesViewController() {
+        
+    }
+    
     private func presentDatePicker() {
         view.addSubview(datePicker)
         datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -209,18 +243,6 @@ class DetailTransactionViewController: UIViewController {
     private func dismissDatePicker() {
         datePicker.removeFromSuperview()
         datePickerToolbar.removeFromSuperview()
-    }
-    
-    @objc private func didTapCancelMethodOfPaymentToolbarButton() {
-        dismissMethodOfPaymentPicker()
-    }
-    
-    @objc private func didTapDoneMethodOfPaymentToolbarButton() {
-        let methodOfPaymentIndex = methodOfPaymentPicker.selectedRow(inComponent: 0)
-        let methodOfPayment = MethodOfPayment.allCases[methodOfPaymentIndex]
-        viewModel.methodOfPayment = methodOfPayment
-        dismissMethodOfPaymentPicker()
-        tableView.reloadData()
     }
     
     private func presentMethodOfPaymentPicker() {
@@ -243,22 +265,6 @@ class DetailTransactionViewController: UIViewController {
     private func cleanupView() {
         dismissDatePicker()
         dismissMethodOfPaymentPicker()
-    }
-    
-    func didSelectCategory() {
-        
-    }
-    
-    func didSelectSubcategory() {
-        
-    }
-    
-    func didSelectDate() {
-        presentDatePicker()
-    }
-    
-    func didSelectMethodOfPayment() {
-        presentMethodOfPaymentPicker()
     }
     
     private func presentValueAlert() {
