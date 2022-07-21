@@ -43,3 +43,8 @@
 "error_alert_title" = "Greška!";
 "value_alert_message" = "Vrednost nije u odgovarajućem formatu.";
 "categories_title" = "Kategorije";
+"firstname_invalid_format" = "Ime nije u odgovarajućem formatu.";
+"lastname_invalid_format" = "Prezime nije u odgovarajućem formatu.";
+"phone_number_invalid_format" = "Broj telefona nije u odgovarajućem formatu.";
+"email_invalid_format" = "Mejl adresa nije u odgovarajućem formatu.";
+"date_of_birth_error_message" = "Morate imati preko 13 godina!";

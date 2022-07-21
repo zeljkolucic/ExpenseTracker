@@ -46,4 +46,9 @@ struct Strings {
     static let errorAlertTitle = "error_alert_title"
     static let valueAlertMessage = "value_alert_message"
     static let categoriesTitle = "categories_title"
+    static let firstnameInvalidFormat = "firstname_invalid_format"
+    static let lastnameInvalidFormat = "lastname_invalid_format"
+    static let phoneNumberInvalidFormat = "phone_number_invalid_format"
+    static let emailInvalidFormat = "email_invalid_format"
+    static let dateOfBirthErrorMessage = "date_of_birth_error_message"
 }

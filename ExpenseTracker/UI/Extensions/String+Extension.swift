@@ -13,4 +13,8 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
+    func matches(pattern: String) -> Bool {
+        return self.range(of: pattern, options: .regularExpression) != nil
+    }
+    
 }

@@ -19,6 +19,13 @@ class FirstStepRegistrationViewController: UIViewController {
     @IBOutlet weak var femaleGenderButton: GenderButton!
     @IBOutlet weak var nextButton: RoundedButton!
     
+    private lazy var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        return datePicker
+    }()
+    
     private let viewModel = RegistrationViewModel()
     
     
@@ -48,7 +55,7 @@ class FirstStepRegistrationViewController: UIViewController {
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(presentAlert))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(presentQuittingAlert))
     }
     
     private func defineActions() {
@@ -60,15 +67,17 @@ class FirstStepRegistrationViewController: UIViewController {
     private func configureTextFields() {
         firstnameTextField.delegate = self
         firstnameTextField.returnKeyType = .next
+        firstnameTextField.autocapitalizationType = .words
         
         lastnameTextField.delegate = self
         lastnameTextField.returnKeyType = .next
+        lastnameTextField.autocapitalizationType = .words
         
         dateOfBirthTextField.delegate = self
-        configureDateOfBirthTextFieldInput()
+        configureDateOfBirthTextField()
         
         phoneNumberTextField.delegate = self
-        configurePhoneNumberTextFieldInput()
+        configurePhoneNumberTextField()
     }
     
     private func bind() {
@@ -86,22 +95,19 @@ class FirstStepRegistrationViewController: UIViewController {
         }
     }
     
-    private func configureDateOfBirthTextFieldInput() {
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
+    private func configureDateOfBirthTextField() {
         dateOfBirthTextField.inputView = datePicker
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelToolbarButton))
+        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelDateOfBirthTextFieldToolbarButton))
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneToolbarButton))
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneDateOfBirthTextFieldToolbarButton))
         toolbar.setItems([cancelBarButton, spacing, doneBarButton], animated: true)
         dateOfBirthTextField.inputAccessoryView = toolbar
     }
     
-    private func configurePhoneNumberTextFieldInput() {
+    private func configurePhoneNumberTextField() {
         phoneNumberTextField.keyboardType = .phonePad
         
         let toolbar = UIToolbar()
@@ -116,9 +122,16 @@ class FirstStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapNextButton() {
-        let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
-        guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
-        navigationController?.pushViewController(viewController, animated: true)
+        viewModel.verifyFirstStepRegistrationData { [weak self] in
+            let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
+            guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
+            self?.navigationController?.pushViewController(viewController, animated: true)
+            
+        } failure: { [weak self] errorMessage in
+            let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: errorMessage, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
+            self?.present(alertController, animated: true)
+        }
     }
     
     @objc private func didTapGenderButton(_ sender: UIButton) {
@@ -129,7 +142,7 @@ class FirstStepRegistrationViewController: UIViewController {
         }
     }
     
-    @objc private func presentAlert() {
+    @objc private func presentQuittingAlert() {
         let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.quittingAlertMessage.localized, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
         alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
@@ -138,11 +151,14 @@ class FirstStepRegistrationViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    @objc private func didTapCancelToolbarButton() {
+    @objc private func didTapCancelDateOfBirthTextFieldToolbarButton() {
         dateOfBirthTextField.resignFirstResponder()
     }
     
-    @objc private func didTapDoneToolbarButton() {
+    @objc private func didTapDoneDateOfBirthTextFieldToolbarButton() {
+        let date = datePicker.date
+        viewModel.dateOfBirth.value = date
+        dateOfBirthTextField.text = date.convertToDateFormatString()
         phoneNumberTextField.becomeFirstResponder()
     }
     

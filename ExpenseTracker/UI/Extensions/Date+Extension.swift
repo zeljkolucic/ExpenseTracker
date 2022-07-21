@@ -9,10 +9,22 @@ import Foundation
 
 extension Date {
     
-    func toString() -> String {
+    func convertToDateFormatString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
+    func convertToDateAndTimeFormatString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy hh:mm a"
         return dateFormatter.string(from: self)
+    }
+    
+    func yearsSince(_ date: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year], from: self, to: date)
+        return components.year ?? 0
     }
     
 }

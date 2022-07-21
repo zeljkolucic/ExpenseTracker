@@ -129,7 +129,7 @@ class DetailTransactionViewController: UIViewController {
         let toolbar = UIToolbar()
         let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissKeyboard))
         let spacingBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneToolbarButton))
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneDatePickerToolbarButton))
         toolbar.items = [cancelBarButton, spacingBarButton, doneBarButton]
         toolbar.sizeToFit()
         valueTextField.inputAccessoryView = toolbar
@@ -306,7 +306,7 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
         case 2:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.calendar)
             cell.titleLabel.text = Strings.date.localized
-            cell.subtitleLabel.text = viewModel.date.toString()
+            cell.subtitleLabel.text = viewModel.date.convertToDateAndTimeFormatString()
             
         case 3:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)

@@ -316,7 +316,6 @@
 		67DF68C2287D826800F205F7 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				67DF68CA287D85D200F205F7 /* String+Extension.swift */,
 				67DF68C7287D828800F205F7 /* Localizable.strings */,
 			);
 			path = Localization;
@@ -336,6 +335,7 @@
 		67DF68D5287DBAAD00F205F7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				67DF68CA287D85D200F205F7 /* String+Extension.swift */,
 				67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */,
 				6785D25A2880A7EE008881B4 /* UITableView+Extension.swift */,
 				6785D2602881509D008881B4 /* UICollectionView+Extension.swift */,

@@ -43,3 +43,8 @@
 "error_alert_title" = "Error!";
 "value_alert_message" = "Value is not in the right format.";
 "categories_title" = "Categories";
+"firstname_invalid_format" = "Firstname is not in the right format.";
+"lastname_invalid_format" = "Lastname is not in the right format.";
+"phone_number_invalid_format" = "Phone number is not in the right format.";
+"email_invalid_format" = "Email is not in the right format.";
+"date_of_birth_error_message" = "You must be over 13!";
