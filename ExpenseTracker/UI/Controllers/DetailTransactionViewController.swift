@@ -240,6 +240,11 @@ class DetailTransactionViewController: UIViewController {
         methodOfPaymentPickerToolbar.removeFromSuperview()
     }
     
+    private func cleanupView() {
+        dismissDatePicker()
+        dismissMethodOfPaymentPicker()
+    }
+    
     func didSelectCategory() {
         
     }
@@ -311,6 +316,9 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if isCurrentlyEditing {
+            // If datePicker or methodOfPaymentPicker are presented they will first be removed from superview
+            cleanupView()
+            
             switch indexPath.row {
             case 0:
                 didSelectCategory()
