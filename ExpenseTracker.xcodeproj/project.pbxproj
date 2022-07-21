@@ -181,9 +181,9 @@
 		670A80D7287BFE6300606DEA /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
-				67201054288955F6003FF257 /* Models */,
 				67DF68C2287D826800F205F7 /* Localization */,
 				67DF68B5287D6E8900F205F7 /* Constants */,
+				67201054288955F6003FF257 /* Models */,
 				67DF68CE287DA59C00F205F7 /* Presentation */,
 				6729B035287C1B71003F3259 /* UI */,
 				670A8108287BFF0100606DEA /* Supporting Files */,

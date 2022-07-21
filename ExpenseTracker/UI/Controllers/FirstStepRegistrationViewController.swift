@@ -68,8 +68,7 @@ class FirstStepRegistrationViewController: UIViewController {
         configureDateOfBirthTextFieldInput()
         
         phoneNumberTextField.delegate = self
-        phoneNumberTextField.returnKeyType = .done
-        phoneNumberTextField.keyboardType = .phonePad
+        configurePhoneNumberTextFieldInput()
     }
     
     private func bind() {
@@ -102,6 +101,18 @@ class FirstStepRegistrationViewController: UIViewController {
         dateOfBirthTextField.inputAccessoryView = toolbar
     }
     
+    private func configurePhoneNumberTextFieldInput() {
+        phoneNumberTextField.keyboardType = .phonePad
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelPhoneNumberTextFieldToolbarButton))
+        let spacingBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDonePhoneNumberTextFieldToolbarButton))
+        toolbar.items = [cancelBarButton, spacingBarButton, doneBarButton]
+        phoneNumberTextField.inputAccessoryView = toolbar
+    }
+    
     // MARK: - Actions
     
     @objc private func didTapNextButton() {
@@ -128,11 +139,19 @@ class FirstStepRegistrationViewController: UIViewController {
     }
     
     @objc private func didTapCancelToolbarButton() {
-        view.endEditing(true)
+        dateOfBirthTextField.resignFirstResponder()
     }
     
     @objc private func didTapDoneToolbarButton() {
         phoneNumberTextField.becomeFirstResponder()
+    }
+    
+    @objc private func didTapCancelPhoneNumberTextFieldToolbarButton() {
+        phoneNumberTextField.resignFirstResponder()
+    }
+    
+    @objc private func didTapDonePhoneNumberTextFieldToolbarButton() {
+        phoneNumberTextField.resignFirstResponder()
     }
     
 }
