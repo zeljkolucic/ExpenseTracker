@@ -125,6 +125,7 @@ class TransactionsViewController: UIViewController {
     
     @IBAction func didTapFloatingButton(_ sender: Any) {
         let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: .main)
+        viewController.state = .add
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
     }
@@ -166,6 +167,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
+        viewController.state = .edit
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
     }

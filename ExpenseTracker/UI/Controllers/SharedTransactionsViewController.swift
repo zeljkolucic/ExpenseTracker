@@ -77,6 +77,7 @@ extension SharedTransactionsViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
+        viewController.state = .view
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
     }

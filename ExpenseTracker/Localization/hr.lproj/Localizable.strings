@@ -34,3 +34,9 @@
 "shared_with_you_title" = "Deljeno sa Vama";
 "delete_alert_message" = "Da li ste sigurni da želite da obrišete datu transakciju?";
 "statistics_title" = "Statistika";
+"category" = "Kategorija";
+"subcategory" = "Potkategorija";
+"date" = "Datum";
+"method_of_payment" = "Način plaćanja";
+"cash" = "Gotovina";
+"card" = "Kartica";
