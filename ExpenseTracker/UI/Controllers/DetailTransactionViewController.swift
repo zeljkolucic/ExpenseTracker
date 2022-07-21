@@ -205,11 +205,11 @@ class DetailTransactionViewController: UIViewController {
     }
     
     private func didSelectCategory() {
-        
+        presentCategoriesViewController()
     }
     
     private func didSelectSubcategory() {
-        
+        presentCategoriesViewController()
     }
     
     private func didSelectDate() {
@@ -222,8 +222,9 @@ class DetailTransactionViewController: UIViewController {
     
     // MARK: - Presentation
     
-    private func presentSubcategoriesViewController() {
-        
+    private func presentCategoriesViewController() {
+        let viewController = CategoriesViewController(nibName: "CategoriesViewController", bundle: .main)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func presentDatePicker() {
@@ -321,7 +322,7 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if isCurrentlyEditing {
+        if state == .edit && isCurrentlyEditing || state == .add {
             // If datePicker or methodOfPaymentPicker are presented they will first be removed from superview
             cleanupView()
             

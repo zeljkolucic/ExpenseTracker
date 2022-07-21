@@ -45,4 +45,5 @@ struct Strings {
     static let cash = "cash"
     static let errorAlertTitle = "error_alert_title"
     static let valueAlertMessage = "value_alert_message"
+    static let categoriesTitle = "categories_title"
 }

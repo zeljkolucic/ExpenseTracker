@@ -42,3 +42,4 @@
 "card" = "Kartica";
 "error_alert_title" = "Greška!";
 "value_alert_message" = "Vrednost nije u odgovarajućem formatu.";
+"categories_title" = "Kategorije";

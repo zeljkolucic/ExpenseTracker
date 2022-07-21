@@ -42,3 +42,4 @@
 "card" = "Card";
 "error_alert_title" = "Error!";
 "value_alert_message" = "Value is not in the right format.";
+"categories_title" = "Categories";
