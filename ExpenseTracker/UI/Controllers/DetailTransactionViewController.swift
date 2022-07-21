@@ -93,6 +93,8 @@ class DetailTransactionViewController: UIViewController {
         default:
             break
         }
+        
+        valueTextField.text = String(viewModel.value)
     }
     
     private func configureDoneBarButton() {
@@ -253,6 +255,15 @@ class DetailTransactionViewController: UIViewController {
     func didSelectMethodOfPayment() {
         presentMethodOfPaymentPicker()
     }
+    
+    private func presentValueAlert() {
+        let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: Strings.valueAlertMessage.localized, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.valueTextField.text = String(self.viewModel.value)
+        }))
+        present(alertController, animated: true)
+    }
 
 }
 
@@ -321,8 +332,22 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
 
 extension DetailTransactionViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let textValue = valueTextField.text, let value = Float(textValue) else {
+            presentValueAlert()
+            return
+        }
         
+        viewModel.value = value
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let textValue = valueTextField.text, let value = Float(textValue) else {
+            presentValueAlert()
+            return false
+        }
+        
+        viewModel.value = value
         return true
     }
     

@@ -40,3 +40,5 @@
 "method_of_payment" = "Način plaćanja";
 "cash" = "Gotovina";
 "card" = "Kartica";
+"error_alert_title" = "Greška!";
+"value_alert_message" = "Vrednost nije u odgovarajućem formatu.";

@@ -43,4 +43,6 @@ struct Strings {
     static let methodOfPayment = "method_of_payment"
     static let card = "card"
     static let cash = "cash"
+    static let errorAlertTitle = "error_alert_title"
+    static let valueAlertMessage = "value_alert_message"
 }
