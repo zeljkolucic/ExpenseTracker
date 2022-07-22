@@ -17,6 +17,8 @@ class TransactionsViewController: UIViewController {
     @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var totalValueLabel: UILabel!
     
+    let viewModel = TransactionsViewModel()
+    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -26,6 +28,8 @@ class TransactionsViewController: UIViewController {
         configureTableView()
         configureCollectionView()
         configureLayout()
+        
+        viewModel.getTransactions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +101,12 @@ class TransactionsViewController: UIViewController {
         
         // Since table view is behind containerView, adding edgeInsets will provide that the most bottom cell is visible
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+    }
+    
+    // MARK: -
+    
+    private func getTransactions() {
+        viewModel.getTransactions()
     }
     
     // MARK: - Actions
