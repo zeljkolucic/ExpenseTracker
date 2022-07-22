@@ -45,6 +45,10 @@
 		6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */; };
 		6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */; };
 		6785D2732881A37E008881B4 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D2722881A37E008881B4 /* StatisticsViewController.swift */; };
+		67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67C89547288A9BBD0022F905 /* GoogleService-Info.plist */; };
+		67C8954B288A9D070022F905 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954A288A9D070022F905 /* FirebaseAuth */; };
+		67C8954D288A9D070022F905 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954C288A9D070022F905 /* FirebaseFirestore */; };
+		67C8954F288A9D070022F905 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */; };
 		67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68B8287D740E00F205F7 /* DateTextField.swift */; };
 		67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68BE287D764700F205F7 /* SFSymbols.swift */; };
 		67DF68C1287D809800F205F7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68C0287D809800F205F7 /* Strings.swift */; };
@@ -118,6 +122,7 @@
 		6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailTableViewCell.xib; sourceTree = "<group>"; };
 		6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		6785D2722881A37E008881B4 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		67C89547288A9BBD0022F905 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67DF68B8287D740E00F205F7 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		67DF68BE287D764700F205F7 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		67DF68C0287D809800F205F7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C8954B288A9D070022F905 /* FirebaseAuth in Frameworks */,
+				67C8954D288A9D070022F905 /* FirebaseFirestore in Frameworks */,
+				67C8954F288A9D070022F905 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +219,7 @@
 		670A8108287BFF0100606DEA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				67C89547288A9BBD0022F905 /* GoogleService-Info.plist */,
 				670A80D8287BFE6400606DEA /* AppDelegate.swift */,
 				670A80DA287BFE6400606DEA /* SceneDelegate.swift */,
 				670A80E3287BFE6600606DEA /* LaunchScreen.storyboard */,
@@ -361,6 +370,11 @@
 			dependencies = (
 			);
 			name = ExpenseTracker;
+			packageProductDependencies = (
+				67C8954A288A9D070022F905 /* FirebaseAuth */,
+				67C8954C288A9D070022F905 /* FirebaseFirestore */,
+				67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */,
+			);
 			productName = ExpenseTracker;
 			productReference = 670A80D5287BFE6300606DEA /* ExpenseTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -434,6 +448,9 @@
 				hr,
 			);
 			mainGroup = 670A80CC287BFE6300606DEA;
+			packageReferences = (
+				67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 670A80D6287BFE6300606DEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -450,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */,
 				6785D26B288162D1008881B4 /* DetailTransactionViewController.xib in Resources */,
 				6739A9C828809CAF00B3807B /* MainFlow.storyboard in Resources */,
 				67259A672889830900B39712 /* CategoriesViewController.xib in Resources */,
@@ -869,6 +887,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		67C8954A288A9D070022F905 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		67C8954C288A9D070022F905 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 670A80CD287BFE6300606DEA /* Project object */;
 }
