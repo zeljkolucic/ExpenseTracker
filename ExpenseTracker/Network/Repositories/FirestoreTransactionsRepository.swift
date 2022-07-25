@@ -40,7 +40,15 @@ class FirestoreTransactionsRepository {
 
             completion(.success(transactions))
         }
-        
+    }
+    
+    func add(transaction: FirestoreTransaction, completion: @escaping ((Error?) -> Void)) {
+        do {
+            _ = try store.collection(collectionPath).addDocument(from: transaction, completion: completion)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
     
 }

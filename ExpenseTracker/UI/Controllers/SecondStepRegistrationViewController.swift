@@ -48,16 +48,19 @@ class SecondStepRegistrationViewController: UIViewController {
         emailTextField.returnKeyType = .next
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = .no
         
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .next
         passwordTextField.autocapitalizationType = .none
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.autocorrectionType = .no
         
         passwordConfirmationTextField.delegate = self
         passwordConfirmationTextField.returnKeyType = .done
         passwordConfirmationTextField.autocapitalizationType = .none
         passwordConfirmationTextField.isSecureTextEntry = true
+        passwordConfirmationTextField.autocorrectionType = .no
     }
     
     // MARK: - Actions

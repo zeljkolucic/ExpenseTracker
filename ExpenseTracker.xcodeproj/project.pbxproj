@@ -52,6 +52,10 @@
 		67C89552288AA12D0022F905 /* FirestoreTransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */; };
 		67C89554288AA3810022F905 /* FirestoreTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89553288AA3810022F905 /* FirestoreTransaction.swift */; };
 		67C89556288AA5F40022F905 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89555288AA5F40022F905 /* TransactionsViewModel.swift */; };
+		67CCFF8C288EAB860074223E /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCFF8B288EAB860074223E /* FirebaseAuthenticationService.swift */; };
+		67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCFF8D288EBA420074223E /* FirestoreUserRepository.swift */; };
+		67CCFF90288F1DA10074223E /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCFF8F288F1DA10074223E /* StatisticsViewModel.swift */; };
+		67CCFF92288F1E540074223E /* SharedWithYouViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCFF91288F1E540074223E /* SharedWithYouViewModel.swift */; };
 		67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68B8287D740E00F205F7 /* DateTextField.swift */; };
 		67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68BE287D764700F205F7 /* SFSymbols.swift */; };
 		67DF68C1287D809800F205F7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68C0287D809800F205F7 /* Strings.swift */; };
@@ -129,6 +133,10 @@
 		67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTransactionsRepository.swift; sourceTree = "<group>"; };
 		67C89553288AA3810022F905 /* FirestoreTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTransaction.swift; sourceTree = "<group>"; };
 		67C89555288AA5F40022F905 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		67CCFF8B288EAB860074223E /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		67CCFF8D288EBA420074223E /* FirestoreUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUserRepository.swift; sourceTree = "<group>"; };
+		67CCFF8F288F1DA10074223E /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		67CCFF91288F1E540074223E /* SharedWithYouViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedWithYouViewModel.swift; sourceTree = "<group>"; };
 		67DF68B8287D740E00F205F7 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		67DF68BE287D764700F205F7 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		67DF68C0287D809800F205F7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -195,9 +203,9 @@
 		670A80D7287BFE6300606DEA /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
-				67C89559288AAEDE0022F905 /* Network */,
 				67DF68C2287D826800F205F7 /* Localization */,
 				67DF68B5287D6E8900F205F7 /* Constants */,
+				67C89559288AAEDE0022F905 /* Network */,
 				67DF68CE287DA59C00F205F7 /* Presentation */,
 				6729B035287C1B71003F3259 /* UI */,
 				670A8108287BFF0100606DEA /* Supporting Files */,
@@ -323,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */,
+				67CCFF8D288EBA420074223E /* FirestoreUserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -343,6 +352,8 @@
 				67DF68D3287DA81D00F205F7 /* LoginViewModel.swift */,
 				67201050288844E9003FF257 /* TransactionViewModel.swift */,
 				67C89555288AA5F40022F905 /* TransactionsViewModel.swift */,
+				67CCFF8F288F1DA10074223E /* StatisticsViewModel.swift */,
+				67CCFF91288F1E540074223E /* SharedWithYouViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -350,10 +361,19 @@
 		67C89559288AAEDE0022F905 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				67CCFF8A288EAB750074223E /* Services */,
 				67201054288955F6003FF257 /* Models */,
 				67C89550288AA1100022F905 /* Repositories */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		67CCFF8A288EAB750074223E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				67CCFF8B288EAB860074223E /* FirebaseAuthenticationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		67DF68B5287D6E8900F205F7 /* Constants */ = {
@@ -548,18 +568,22 @@
 				6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */,
 				67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */,
 				6785D25E28814EDF008881B4 /* MonthCollectionViewCell.swift in Sources */,
+				67CCFF90288F1DA10074223E /* StatisticsViewModel.swift in Sources */,
 				6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */,
 				6785D25B2880A7EE008881B4 /* UITableView+Extension.swift in Sources */,
 				67DF68CB287D85D200F205F7 /* String+Extension.swift in Sources */,
 				673EA70D2886D108004A532F /* StatisticsTableViewCell.swift in Sources */,
 				6785D26328815AE9008881B4 /* SharedWithYouViewController.swift in Sources */,
 				67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */,
+				67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */,
 				67DF68D2287DA5D400F205F7 /* Binding.swift in Sources */,
+				67CCFF92288F1E540074223E /* SharedWithYouViewModel.swift in Sources */,
 				6720105628895602003FF257 /* MethodOfPayment.swift in Sources */,
 				67DF68C1287D809800F205F7 /* Strings.swift in Sources */,
 				67201051288844E9003FF257 /* TransactionViewModel.swift in Sources */,
 				673EA70A2886CD2B004A532F /* MainTabBarController.swift in Sources */,
 				6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */,
+				67CCFF8C288EAB860074223E /* FirebaseAuthenticationService.swift in Sources */,
 				6729B04F287D688D003F3259 /* RoundedTextField.swift in Sources */,
 				6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */,
 				6729B049287D6344003F3259 /* SecondStepRegistrationViewController.swift in Sources */,

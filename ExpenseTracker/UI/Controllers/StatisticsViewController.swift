@@ -13,6 +13,8 @@ class StatisticsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let viewModel = StatisticsViewModel()
+    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -46,7 +48,14 @@ class StatisticsViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func logOut() {
-        dismiss(animated: true)
+        viewModel.logOut { [weak self] in
+            self?.dismiss(animated: true)
+            
+        } failure: { [weak self] error in
+            let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
+            self?.present(alertController, animated: true)
+        }
     }
 }
 

@@ -72,19 +72,36 @@ class LoginViewController: UIViewController {
         emailTextField.delegate = self
         emailTextField.returnKeyType = .next
         emailTextField.keyboardType = .emailAddress
+        emailTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = .no
         
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .done
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
     }
     
     // MARK: - Actions
     
     @objc private func didTapSignInButton() {
-        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else { return }
-        viewController.modalPresentationStyle = .fullScreen
-        present(viewController, animated: true)
+        viewModel.signIn { [weak self] in
+            guard let self = self else { return }
+            
+            let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else { return }
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true)
+            
+        } failure: { [weak self] error in
+            self?.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription)
+        }
+    }
+    
+    private func presentAlert(title: String? = nil, message: String? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
+        present(alertController, animated: true)
     }
     
     @objc private func didTapRegisterButton() {
@@ -98,6 +115,16 @@ class LoginViewController: UIViewController {
 // MARK: - Text Field Delegate
 
 extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if textField == emailTextField {
+            viewModel.email.value = text
+        } else if textField == passwordTextField {
+            viewModel.password.value = text
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
