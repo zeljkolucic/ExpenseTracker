@@ -121,17 +121,21 @@ class FirstStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapNextButton() {
-        viewModel.verifyFirstStepRegistrationData { [weak self] in
+        viewModel.verifyFirstStepRegistrationData { [weak self] result in
             guard let self = self else { return }
-            let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
-            guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
-            viewController.viewModel = self.viewModel
-            self.navigationController?.pushViewController(viewController, animated: true)
             
-        } failure: { [weak self] errorMessage in
-            let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: errorMessage, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
-            self?.present(alertController, animated: true)
+            switch result {
+            case .success:
+                let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
+                guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
+                viewController.viewModel = self.viewModel
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
+            case .failure(let error):
+                let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription.localized, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
+                self.present(alertController, animated: true)
+            }
         }
     }
     

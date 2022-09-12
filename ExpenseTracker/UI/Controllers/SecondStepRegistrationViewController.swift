@@ -66,16 +66,16 @@ class SecondStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapConfirmButton() {
-        viewModel.verifySecondStepRegistrationData { [weak self] in
+        viewModel.verifySecondStepRegistrationData { [weak self] result in
             guard let self = self else { return }
-            self.presentAlert(title: Strings.emailSentAlertTitle.localized) { [weak self] _ in
-                guard let self = self else { return }
-                self.navigationController?.popToRootViewController(animated: true)
-            }
             
-        } failure: { [weak self] errorMessage in
-            guard let self = self else { return }
-            self.presentAlert(title: Strings.errorAlertTitle.localized, message: errorMessage)
+            switch result {
+            case .success:
+                self.navigationController?.popToRootViewController(animated: true)
+                
+            case .failure(let error):
+                self.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription.localized)
+            }
         }
     }
     

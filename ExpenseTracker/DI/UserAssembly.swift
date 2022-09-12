@@ -105,7 +105,6 @@ class UserAssembly: Assembly {
             viewController.viewModel = viewModel
         }
         
-        #warning("DetailTransactionViewController is not initialized from storyboard, but from a nib, therefore its dependencies cannot be resolved as in the following code. It would require a factory to populate its dependencies after instantiating the mentioned view controller. It is the best to implement this viewController in storyboards as well.")
         container.storyboardInitCompleted(DetailTransactionViewController.self) { resolver, viewController in
             let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
             let viewModel = resolver.resolve(TransactionViewModel.self) ?? TransactionViewModel(repository: repository)

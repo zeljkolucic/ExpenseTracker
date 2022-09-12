@@ -15,14 +15,8 @@ class SharedWithYouViewModel {
         self.authenticationService = authenticationService
     }
     
-    func logOut(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        authenticationService.signOut { error in
-            if let error = error {
-                failure(error)
-            } else {
-                success()
-            }
-        }
+    func signOut(completion: @escaping (Result<(), Error>) -> Void) {
+        authenticationService.signOut(completion: completion)
     }
     
 }

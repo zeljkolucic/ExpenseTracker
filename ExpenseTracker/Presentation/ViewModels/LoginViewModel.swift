@@ -15,17 +15,8 @@ class LoginViewModel {
         self.authenticationService = authenticationService
     }
     
-    var email = Binding<String>("")
-    var password = Binding<String>("")
-    
-    func signIn(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        authenticationService.signIn(email: email.value, password: password.value) { error in
-            if let error = error {
-                failure(error)
-            } else {
-                success()
-            }
-        }
+    func signIn(email: String, password: String, completion: @escaping (Result<(), Error>) -> Void) {
+        authenticationService.signIn(email: email, password: password, completion: completion)
     }
     
 }

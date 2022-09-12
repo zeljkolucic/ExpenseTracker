@@ -92,16 +92,22 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapSignInButton() {
-        viewModel.signIn { [weak self] in
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        viewModel.signIn(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             
-            let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else { return }
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true)
-            
-        } failure: { [weak self] error in
-            self?.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription)
+            switch result {
+            case .success:
+                let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+                guard let viewController = storyboard.instantiateViewController(MainTabBarController.self) else { return }
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true)
+                
+            case .failure(let error):
+                self.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription)
+            }
         }
     }
     
@@ -122,16 +128,6 @@ class LoginViewController: UIViewController {
 // MARK: - Text Field Delegate
 
 extension LoginViewController: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        
-        if textField == emailTextField {
-            viewModel.email.value = text
-        } else if textField == passwordTextField {
-            viewModel.password.value = text
-        }
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {

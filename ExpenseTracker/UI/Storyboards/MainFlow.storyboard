@@ -251,7 +251,7 @@
                         <outlet property="floatingButton" destination="KR8-0x-Xlx" id="Mfb-hT-PPG"/>
                         <outlet property="tableView" destination="MLI-Iy-34c" id="IRF-D1-kKU"/>
                         <outlet property="totalValueLabel" destination="QzN-Wm-oXA" id="Meg-3k-DA6"/>
-                        <segue destination="NMG-t1-ll5" kind="show" id="a7A-3N-2hr"/>
+                        <segue destination="NMG-t1-ll5" kind="show" identifier="TransactionsToDetailTransactionSegue" id="a7A-3N-2hr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gy3-ga-1Iw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -130,13 +130,18 @@ class TransactionsViewController: UIViewController {
     }
     
     private func logOut() {
-        viewModel.logOut { [weak self] in
-            self?.dismiss(animated: true)
+        viewModel.signOut { [weak self] result in
+            guard let self = self else { return }
             
-        } failure: { [weak self] error in
-            let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
-            self?.present(alertController, animated: true)
+            switch result {
+            case .success:
+                self.dismiss(animated: true)
+                
+            case .failure(let error):
+                let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
+                self.present(alertController, animated: true)
+            }
         }
     }
     

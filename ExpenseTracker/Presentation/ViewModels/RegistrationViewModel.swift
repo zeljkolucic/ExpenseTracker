@@ -7,6 +7,37 @@
 
 import Foundation
 
+enum RegistrationError: Error {
+    case firstNameInvalidFormat
+    case lastNameInvalidFormat
+    case dateOfBirth
+    case phoneNumberInvalidFormat
+    case emailInvalidFormat
+    case passwordTooWeak
+    case nonMathingPasswords
+}
+
+extension RegistrationError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .firstNameInvalidFormat:
+            return "firstname_invalid_format"
+        case .lastNameInvalidFormat:
+            return "lastname_invalid_format"
+        case .dateOfBirth:
+            return "date_of_birth_error_message"
+        case .phoneNumberInvalidFormat:
+            return "phone_number_invalid_format"
+        case .emailInvalidFormat:
+            return "email_invalid_format"
+        case .passwordTooWeak:
+            return "password_too_weak"
+        case .nonMathingPasswords:
+            return "non_matching_passwords"
+        }
+    }
+}
+
 class RegistrationViewModel {
     
     private let authenticationService: AuthenticationService
@@ -34,35 +65,29 @@ class RegistrationViewModel {
     private let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
     private let passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
     
-    func verifyFirstStepRegistrationData(success: @escaping (() -> Void), failure: @escaping ((String) -> Void)) {
+    func verifyFirstStepRegistrationData(completion: @escaping (Result<(), Error>) -> Void) {
         if !firstname.value.matches(pattern: namePattern) {
-            failure(Strings.firstnameInvalidFormat.localized)
+            completion(.failure(RegistrationError.firstNameInvalidFormat))
         } else if !lastname.value.matches(pattern: namePattern) {
-            failure(Strings.lastnameInvalidFormat.localized)
+            completion(.failure(RegistrationError.lastNameInvalidFormat))
         } else if dateOfBirth.value.yearsSince(Date.now) < 13 {
-            failure(Strings.dateOfBirthErrorMessage.localized)
+            completion(.failure(RegistrationError.dateOfBirth))
         } else if !phoneNumber.value.matches(pattern: phoneNumberPattern) {
-            failure(Strings.phoneNumberInvalidFormat.localized)
+            completion(.failure(RegistrationError.phoneNumberInvalidFormat))
         } else {
-            success()
+            completion(.success(()))
         }
     }
     
-    func verifySecondStepRegistrationData(success: @escaping (() -> Void), failure: @escaping ((String) -> Void)) {
+    func verifySecondStepRegistrationData(completion: @escaping (Result<(), Error>) -> Void) {
         if !email.value.matches(pattern: emailPattern) {
-            failure(Strings.emailInvalidFormat.localized)
+            completion(.failure(RegistrationError.emailInvalidFormat))
         } else if !password.value.matches(pattern: passwordPattern) {
-            failure(Strings.passwordTooWeak.localized)
+            completion(.failure(RegistrationError.passwordTooWeak))
         } else if password.value != passwordConfirmation.value {
-            failure(Strings.nonMathingPasswords.localized)
+            completion(.failure(RegistrationError.nonMathingPasswords))
         } else {
-            authenticationService.register(email: email.value, password: password.value, firstName: firstname.value, lastName: lastname.value, dateOfBirth: dateOfBirth.value, phoneNumber: phoneNumber.value, gender: gender.value.rawValue) { error in
-                if let error = error {
-                    failure(error.localizedDescription)
-                }
-                
-                success()
-            }
+            authenticationService.register(email: email.value, password: password.value, firstName: firstname.value, lastName: lastname.value, dateOfBirth: dateOfBirth.value, phoneNumber: phoneNumber.value, gender: gender.value.rawValue, completion: completion)
         }
     }
     
