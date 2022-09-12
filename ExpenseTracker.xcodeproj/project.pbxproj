@@ -70,6 +70,7 @@
 		E450711D28A537FB0077EB88 /* FirestoreUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711C28A537FB0077EB88 /* FirestoreUser.swift */; };
 		E450711F28A539110077EB88 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711E28A539110077EB88 /* TransactionsRepository.swift */; };
 		E450712228A539E10077EB88 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450712128A539E10077EB88 /* AuthenticationService.swift */; };
+		E4C4987D28CFE78D00EEFBC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 				E42DA60028A533B1001264CC /* FirebaseFirestoreSwift in Frameworks */,
 				E450711128A5369D0077EB88 /* Swinject in Frameworks */,
 				E450711428A536BB0077EB88 /* SwinjectStoryboard in Frameworks */,
+				E4C4987D28CFE78D00EEFBC7 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +446,7 @@
 				E42DA5FF28A533B1001264CC /* FirebaseFirestoreSwift */,
 				E450711028A5369D0077EB88 /* Swinject */,
 				E450711328A536BB0077EB88 /* SwinjectStoryboard */,
+				E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */,
 			);
 			productName = ExpenseTracker;
 			productReference = 670A80D5287BFE6300606DEA /* ExpenseTracker.app */;
@@ -500,6 +503,7 @@
 				E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E450710F28A5369D0077EB88 /* XCRemoteSwiftPackageReference "Swinject" */,
 				E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
+				E4C4987B28CFE78D00EEFBC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 670A80D6287BFE6300606DEA /* Products */;
 			projectDirPath = "";
@@ -908,6 +912,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		E4C4987B28CFE78D00EEFBC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -935,6 +947,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
 			productName = SwinjectStoryboard;
+		};
+		E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4C4987B28CFE78D00EEFBC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
