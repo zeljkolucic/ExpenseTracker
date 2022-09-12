@@ -165,13 +165,15 @@ class DetailTransactionViewController: UIViewController {
     }
     
     @objc private func didTapDeleteButton() {
-        let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.deleteAlertMessage.localized, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
-        alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive) { [weak self] _ in
-            alertController.dismiss(animated: true)
-            self?.navigationController?.popViewController(animated: true)
-        })
-        present(alertController, animated: true)
+        let title = Strings.warningAlertTitle.localized
+        let message = Strings.deleteAlertMessage.localized
+        let actions = [
+            UIAlertAction(title: Strings.no.localized, style: .cancel),
+            UIAlertAction(title: Strings.yes.localized, style: .destructive) { [weak self] _ in
+                self?.dismiss(animated: true)
+            }
+        ]
+        presentAlert(title: title, message: message, actions: actions)
     }
     
     @objc private func dismissKeyboard() {
