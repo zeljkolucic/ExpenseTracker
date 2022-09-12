@@ -18,7 +18,6 @@
 		6720105628895602003FF257 /* MethodOfPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6720105528895601003FF257 /* MethodOfPayment.swift */; };
 		6720105828896619003FF257 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6720105728896619003FF257 /* Date+Extension.swift */; };
 		67259A662889830900B39712 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67259A642889830900B39712 /* CategoriesViewController.swift */; };
-		67259A672889830900B39712 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67259A652889830900B39712 /* CategoriesViewController.xib */; };
 		6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B036287C1B84003F3259 /* LoginViewController.swift */; };
 		6729B042287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */; };
 		6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729B046287D5E7A003F3259 /* FirstStepRegistrationViewController.swift */; };
@@ -109,7 +108,6 @@
 		6720105528895601003FF257 /* MethodOfPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodOfPayment.swift; sourceTree = "<group>"; };
 		6720105728896619003FF257 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		67259A642889830900B39712 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		67259A652889830900B39712 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		6729B036287C1B84003F3259 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6729B041287D3FEA003F3259 /* LoginAndRegisterFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndRegisterFlow.storyboard; sourceTree = "<group>"; };
 		6729B046287D5E7A003F3259 /* FirstStepRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepRegistrationViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				673EA7092886CD2B004A532F /* MainTabBarController.swift */,
 				67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */,
 				67259A642889830900B39712 /* CategoriesViewController.swift */,
-				67259A652889830900B39712 /* CategoriesViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -577,7 +574,6 @@
 			files = (
 				67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */,
 				6739A9C828809CAF00B3807B /* MainFlow.storyboard in Resources */,
-				67259A672889830900B39712 /* CategoriesViewController.xib in Resources */,
 				6785D25F28814EDF008881B4 /* MonthCollectionViewCell.xib in Resources */,
 				6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */,
 				670A80E5287BFE6600606DEA /* LaunchScreen.storyboard in Resources */,

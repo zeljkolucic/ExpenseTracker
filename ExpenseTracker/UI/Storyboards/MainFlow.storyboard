@@ -316,11 +316,43 @@
                         <outlet property="imageView" destination="rUT-0Q-8J2" id="1FW-cB-bAK"/>
                         <outlet property="tableView" destination="14t-hw-aNS" id="yrj-Uc-DCa"/>
                         <outlet property="valueTextField" destination="i85-RX-nCJ" id="Y0S-WT-Kb7"/>
+                        <segue destination="CLS-l0-V1f" kind="show" identifier="DetailTransactionToCategoriesSegue" id="KDn-lE-l4V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfU-wg-6mY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1653.6231884057972" y="332.8125"/>
+        </scene>
+        <!--Categories View Controller-->
+        <scene sceneID="XxZ-kv-kE8">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesViewController" id="CLS-l0-V1f" customClass="CategoriesViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X7u-cg-vuP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pgf-t9-bBZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZN6-2s-lYC"/>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="ZN6-2s-lYC" firstAttribute="bottom" secondItem="pgf-t9-bBZ" secondAttribute="bottom" id="Pf2-s5-S2n"/>
+                            <constraint firstItem="pgf-t9-bBZ" firstAttribute="top" secondItem="ZN6-2s-lYC" secondAttribute="top" id="WHq-Ys-A3h"/>
+                            <constraint firstItem="pgf-t9-bBZ" firstAttribute="leading" secondItem="ZN6-2s-lYC" secondAttribute="leading" id="eS7-1x-hYD"/>
+                            <constraint firstItem="ZN6-2s-lYC" firstAttribute="trailing" secondItem="pgf-t9-bBZ" secondAttribute="trailing" id="exX-do-VjK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kBR-SU-641"/>
+                    <connections>
+                        <outlet property="tableView" destination="pgf-t9-bBZ" id="pO8-wx-Y7X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X61-Wm-y1p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543" y="333"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Fw6-4A-UgX">
@@ -385,6 +417,9 @@
         <namedColor name="Background Color">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -223,7 +223,8 @@ class DetailTransactionViewController: UIViewController {
     // MARK: - Presentation
     
     private func presentCategoriesViewController() {
-        let viewController = CategoriesViewController(nibName: "CategoriesViewController", bundle: .main)
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(CategoriesViewController.self) else { return }
         navigationController?.pushViewController(viewController, animated: true)
     }
     
