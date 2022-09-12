@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    private let viewModel = LoginViewModel()
+    var viewModel: LoginViewModel!
     
     // MARK: - View Controller Lifecycle
     
@@ -40,6 +40,8 @@ class LoginViewController: UIViewController {
         dismissKeyboardWhenTouchOutside()
         defineActions()
         configureTextFields()
+        
+        enterCredentials()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,11 @@ class LoginViewController: UIViewController {
     private func configureLayout() {
         view.addSubview(backgroundLabel)
         view.sendSubviewToBack(backgroundLabel)
+    }
+    
+    private func enterCredentials() {
+        emailTextField.text = "zeljko.lucic99@gmail.com"
+        passwordTextField.text = "Testtest123!"
     }
     
     private func configureLabels() {

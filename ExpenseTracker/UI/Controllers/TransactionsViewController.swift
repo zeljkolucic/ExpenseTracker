@@ -17,7 +17,7 @@ class TransactionsViewController: UIViewController {
     @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var totalValueLabel: UILabel!
     
-    let viewModel = TransactionsViewModel()
+    var viewModel: TransactionsViewModel!
     
     // MARK: - View Controller Lifecycle
     
@@ -141,7 +141,8 @@ class TransactionsViewController: UIViewController {
     }
     
     @IBAction func didTapFloatingButton(_ sender: Any) {
-        let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: .main)
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(DetailTransactionViewController.self) else { return }
         viewController.state = .add
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
@@ -183,8 +184,11 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
+        
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(DetailTransactionViewController.self) else { return }
         viewController.state = .edit
+        
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
     }

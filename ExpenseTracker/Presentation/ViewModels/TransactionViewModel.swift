@@ -15,18 +15,15 @@ class TransactionViewModel {
     var date: Date
     var methodOfPayment: MethodOfPayment
     
-    private let repository = FirestoreTransactionsRepository.shared
+    private let repository: TransactionsRepository
     
-    init(value: Float = 0.0, category: String = "", subcategory: String = "", date: Date = Date.now, methodOfPayment: MethodOfPayment = .cash) {
+    init(repository: TransactionsRepository, value: Float = 0.0, category: String = "", subcategory: String = "", date: Date = Date.now, methodOfPayment: MethodOfPayment = .cash) {
+        self.repository = repository
         self.value = value
         self.category = category
         self.subcategory = subcategory
         self.date = date
         self.methodOfPayment = methodOfPayment
-    }
-    
-    func add() {
-        
     }
     
 }

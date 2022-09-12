@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Okg-R3-1EV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Okg-R3-1EV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -160,8 +160,8 @@
                                     <constraint firstItem="wVD-CT-nls" firstAttribute="leading" secondItem="LNx-Sg-JLs" secondAttribute="leading" id="eXR-02-8uW"/>
                                     <constraint firstAttribute="bottom" secondItem="wVD-CT-nls" secondAttribute="bottom" priority="250" id="kK3-2V-uhu"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="CoO-yp-3ui"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Vhf-tr-ej2"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IEI-GQ-6CB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="q9I-oh-I3q"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

@@ -7,16 +7,19 @@
 
 import Firebase
 
-class FirebaseAuthenticationService {
+class FirebaseAuthenticationService: AuthenticationService {
     
     var user: User?
     private var authenticationStateHandle: AuthStateDidChangeListenerHandle?
     
-    init() {
+    private let userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
         addListeners()
     }
     
-    static func signIn(email: String, password: String, completion: @escaping ((Error?) -> Void)) {
+    func signIn(email: String, password: String, completion: @escaping ((Error?) -> Void)) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(error)
@@ -26,7 +29,7 @@ class FirebaseAuthenticationService {
         }
     }
     
-    static func signOut(completion: ((Error?) -> Void)) {
+    func signOut(completion: ((Error?) -> Void)) {
         do {
             try Auth.auth().signOut()
             completion(nil)
@@ -35,16 +38,19 @@ class FirebaseAuthenticationService {
         }
     }
     
-    static func register(email: String, password: String, firstName: String, lastName: String, dateOfBirth: Date, phoneNumber: String, gender: String, completion: @escaping ((Error?) -> Void)) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+    func register(email: String, password: String, firstName: String, lastName: String, dateOfBirth: Date, phoneNumber: String, gender: String, completion: @escaping ((Error?) -> Void)) {
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            
             if let error = error {
                 completion(error)
                 return
             }
             
             if let authResult = authResult, let additionalUserInfo = authResult.additionalUserInfo, additionalUserInfo.isNewUser {
-                let user = FirestoreUserRepository.User(id: authResult.user.uid, email: email, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, phoneNumber: phoneNumber, gender: gender)
-                FirestoreUserRepository.shared.add(user: user) { error in
+                
+                let user = FirestoreUser(id: authResult.user.uid, email: email, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, phoneNumber: phoneNumber, gender: gender)
+                self.userRepository.add(user: user) { error in
                     if let error = error {
                         completion(error)
                     } else {

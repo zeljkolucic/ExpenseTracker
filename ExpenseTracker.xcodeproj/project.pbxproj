@@ -40,15 +40,11 @@
 		6785D26628815B8B008881B4 /* TransactionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D26428815B8B008881B4 /* TransactionsListTableViewCell.swift */; };
 		6785D26728815B8B008881B4 /* TransactionsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D26528815B8B008881B4 /* TransactionsListTableViewCell.xib */; };
 		6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D268288162D1008881B4 /* DetailTransactionViewController.swift */; };
-		6785D26B288162D1008881B4 /* DetailTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D269288162D1008881B4 /* DetailTransactionViewController.xib */; };
 		6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D26C2881976A008881B4 /* TransactionDetailTableViewCell.swift */; };
 		6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */; };
 		6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */; };
 		6785D2732881A37E008881B4 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785D2722881A37E008881B4 /* StatisticsViewController.swift */; };
 		67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67C89547288A9BBD0022F905 /* GoogleService-Info.plist */; };
-		67C8954B288A9D070022F905 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954A288A9D070022F905 /* FirebaseAuth */; };
-		67C8954D288A9D070022F905 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954C288A9D070022F905 /* FirebaseFirestore */; };
-		67C8954F288A9D070022F905 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */; };
 		67C89552288AA12D0022F905 /* FirestoreTransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */; };
 		67C89554288AA3810022F905 /* FirestoreTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89553288AA3810022F905 /* FirestoreTransaction.swift */; };
 		67C89556288AA5F40022F905 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C89555288AA5F40022F905 /* TransactionsViewModel.swift */; };
@@ -67,6 +63,17 @@
 		67DF68D4287DA81D00F205F7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68D3287DA81D00F205F7 /* LoginViewModel.swift */; };
 		67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */; };
 		67F7487B28883495001CB439 /* SharedTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */; };
+		E42DA5FC28A533B1001264CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E42DA5FB28A533B1001264CC /* FirebaseAuth */; };
+		E42DA5FE28A533B1001264CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E42DA5FD28A533B1001264CC /* FirebaseFirestore */; };
+		E42DA60028A533B1001264CC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E42DA5FF28A533B1001264CC /* FirebaseFirestoreSwift */; };
+		E450711128A5369D0077EB88 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E450711028A5369D0077EB88 /* Swinject */; };
+		E450711428A536BB0077EB88 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = E450711328A536BB0077EB88 /* SwinjectStoryboard */; };
+		E450711728A536D50077EB88 /* SwinjectStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711628A536D50077EB88 /* SwinjectStoryboard+Extension.swift */; };
+		E450711928A5373D0077EB88 /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711828A5373D0077EB88 /* UserAssembly.swift */; };
+		E450711B28A537730077EB88 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711A28A537730077EB88 /* UserRepository.swift */; };
+		E450711D28A537FB0077EB88 /* FirestoreUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711C28A537FB0077EB88 /* FirestoreUser.swift */; };
+		E450711F28A539110077EB88 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711E28A539110077EB88 /* TransactionsRepository.swift */; };
+		E450712228A539E10077EB88 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450712128A539E10077EB88 /* AuthenticationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +131,6 @@
 		6785D26428815B8B008881B4 /* TransactionsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListTableViewCell.swift; sourceTree = "<group>"; };
 		6785D26528815B8B008881B4 /* TransactionsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsListTableViewCell.xib; sourceTree = "<group>"; };
 		6785D268288162D1008881B4 /* DetailTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionViewController.swift; sourceTree = "<group>"; };
-		6785D269288162D1008881B4 /* DetailTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTransactionViewController.xib; sourceTree = "<group>"; };
 		6785D26C2881976A008881B4 /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailTableViewCell.xib; sourceTree = "<group>"; };
 		6785D27028819A33008881B4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -150,6 +156,12 @@
 		67DF68D3287DA81D00F205F7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		67DF68D6287DBABA00F205F7 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTransactionsViewController.swift; sourceTree = "<group>"; };
+		E450711628A536D50077EB88 /* SwinjectStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		E450711828A5373D0077EB88 /* UserAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
+		E450711A28A537730077EB88 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E450711C28A537FB0077EB88 /* FirestoreUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUser.swift; sourceTree = "<group>"; };
+		E450711E28A539110077EB88 /* TransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
+		E450712128A539E10077EB88 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +169,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67C8954B288A9D070022F905 /* FirebaseAuth in Frameworks */,
-				67C8954D288A9D070022F905 /* FirebaseFirestore in Frameworks */,
-				67C8954F288A9D070022F905 /* FirebaseFirestoreSwift in Frameworks */,
+				E42DA5FC28A533B1001264CC /* FirebaseAuth in Frameworks */,
+				E42DA5FE28A533B1001264CC /* FirebaseFirestore in Frameworks */,
+				E42DA60028A533B1001264CC /* FirebaseFirestoreSwift in Frameworks */,
+				E450711128A5369D0077EB88 /* Swinject in Frameworks */,
+				E450711428A536BB0077EB88 /* SwinjectStoryboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +217,7 @@
 		670A80D7287BFE6300606DEA /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				E450711528A536C20077EB88 /* DI */,
 				67DF68C2287D826800F205F7 /* Localization */,
 				67DF68B5287D6E8900F205F7 /* Constants */,
 				67C89559288AAEDE0022F905 /* Network */,
@@ -247,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				67C89553288AA3810022F905 /* FirestoreTransaction.swift */,
+				E450711C28A537FB0077EB88 /* FirestoreUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,7 +289,6 @@
 				6739A9C928809D6500B3807B /* TransactionsViewController.swift */,
 				6785D26228815AE9008881B4 /* SharedWithYouViewController.swift */,
 				6785D268288162D1008881B4 /* DetailTransactionViewController.swift */,
-				6785D269288162D1008881B4 /* DetailTransactionViewController.xib */,
 				6785D2722881A37E008881B4 /* StatisticsViewController.swift */,
 				673EA7092886CD2B004A532F /* MainTabBarController.swift */,
 				67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */,
@@ -330,8 +345,8 @@
 		67C89550288AA1100022F905 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */,
-				67CCFF8D288EBA420074223E /* FirestoreUserRepository.swift */,
+				E4C4987928CFBE4800EEFBC7 /* Transactions Repository */,
+				E4C4987A28CFBE5A00EEFBC7 /* User Repository */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -372,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				67CCFF8B288EAB860074223E /* FirebaseAuthenticationService.swift */,
+				E450712128A539E10077EB88 /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -415,6 +431,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E450711528A536C20077EB88 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E450711628A536D50077EB88 /* SwinjectStoryboard+Extension.swift */,
+				E450711828A5373D0077EB88 /* UserAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E4C4987928CFBE4800EEFBC7 /* Transactions Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67C89551288AA12D0022F905 /* FirestoreTransactionsRepository.swift */,
+				E450711E28A539110077EB88 /* TransactionsRepository.swift */,
+			);
+			path = "Transactions Repository";
+			sourceTree = "<group>";
+		};
+		E4C4987A28CFBE5A00EEFBC7 /* User Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67CCFF8D288EBA420074223E /* FirestoreUserRepository.swift */,
+				E450711A28A537730077EB88 /* UserRepository.swift */,
+			);
+			path = "User Repository";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,9 +475,11 @@
 			);
 			name = ExpenseTracker;
 			packageProductDependencies = (
-				67C8954A288A9D070022F905 /* FirebaseAuth */,
-				67C8954C288A9D070022F905 /* FirebaseFirestore */,
-				67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */,
+				E42DA5FB28A533B1001264CC /* FirebaseAuth */,
+				E42DA5FD28A533B1001264CC /* FirebaseFirestore */,
+				E42DA5FF28A533B1001264CC /* FirebaseFirestoreSwift */,
+				E450711028A5369D0077EB88 /* Swinject */,
+				E450711328A536BB0077EB88 /* SwinjectStoryboard */,
 			);
 			productName = ExpenseTracker;
 			productReference = 670A80D5287BFE6300606DEA /* ExpenseTracker.app */;
@@ -510,7 +555,9 @@
 			);
 			mainGroup = 670A80CC287BFE6300606DEA;
 			packageReferences = (
-				67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E450710F28A5369D0077EB88 /* XCRemoteSwiftPackageReference "Swinject" */,
+				E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
 			);
 			productRefGroup = 670A80D6287BFE6300606DEA /* Products */;
 			projectDirPath = "";
@@ -529,7 +576,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */,
-				6785D26B288162D1008881B4 /* DetailTransactionViewController.xib in Resources */,
 				6739A9C828809CAF00B3807B /* MainFlow.storyboard in Resources */,
 				67259A672889830900B39712 /* CategoriesViewController.xib in Resources */,
 				6785D25F28814EDF008881B4 /* MonthCollectionViewCell.xib in Resources */,
@@ -566,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */,
+				E450711D28A537FB0077EB88 /* FirestoreUser.swift in Sources */,
 				67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */,
 				6785D25E28814EDF008881B4 /* MonthCollectionViewCell.swift in Sources */,
 				67CCFF90288F1DA10074223E /* StatisticsViewModel.swift in Sources */,
@@ -574,6 +621,8 @@
 				67DF68CB287D85D200F205F7 /* String+Extension.swift in Sources */,
 				673EA70D2886D108004A532F /* StatisticsTableViewCell.swift in Sources */,
 				6785D26328815AE9008881B4 /* SharedWithYouViewController.swift in Sources */,
+				E450712228A539E10077EB88 /* AuthenticationService.swift in Sources */,
+				E450711728A536D50077EB88 /* SwinjectStoryboard+Extension.swift in Sources */,
 				67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */,
 				67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */,
 				67DF68D2287DA5D400F205F7 /* Binding.swift in Sources */,
@@ -586,6 +635,7 @@
 				67CCFF8C288EAB860074223E /* FirebaseAuthenticationService.swift in Sources */,
 				6729B04F287D688D003F3259 /* RoundedTextField.swift in Sources */,
 				6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */,
+				E450711B28A537730077EB88 /* UserRepository.swift in Sources */,
 				6729B049287D6344003F3259 /* SecondStepRegistrationViewController.swift in Sources */,
 				6739A9CA28809D6500B3807B /* TransactionsViewController.swift in Sources */,
 				67DF68D4287DA81D00F205F7 /* LoginViewModel.swift in Sources */,
@@ -601,6 +651,8 @@
 				67C89556288AA5F40022F905 /* TransactionsViewModel.swift in Sources */,
 				67F7487B28883495001CB439 /* SharedTransactionsViewController.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
+				E450711928A5373D0077EB88 /* UserAssembly.swift in Sources */,
+				E450711F28A539110077EB88 /* TransactionsRepository.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
 				6739A9CE28809E1400B3807B /* TransactionTableViewCell.swift in Sources */,
 				67DF68B9287D740E00F205F7 /* DateTextField.swift in Sources */,
@@ -786,7 +838,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W938BPN556;
+				DEVELOPMENT_TEAM = WHP9Z6BC8S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ExpenseTracker/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ExpenseTracker;
@@ -796,6 +848,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W938BPN556;
+				DEVELOPMENT_TEAM = WHP9Z6BC8S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ExpenseTracker/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ExpenseTracker;
@@ -826,6 +879,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -957,7 +1011,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -965,23 +1019,49 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		E450710F28A5369D0077EB88 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectStoryboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		67C8954A288A9D070022F905 /* FirebaseAuth */ = {
+		E42DA5FB28A533B1001264CC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		67C8954C288A9D070022F905 /* FirebaseFirestore */ = {
+		E42DA5FD28A533B1001264CC /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		67C8954E288A9D070022F905 /* FirebaseFirestoreSwift */ = {
+		E42DA5FF28A533B1001264CC /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 67C89549288A9D070022F905 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = E42DA5FA28A533B1001264CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		E450711028A5369D0077EB88 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E450710F28A5369D0077EB88 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E450711328A536BB0077EB88 /* SwinjectStoryboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
+			productName = SwinjectStoryboard;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

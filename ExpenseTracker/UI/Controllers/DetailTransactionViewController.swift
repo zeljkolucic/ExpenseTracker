@@ -59,7 +59,7 @@ class DetailTransactionViewController: UIViewController {
     var state: State!
     var isCurrentlyEditing: Bool = false
     
-    var viewModel: TransactionViewModel = TransactionViewModel()
+    var viewModel: TransactionViewModel!
     
     // MARK: - View Controller Lifecycle
     

@@ -9,11 +9,17 @@ import Foundation
 
 class LoginViewModel {
     
+    private let authenticationService: AuthenticationService
+    
+    init(authenticationService: AuthenticationService) {
+        self.authenticationService = authenticationService
+    }
+    
     var email = Binding<String>("")
     var password = Binding<String>("")
     
     func signIn(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        FirebaseAuthenticationService.signIn(email: email.value, password: password.value) { error in
+        authenticationService.signIn(email: email.value, password: password.value) { error in
             if let error = error {
                 failure(error)
             } else {

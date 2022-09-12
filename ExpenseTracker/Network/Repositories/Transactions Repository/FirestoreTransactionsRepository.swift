@@ -9,14 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class FirestoreTransactionsRepository {
-    
-    static let shared: FirestoreTransactionsRepository = {
-        let instance = FirestoreTransactionsRepository()
-        return instance
-    }()
-    
-    private init() {}
+class FirestoreTransactionsRepository: TransactionsRepository {
     
     private let store = Firestore.firestore()
     private let collectionPath = "transactions"

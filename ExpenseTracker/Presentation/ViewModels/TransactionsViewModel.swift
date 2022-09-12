@@ -9,7 +9,13 @@ import Foundation
 
 class TransactionsViewModel {
     
-    private let repository = FirestoreTransactionsRepository.shared
+    private let repository: TransactionsRepository
+    private let authenticationService: AuthenticationService
+    
+    init(repository: TransactionsRepository, authenticationService: AuthenticationService) {
+        self.repository = repository
+        self.authenticationService = authenticationService
+    }
     
     func getTransactions() {
         repository.get { result in
@@ -23,7 +29,7 @@ class TransactionsViewModel {
     }
     
     func logOut(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        FirebaseAuthenticationService.signOut { error in
+        authenticationService.signOut { error in
             if let error = error {
                 failure(error)
             } else {

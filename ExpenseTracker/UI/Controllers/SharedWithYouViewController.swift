@@ -13,7 +13,7 @@ class SharedWithYouViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = SharedWithYouViewModel()
+    var viewModel: SharedWithYouViewModel!
     
     // MARK: - View Controller Lifecycle
     

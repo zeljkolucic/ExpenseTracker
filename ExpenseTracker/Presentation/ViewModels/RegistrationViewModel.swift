@@ -9,6 +9,12 @@ import Foundation
 
 class RegistrationViewModel {
     
+    private let authenticationService: AuthenticationService
+    
+    init(authenticationService: AuthenticationService) {
+        self.authenticationService = authenticationService
+    }
+    
     enum Gender: String {
         case male = "male"
         case female = "female"
@@ -50,7 +56,7 @@ class RegistrationViewModel {
         } else if password.value != passwordConfirmation.value {
             failure(Strings.nonMathingPasswords.localized)
         } else {
-            FirebaseAuthenticationService.register(email: email.value, password: password.value, firstName: firstname.value, lastName: lastname.value, dateOfBirth: dateOfBirth.value, phoneNumber: phoneNumber.value, gender: gender.value.rawValue) { error in
+            authenticationService.register(email: email.value, password: password.value, firstName: firstname.value, lastName: lastname.value, dateOfBirth: dateOfBirth.value, phoneNumber: phoneNumber.value, gender: gender.value.rawValue) { error in
                 if let error = error {
                     failure(error.localizedDescription)
                 }

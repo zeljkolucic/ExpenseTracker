@@ -26,8 +26,7 @@ class FirstStepRegistrationViewController: UIViewController {
         return datePicker
     }()
     
-    private let viewModel = RegistrationViewModel()
-    
+    var viewModel: RegistrationViewModel!
     
     // MARK: - View Controller Lifecycle
     

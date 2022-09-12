@@ -13,7 +13,7 @@ class StatisticsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = StatisticsViewModel()
+    var viewModel: StatisticsViewModel!
     
     // MARK: - View Controller Lifecycle
     

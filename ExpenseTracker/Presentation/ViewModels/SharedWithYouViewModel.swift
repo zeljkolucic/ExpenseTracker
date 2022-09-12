@@ -9,8 +9,14 @@ import Foundation
 
 class SharedWithYouViewModel {
     
+    private let authenticationService: AuthenticationService
+    
+    init(authenticationService: AuthenticationService) {
+        self.authenticationService = authenticationService
+    }
+    
     func logOut(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        FirebaseAuthenticationService.signOut { error in
+        authenticationService.signOut { error in
             if let error = error {
                 failure(error)
             } else {
