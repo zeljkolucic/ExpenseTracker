@@ -160,7 +160,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(TransactionTableViewCell.self) else {
+        guard let cell = tableView.dequeueReusableCell(TransactionTableViewCell.self, at: indexPath) else {
             return UITableViewCell()
         }
         

@@ -74,7 +74,7 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(TransactionsListTableViewCell.self) else {
+        guard let cell = tableView.dequeueReusableCell(TransactionsListTableViewCell.self, at: indexPath) else {
             return UITableViewCell()
         }
         

@@ -291,7 +291,7 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(TransactionDetailTableViewCell.self) else {
+        guard let cell = tableView.dequeueReusableCell(TransactionDetailTableViewCell.self, at: indexPath) else {
             return UITableViewCell()
         }
         
