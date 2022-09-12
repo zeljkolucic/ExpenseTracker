@@ -138,9 +138,10 @@ class TransactionsViewController: UIViewController {
                 self.dismiss(animated: true)
                 
             case .failure(let error):
-                let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
-                self.present(alertController, animated: true)
+                let title = Strings.errorAlertTitle.localized
+                let message = error.localizedDescription
+                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
+                self.presentAlert(title: title, message: message, actions: actions)
             }
         }
     }
@@ -152,18 +153,6 @@ class TransactionsViewController: UIViewController {
         let navigationViewController = UINavigationController(rootViewController: viewController)
         present(navigationViewController, animated: true)
     }
-    
-    private func presentAlert() {
-        let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.deleteAlertMessage.localized, preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .cancel))
-        alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive) { _ in
-            
-        })
-        
-        present(alertController, animated: true)
-    }
-    
 }
 
 // MARK: - Table View Delegate and Data Source
@@ -200,10 +189,15 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            presentAlert()
+            let title = Strings.warningAlertTitle.localized
+            let message = Strings.deleteAlertMessage.localized
+            let actions = [
+                UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .default),
+                UIAlertAction(title: Strings.yes.localized, style: .destructive)
+            ]
+            presentAlert(title: title, message: message, actions: actions)
         }
     }
-    
 }
 
 // MARK: - Collection View Delegate and Data Source

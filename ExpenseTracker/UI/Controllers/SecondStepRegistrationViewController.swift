@@ -74,18 +74,13 @@ class SecondStepRegistrationViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
                 
             case .failure(let error):
-                self.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription.localized)
+                let title = Strings.errorAlertTitle.localized
+                let message = error.localizedDescription.localized
+                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
+                self.presentAlert(title: title, message: message, actions: actions)
             }
         }
     }
-    
-    private func presentAlert(title: String, message: String? = nil, handler: ((UIAlertAction) -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: Strings.ok, style: .default, handler: handler))
-        self.present(alertController, animated: true)
-    }
-    
-    
     
 }
 

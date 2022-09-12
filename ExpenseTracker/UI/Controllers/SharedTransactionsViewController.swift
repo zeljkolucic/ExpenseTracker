@@ -31,7 +31,6 @@ class SharedTransactionsViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Zeljko Lucic"
-        
     }
     
     private func configureTableView() {

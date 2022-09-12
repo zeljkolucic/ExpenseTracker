@@ -106,15 +106,12 @@ class LoginViewController: UIViewController {
                 self.present(viewController, animated: true)
                 
             case .failure(let error):
-                self.presentAlert(title: Strings.errorAlertTitle.localized, message: error.localizedDescription)
+                let title = Strings.errorAlertTitle.localized
+                let message = error.localizedDescription
+                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
+                self.presentAlert(title: title, message: message, actions: actions)
             }
         }
-    }
-    
-    private func presentAlert(title: String? = nil, message: String? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
-        present(alertController, animated: true)
     }
     
     @objc private func didTapRegisterButton() {

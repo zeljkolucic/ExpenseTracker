@@ -38,7 +38,7 @@ class FirstStepRegistrationViewController: UIViewController {
         dismissKeyboardWhenTouchOutside()
         defineActions()
         configureTextFields()
-        bind()
+        bindGenderButtons()
     }
     
     // MARK: - Configuration
@@ -79,7 +79,7 @@ class FirstStepRegistrationViewController: UIViewController {
         configurePhoneNumberTextField()
     }
     
-    private func bind() {
+    private func bindGenderButtons() {
         viewModel.gender.bindAndFire { [weak self] gender in
             guard let self = self else { return }
             
@@ -132,9 +132,10 @@ class FirstStepRegistrationViewController: UIViewController {
                 self.navigationController?.pushViewController(viewController, animated: true)
                 
             case .failure(let error):
-                let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: error.localizedDescription.localized, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default))
-                self.present(alertController, animated: true)
+                let title = Strings.errorAlertTitle.localized
+                let message = error.localizedDescription.localized
+                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
+                self.presentAlert(title: title, message: message, actions: actions)
             }
         }
     }
@@ -148,12 +149,15 @@ class FirstStepRegistrationViewController: UIViewController {
     }
     
     @objc private func presentQuittingAlert() {
-        let alertController = UIAlertController(title: Strings.warningAlertTitle.localized, message: Strings.quittingAlertMessage.localized, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: Strings.no.localized, style: .cancel))
-        alertController.addAction(UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
-        }))
-        present(alertController, animated: true)
+        let title = Strings.warningAlertTitle.localized
+        let message = Strings.quittingAlertMessage.localized
+        let actions = [
+            UIAlertAction(title: Strings.no.localized, style: .cancel),
+            UIAlertAction(title: Strings.yes.localized, style: .destructive, handler: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+        ]
+        presentAlert(title: title, message: message, actions: actions)
     }
     
     @objc private func didTapCancelDateOfBirthTextFieldToolbarButton() {
