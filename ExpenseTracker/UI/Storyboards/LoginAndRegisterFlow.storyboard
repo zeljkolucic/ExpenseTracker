@@ -92,6 +92,9 @@
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="didTapSignInButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YWB-ne-ruw"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="U1e-zN-ePn">
                                                                 <rect key="frame" x="0.0" y="97" width="364" height="25.5"/>
@@ -131,6 +134,9 @@
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="didTapRegisterButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jtz-4x-PSP"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -271,6 +277,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapNextButton" destination="MW8-UA-NJ1" eventType="touchUpInside" id="oWO-Se-vON"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-Yn-mjd">
                                                 <rect key="frame" x="25" y="742.5" width="364" height="21.5"/>
@@ -290,6 +299,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Male Gender Image"/>
+                                                        <connections>
+                                                            <action selector="didTapGenderButton:" destination="MW8-UA-NJ1" eventType="touchUpInside" id="FEl-Hf-weW"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSf-0x-cjv" customClass="GenderButton" customModule="ExpenseTracker" customModuleProvider="target">
                                                         <rect key="frame" x="150" y="0.0" width="80" height="80"/>
@@ -300,6 +312,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Female Gender Image"/>
+                                                        <connections>
+                                                            <action selector="didTapGenderButton:" destination="MW8-UA-NJ1" eventType="touchUpInside" id="hxu-4J-njb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -410,6 +425,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapConfirmButton" destination="CGY-Ni-YnF" eventType="touchUpInside" id="NG3-yQ-89g"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="® Zeljko Lucic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-QM-wZw">
                                 <rect key="frame" x="25" y="830.5" width="364" height="21.5"/>

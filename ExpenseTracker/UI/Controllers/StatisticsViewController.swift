@@ -20,18 +20,23 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureLayout()
         configureNavigationBar()
         configureTableView()
     }
     
     // MARK: - Configuration
     
+    private func configureLayout() {
+        title = Strings.statisticsTitle.localized
+    }
+    
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = Strings.statisticsTitle.localized
         
-        let logOutAction = UIAction(title: Strings.logOut.localized) { [weak self] action in
-            self?.logOut()
+        let logOutAction = UIAction(title: Strings.signOut.localized) { [weak self] action in
+            self?.signOut()
         }
         let contextMenu = UIMenu(title: "", children: [logOutAction])
         let userImage = UIImage(systemName: SFSymbols.user)
@@ -47,7 +52,7 @@ class StatisticsViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc private func logOut() {
+    @objc private func signOut() {
         viewModel.signOut { [weak self] result in
             guard let self = self else { return }
             

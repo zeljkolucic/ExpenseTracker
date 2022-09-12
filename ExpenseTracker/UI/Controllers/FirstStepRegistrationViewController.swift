@@ -36,7 +36,6 @@ class FirstStepRegistrationViewController: UIViewController {
         configureLabels()
         configureNavigationBar()
         dismissKeyboardWhenTouchOutside()
-        defineActions()
         configureTextFields()
         bindGenderButtons()
     }
@@ -55,12 +54,6 @@ class FirstStepRegistrationViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(presentQuittingAlert))
-    }
-    
-    private func defineActions() {
-        maleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
-        femaleGenderButton.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
     }
     
     private func configureTextFields() {
@@ -120,7 +113,7 @@ class FirstStepRegistrationViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc private func didTapNextButton() {
+    @IBAction func didTapNextButton() {
         viewModel.verifyFirstStepRegistrationData { [weak self] result in
             guard let self = self else { return }
             
@@ -140,7 +133,7 @@ class FirstStepRegistrationViewController: UIViewController {
         }
     }
     
-    @objc private func didTapGenderButton(_ sender: UIButton) {
+    @IBAction func didTapGenderButton(_ sender: UIButton) {
         if sender == maleGenderButton {
             viewModel.gender.value = .male
         } else {

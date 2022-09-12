@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
     private func configureViewControllers() {
         guard let items = tabBar.items, items.count >= 3 else { return }
         
-        items[0].title = Strings.statisticsTitle.localized
+//        items[0].title = Strings.statisticsTitle.localized
         items[0].image = UIImage(systemName: SFSymbols.chart)
         
         items[1].title = Strings.transactionsTitle.localized

@@ -29,7 +29,6 @@ class LoginViewController: UIViewController {
         configureBackgroundLabel()
         configureLabels()
         dismissKeyboardWhenTouchOutside()
-        defineActions()
         configureTextFields()
         
         enterCredentials()
@@ -61,11 +60,6 @@ class LoginViewController: UIViewController {
         registerButton.setTitle(Strings.register.localized, for: .normal)
     }
     
-    private func defineActions() {
-        signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
-    }
-    
     private func configureTextFields() {
         emailTextField.delegate = self
         emailTextField.returnKeyType = .next
@@ -82,7 +76,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc private func didTapSignInButton() {
+    @IBAction func didTapSignInButton() {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
@@ -105,7 +99,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc private func didTapRegisterButton() {
+    @IBAction func didTapRegisterButton() {
         let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(FirstStepRegistrationViewController.self) else { return }
         navigationController?.pushViewController(viewController, animated: true)

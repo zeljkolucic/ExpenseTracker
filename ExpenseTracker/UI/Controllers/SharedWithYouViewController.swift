@@ -30,7 +30,7 @@ class SharedWithYouViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = Strings.sharedWithYouTitle.localized
         
-        let logOutAction = UIAction(title: Strings.logOut.localized) { [weak self] action in
+        let logOutAction = UIAction(title: Strings.signOut.localized) { [weak self] action in
             self?.logOut()
         }
         let contextMenu = UIMenu(title: "", children: [logOutAction])

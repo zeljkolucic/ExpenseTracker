@@ -57,8 +57,8 @@ class TransactionsViewController: UIViewController {
         navigationItem.leftBarButtonItem = shareBarButton
         
         
-        let logOutAction = UIAction(title: Strings.logOut.localized) { [weak self] action in
-            self?.logOut()
+        let logOutAction = UIAction(title: Strings.signOut.localized) { [weak self] action in
+            self?.signOut()
         }
         let contextMenu = UIMenu(title: "", children: [logOutAction])
         let userImage = UIImage(systemName: SFSymbols.user)
@@ -67,14 +67,12 @@ class TransactionsViewController: UIViewController {
     }
     
     private func configureTableView() {
-        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TransactionTableViewCell.self)
     }
     
     private func configureCollectionView() {
-        collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MonthCollectionViewCell.self)
@@ -103,8 +101,6 @@ class TransactionsViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
     }
     
-    // MARK: -
-    
     private func getTransactions() {
         viewModel.getTransactions()
     }
@@ -129,7 +125,7 @@ class TransactionsViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
-    private func logOut() {
+    private func signOut() {
         viewModel.signOut { [weak self] result in
             guard let self = self else { return }
             

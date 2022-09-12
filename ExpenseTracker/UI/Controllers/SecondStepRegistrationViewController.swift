@@ -25,7 +25,6 @@ class SecondStepRegistrationViewController: UIViewController {
      
         configureLabels()
         dismissKeyboardWhenTouchOutside()
-        defineActions()
         configureTextFields()
     }
     
@@ -37,10 +36,6 @@ class SecondStepRegistrationViewController: UIViewController {
         passwordTextField.placeholder = Strings.password.localized
         passwordConfirmationTextField.placeholder = Strings.passwordConfirmation.localized
         confirmButton.setTitle(Strings.confirm.localized, for: .normal)
-    }
-    
-    private func defineActions() {
-        confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
     private func configureTextFields() {
@@ -65,7 +60,7 @@ class SecondStepRegistrationViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc private func didTapConfirmButton() {
+    @IBAction func didTapConfirmButton() {
         viewModel.verifySecondStepRegistrationData { [weak self] result in
             guard let self = self else { return }
             
