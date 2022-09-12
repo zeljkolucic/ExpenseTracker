@@ -24,6 +24,7 @@ class TransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = Strings.transactionsTitle.localized
         configureNavigationBar()
         configureTableView()
         configureCollectionView()

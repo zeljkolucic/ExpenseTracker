@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
             switch result {
             case .success:
                 let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
-                guard let viewController = storyboard.instantiateViewController(MainTabBarController.self) else { return }
+                guard let viewController = storyboard.instantiateInitialViewController() else { return }
                 viewController.modalPresentationStyle = .fullScreen
                 self.present(viewController, animated: true)
                 

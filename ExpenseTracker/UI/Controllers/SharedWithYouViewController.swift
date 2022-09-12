@@ -20,6 +20,7 @@ class SharedWithYouViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = Strings.sharedWithYouTitle.localized
         configureNavigationBar()
         configureTableView()
     }
