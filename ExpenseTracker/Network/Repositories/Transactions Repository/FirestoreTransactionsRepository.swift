@@ -27,20 +27,25 @@ class FirestoreTransactionsRepository: TransactionsRepository {
                 return
             }
             
-            let transactions = querySnapshot.documents.compactMap({ document in
+            let transactions = querySnapshot.documents.compactMap { document in
                 try? document.data(as: FirestoreTransaction.self)
-            })
+            }
 
             completion(.success(transactions))
         }
     }
     
-    func add(transaction: FirestoreTransaction, completion: @escaping ((Error?) -> Void)) {
+    func add(transaction: FirestoreTransaction, completion: @escaping ((Result<(), Error>) -> Void)) {
         do {
-            _ = try store.collection(collectionPath).addDocument(from: transaction, completion: completion)
-            completion(nil)
+            _ = try store.collection(collectionPath).addDocument(from: transaction, completion: { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            })
         } catch {
-            completion(error)
+            completion(.failure(error))
         }
     }
     

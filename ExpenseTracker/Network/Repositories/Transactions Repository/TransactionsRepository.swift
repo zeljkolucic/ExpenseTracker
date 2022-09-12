@@ -9,5 +9,5 @@ import Foundation
 
 protocol TransactionsRepository {
     func get(completion: @escaping (Result<[FirestoreTransaction], Error>) -> Void)
-    func add(transaction: FirestoreTransaction, completion: @escaping ((Error?) -> Void))
+    func add(transaction: FirestoreTransaction, completion: @escaping ((Result<(), Error>) -> Void))
 }
