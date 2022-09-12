@@ -11,22 +11,13 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var backgroundLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!
     @IBOutlet weak var signInButton: RoundedButton!
     @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var registerButton: RoundedButton!
-    
-    private lazy var backgroundLabel: UILabel = {
-        let label = UILabel()
-        label.text = "E"
-        label.textColor = .systemGray4
-        label.font = .systemFont(ofSize: 850, weight: .black)
-        label.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     var viewModel: LoginViewModel!
     
@@ -35,7 +26,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
            
-        configureLayout()
+        configureBackgroundLabel()
         configureLabels()
         dismissKeyboardWhenTouchOutside()
         defineActions()
@@ -51,9 +42,9 @@ class LoginViewController: UIViewController {
     
     // MARK: - Configuration
     
-    private func configureLayout() {
-        view.addSubview(backgroundLabel)
-        view.sendSubviewToBack(backgroundLabel)
+    private func configureBackgroundLabel() {
+        backgroundLabel.textColor = .systemGray4
+        backgroundLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5)
     }
     
     private func enterCredentials() {
