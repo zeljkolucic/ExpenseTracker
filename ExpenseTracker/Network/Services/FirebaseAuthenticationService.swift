@@ -19,6 +19,11 @@ class FirebaseAuthenticationService: AuthenticationService {
         addListeners()
     }
     
+    func isSignedIn() -> Bool {
+        user = Auth.auth().currentUser
+        return user != nil
+    }
+    
     func signIn(email: String, password: String, completion: @escaping (Result<(), Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {

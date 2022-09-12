@@ -16,4 +16,11 @@ extension SwinjectStoryboard {
         ], container: defaultContainer)
     }
     
+    static let threadSafeContainer: Resolver = defaultContainer.synchronize()
+    
+    class func provideAuthenticationService() -> AuthenticationService {
+        let userRepository = threadSafeContainer.resolve(UserRepository.self) ?? FirestoreUserRepository()
+        return threadSafeContainer.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
+    }
+    
 }
