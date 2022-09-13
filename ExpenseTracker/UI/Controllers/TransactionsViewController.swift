@@ -262,7 +262,7 @@ extension TransactionsViewController: UICollectionViewDelegate, UICollectionView
         }
         
         let monthlyTransactions = viewModel.monthlyTransactions[indexPath.item]
-        cell.monthLabel.text = monthlyTransactions.month
+        cell.monthLabel.text = monthlyTransactions.prettyDateFormatMonth
         
         return cell
     }

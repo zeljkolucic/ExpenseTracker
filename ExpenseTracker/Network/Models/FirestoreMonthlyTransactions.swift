@@ -13,5 +13,9 @@ struct FirestoreMonthlyTransactions: Identifiable, Codable {
     var month: String
     var ownerName: String
     var ownerEmail: String
+    
+    var prettyDateFormatMonth: String {
+        return month.convertToPrettyDateFormat()
+    }
 }
 
