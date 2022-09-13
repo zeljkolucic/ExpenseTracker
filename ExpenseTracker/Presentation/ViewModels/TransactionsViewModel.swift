@@ -12,18 +12,22 @@ class TransactionsViewModel {
     private let repository: TransactionsRepository
     private let authenticationService: AuthenticationService
     
+    var transactions: [FirestoreTransaction] = []
+    
     init(repository: TransactionsRepository, authenticationService: AuthenticationService) {
         self.repository = repository
         self.authenticationService = authenticationService
     }
     
-    func getTransactions() {
+    func getTransactions(completion: @escaping (Result<(), Error>) -> Void) {
         repository.get { result in
             switch result {
             case .success(let transactions):
-                print(transactions)
+                self.transactions = transactions
+                completion(.success(()))
+                
             case .failure(let error):
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
         }
     }

@@ -29,10 +29,10 @@ class SharedWithYouViewController: UIViewController {
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = Strings.sharedWithYouTitle.localized
+        title = Strings.sharedWithYouTitle.localized
         
         let logOutAction = UIAction(title: Strings.signOut.localized) { [weak self] action in
-            self?.logOut()
+            self?.signOut()
         }
         let contextMenu = UIMenu(title: "", children: [logOutAction])
         let userImage = UIImage(systemName: SFSymbols.user)
@@ -48,7 +48,7 @@ class SharedWithYouViewController: UIViewController {
     
     // MARK: - Actions
     
-    private func logOut() {
+    private func signOut() {
         viewModel.signOut { [weak self] result in
             guard let self = self else { return }
             
@@ -63,7 +63,6 @@ class SharedWithYouViewController: UIViewController {
             }
         }
     }
-    
 }
 
 // MARK: - Table View Delegate and Data Source
@@ -91,5 +90,4 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
         guard let viewController = storyboard.instantiateViewController(SharedTransactionsViewController.self) else { return }
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }

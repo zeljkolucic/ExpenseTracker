@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransactionsViewController: UIViewController {
+class TransactionsViewController: DataLoadingViewController {
     
     // MARK: - Properties
     
@@ -30,7 +30,7 @@ class TransactionsViewController: UIViewController {
         configureCollectionView()
         configureLayout()
         
-        viewModel.getTransactions()
+        getTransactions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +103,26 @@ class TransactionsViewController: UIViewController {
     }
     
     private func getTransactions() {
-        viewModel.getTransactions()
+        presentLoadingView()
+        viewModel.getTransactions { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.dismissLoadingView()
+                
+                switch result {
+                case .success:
+                    self.tableView.reloadData()
+                    
+                case .failure:
+                    let title = Strings.warningAlertTitle.localized
+                    let actions = [
+                        UIAlertAction(title: Strings.ok.localized, style: .default)
+                    ]
+                    self.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
     }
     
     // MARK: - Actions
@@ -157,7 +176,7 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -165,10 +184,11 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
+        let transaction = viewModel.transactions[indexPath.row]
         cell.categoryLabel.text = "Electricity"
         cell.subcategoryLabel.text = "Utilities"
-        cell.dateLabel.text = "Jun 27, 2022"
-        cell.valueLabel.text = "-2397.0 RSD"
+        cell.dateLabel.text = transaction.date.convertToDateAndTimeFormatString()
+        cell.valueLabel.text = "\(transaction.value)"
         
         return cell
     }

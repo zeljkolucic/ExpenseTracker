@@ -7,8 +7,7 @@
 
 import Foundation
 
-class TransactionViewModel {
-    
+class TransactionDetailViewModel {
     var value: Float
     var category: String
     var subcategory: String
@@ -25,5 +24,4 @@ class TransactionViewModel {
         self.date = date
         self.methodOfPayment = methodOfPayment
     }
-    
 }

@@ -43,9 +43,9 @@ class UserAssembly: Assembly {
             return LoginViewModel(authenticationService: authenticationService)
         }
         
-        container.register(TransactionViewModel.self) { resolver in
+        container.register(TransactionDetailViewModel.self) { resolver in
             let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            return TransactionViewModel(repository: repository)
+            return TransactionDetailViewModel(repository: repository)
         }
         
         container.register(TransactionsViewModel.self) { resolver in
@@ -107,7 +107,7 @@ class UserAssembly: Assembly {
         
         container.storyboardInitCompleted(DetailTransactionViewController.self) { resolver, viewController in
             let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            let viewModel = resolver.resolve(TransactionViewModel.self) ?? TransactionViewModel(repository: repository)
+            let viewModel = resolver.resolve(TransactionDetailViewModel.self) ?? TransactionDetailViewModel(repository: repository)
             viewController.viewModel = viewModel
         }
         
