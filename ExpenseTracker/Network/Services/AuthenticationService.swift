@@ -8,6 +8,8 @@
 import Foundation
 
 protocol AuthenticationService {
+    var email: String? { get }
+    
     func signIn(email: String, password: String, completion: @escaping (Result<(), Error>) -> Void)
     func signOut(completion: @escaping (Result<(), Error>) -> Void)
     func isSignedIn() -> Bool

@@ -12,6 +12,7 @@ struct FirestoreTransaction: Identifiable, Codable {
     @DocumentID var id: String?
     var value: Float
     var date: Date
-    var subcategoryId: String
+    var category: String
+    var subcategory: String
     var methodOfPayment: String
 }

@@ -9,7 +9,7 @@ import Firebase
 
 class FirebaseAuthenticationService: AuthenticationService {
     
-    var user: User?
+    
     private var authenticationStateHandle: AuthStateDidChangeListenerHandle?
     
     private let userRepository: UserRepository
@@ -17,6 +17,11 @@ class FirebaseAuthenticationService: AuthenticationService {
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
         addListeners()
+    }
+    
+    var user: User?
+    var email: String? {
+        return Auth.auth().currentUser?.email
     }
     
     func isSignedIn() -> Bool {

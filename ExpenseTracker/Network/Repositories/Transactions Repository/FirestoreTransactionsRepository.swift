@@ -12,10 +12,37 @@ import FirebaseFirestoreSwift
 class FirestoreTransactionsRepository: TransactionsRepository {
     
     private let store = Firestore.firestore()
-    private let collectionPath = "transactions"
+    private let collectionPath = "monthlyTransactions"
+    private let subcollectionPath = "transactions"
     
-    func get(completion: @escaping (Result<[FirestoreTransaction], Error>) -> Void) {
+    func getMonthlyTransactions(email: String, completion: @escaping (Result<[FirestoreMonthlyTransactions], Error>) -> Void) {
         store.collection(collectionPath).addSnapshotListener { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let querySnapshot = querySnapshot else {
+                let error = NSError(domain: "Query snapshot is nil.", code: 400)
+                completion(.failure(error))
+                return
+            }
+            
+            let transactions = querySnapshot.documents.compactMap { document in
+                try? document.data(as: FirestoreMonthlyTransactions.self)
+            }
+
+            completion(.success(transactions))
+        }
+    }
+    
+    func getTransactions(in monthlyTransactions: FirestoreMonthlyTransactions, completion: @escaping (Result<[FirestoreTransaction], Error>) -> Void) {
+        guard let monthlyTransactionId = monthlyTransactions.id else {
+            completion(.failure(NSError()))
+            return
+        }
+        
+        store.collection(collectionPath).document(monthlyTransactionId).collection(subcollectionPath).addSnapshotListener { querySnapshot, error in
             if let error = error {
                 completion(.failure(error))
                 return

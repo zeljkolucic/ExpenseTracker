@@ -18,6 +18,7 @@ class TransactionsViewController: DataLoadingViewController {
     @IBOutlet weak var totalValueLabel: UILabel!
     
     var viewModel: TransactionsViewModel!
+    var selectedIndexPath: IndexPath?
     
     // MARK: - View Controller Lifecycle
     
@@ -30,7 +31,7 @@ class TransactionsViewController: DataLoadingViewController {
         configureCollectionView()
         configureLayout()
         
-        getTransactions()
+        getMonthlyTransactions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +46,6 @@ class TransactionsViewController: DataLoadingViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        selectCollectionViewLastItem()
     }
     
     // MARK: - Configuration
@@ -80,9 +80,10 @@ class TransactionsViewController: DataLoadingViewController {
     }
     
     private func selectCollectionViewLastItem() {
-        let indexPath = IndexPath(row: 9, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
-        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
+        if let indexPath = selectedIndexPath {
+            collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
+        }
     }
     
     private func configureLayout() {
@@ -102,17 +103,20 @@ class TransactionsViewController: DataLoadingViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
     }
     
-    private func getTransactions() {
-        presentLoadingView()
-        viewModel.getTransactions { [weak self] result in
+    private func getMonthlyTransactions() {
+        viewModel.getMonthlyTransactions { [weak self] result in
             guard let self = self else { return }
             
             DispatchQueue.main.async {
-                self.dismissLoadingView()
-                
                 switch result {
                 case .success:
-                    self.tableView.reloadData()
+                    self.collectionView.reloadData()
+                    
+                    let item = self.viewModel.monthlyTransactions.count - 1
+                    self.selectedIndexPath = IndexPath(item: item, section: .zero)
+                    self.selectCollectionViewLastItem()
+                    
+                    self.getTransactions()
                     
                 case .failure:
                     let title = Strings.warningAlertTitle.localized
@@ -120,6 +124,33 @@ class TransactionsViewController: DataLoadingViewController {
                         UIAlertAction(title: Strings.ok.localized, style: .default)
                     ]
                     self.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
+    }
+    
+    private func getTransactions() {
+        presentLoadingView()
+        if let selectedIndexPath = selectedIndexPath {
+            let monthlyTransactions = viewModel.monthlyTransactions[selectedIndexPath.item]
+            
+            viewModel.getTransactions(in: monthlyTransactions) { [weak self] result in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.async {
+                    self.dismissLoadingView()
+                    
+                    switch result {
+                    case .success:
+                        self.tableView.reloadData()
+                        
+                    case .failure:
+                        let title = Strings.warningAlertTitle.localized
+                        let actions = [
+                            UIAlertAction(title: Strings.ok.localized, style: .default)
+                        ]
+                        self.presentAlert(title: title, actions: actions)
+                    }
                 }
             }
         }
@@ -185,8 +216,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         let transaction = viewModel.transactions[indexPath.row]
-        cell.categoryLabel.text = "Electricity"
-        cell.subcategoryLabel.text = "Utilities"
+        cell.categoryLabel.text = transaction.category
+        cell.subcategoryLabel.text = transaction.subcategory
         cell.dateLabel.text = transaction.date.convertToDateAndTimeFormatString()
         cell.valueLabel.text = "\(transaction.value)"
         
@@ -222,7 +253,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
 extension TransactionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.monthlyTransactions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -230,17 +261,15 @@ extension TransactionsViewController: UICollectionViewDelegate, UICollectionView
             return UICollectionViewCell()
         }
         
-        if indexPath.row % 2 == 0 {
-            cell.monthLabel.text = "November 2021"
-        } else {
-            cell.monthLabel.text = "Jun 2022"
-        }
+        let monthlyTransactions = viewModel.monthlyTransactions[indexPath.item]
+        cell.monthLabel.text = monthlyTransactions.month
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let _ = collectionView.cellForItem(at: indexPath) as? MonthCollectionViewCell else { return }
+        selectedIndexPath = indexPath
+        getTransactions()
     }
     
 }
