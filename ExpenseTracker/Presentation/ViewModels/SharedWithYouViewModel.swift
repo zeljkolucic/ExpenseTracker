@@ -8,7 +8,6 @@
 import Foundation
 
 class SharedWithYouViewModel {
-    
     private let authenticationService: AuthenticationService
     private let repository: TransactionsRepository
     

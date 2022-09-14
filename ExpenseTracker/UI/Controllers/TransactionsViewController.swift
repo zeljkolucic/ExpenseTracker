@@ -161,8 +161,8 @@ class TransactionsViewController: DataLoadingViewController {
     @objc private func didTapShareButton() {
         let actionSheet = UIAlertController(title: nil, message: Strings.shareAlertMessage.localized, preferredStyle: .actionSheet)
         
-        let shareAction = UIAlertAction(title: Strings.shareAlertActionTitle.localized, style: .default) { _ in
-            
+        let shareAction = UIAlertAction(title: Strings.shareActionSheetTitle.localized, style: .default) { [weak self] _ in
+            self?.shareMonthlyTransactionsPrompt()
         }
         let exportAction = UIAlertAction(title: Strings.exportAlertActionTitle.localized, style: .default) { _ in
             
@@ -174,6 +174,51 @@ class TransactionsViewController: DataLoadingViewController {
         actionSheet.addAction(cancelAction)
         
         present(actionSheet, animated: true)
+    }
+    
+    private func shareMonthlyTransactionsPrompt() {
+        let title = Strings.shareAlertTitle.localized
+        let message = Strings.shareAlertMessage.localized
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actions = [
+            UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .destructive),
+            UIAlertAction(title: Strings.ok.localized, style: .default) { [weak self] _ in
+                if let textFields = alertController.textFields, let textField = textFields.first, let email = textField.text {
+                    self?.shareMonthlyTransactions(withUser: email)
+                }
+            }
+        ]
+        
+        alertController.addTextField()
+        for action in actions {
+            alertController.addAction(action)
+        }
+        
+        present(alertController, animated: true)
+    }
+    
+    private func shareMonthlyTransactions(withUser email: String) {
+        guard let indexPath = selectedIndexPath else { return }
+        viewModel.share(monthlyTransactionsIndex: indexPath.row, withUser: email) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                let title = Strings.successfulShareAlertTitle.localized
+                let actions = [
+                    UIAlertAction(title: Strings.ok.localized, style: .default)
+                ]
+                self.presentAlert(title: title, actions: actions)
+                
+            case .failure:
+                let title = Strings.warningAlertTitle.localized
+                let actions = [
+                    UIAlertAction(title: Strings.ok.localized, style: .default)
+                ]
+                self.presentAlert(title: title, actions: actions)
+            }
+        }
     }
     
     private func signOut() {

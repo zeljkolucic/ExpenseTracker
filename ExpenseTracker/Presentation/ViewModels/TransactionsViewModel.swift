@@ -53,6 +53,13 @@ class TransactionsViewModel {
         }
     }
     
+    func share(monthlyTransactionsIndex index: Int, withUser email: String, completion: @escaping (Result<(), Error>) -> Void) {
+        let ownerEmail = monthlyTransactions[index].ownerEmail
+        let month = monthlyTransactions[index].month
+        
+        repository.shareMonthlyTransactions(withUser: email, ownerEmail: ownerEmail, month: month, completion: completion)
+    }
+    
     func signOut(completion: @escaping (Result<(), Error>) -> Void) {
         authenticationService.signOut(completion: completion)
     }

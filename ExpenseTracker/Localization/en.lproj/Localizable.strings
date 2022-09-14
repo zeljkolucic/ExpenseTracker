@@ -27,7 +27,7 @@
 "email_sent_alert_title" = "An email has been sent to your address. Plesase confirm registration.";
 "transactions_title" = "Transactions";
 "log_out" = "Log out";
-"share_alert_message" = "What do you want to do with this?";
+"share_action_sheet_message" = "What do you want to do with this?";
 "share_alert_action_title" = "Share";
 "export_csv_alert_action_title" = "Export as CSV";
 "cancel_alert_action_title" = "Cancel";
@@ -50,4 +50,6 @@
 "date_of_birth_error_message" = "You must be over 13!";
 "password_too_weak" = "Password is too weak!";
 "non_matching_passwords" = "Passwords do not match!";
-"Electricity" = "Electricity";
+"share_alert_title" = "Share with a friend";
+"share_alert_message" = "Email of the user you want to share your monhtly expenses with:";
+"successful_share_alert_title" = "You have successfuly shared your monthly expenses with another user.";

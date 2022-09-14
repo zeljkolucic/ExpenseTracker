@@ -30,8 +30,8 @@ struct Strings {
     static let ok = "OK"
     static let transactionsTitle = "transactions_title"
     static let signOut = "log_out"
-    static let shareAlertMessage = "share_alert_message"
-    static let shareAlertActionTitle = "share_alert_action_title"
+    static let shareActionSheetMessage = "share_action_sheet_message"
+    static let shareActionSheetTitle = "share_alert_action_title"
     static let exportAlertActionTitle = "export_csv_alert_action_title"
     static let cancelAlertActionTitle = "cancel_alert_action_title"
     static let sharedWithYouTitle = "shared_with_you_title"
@@ -46,4 +46,7 @@ struct Strings {
     static let errorAlertTitle = "error_alert_title"
     static let valueAlertMessage = "value_alert_message"
     static let categoriesTitle = "categories_title"
+    static let shareAlertTitle = "share_alert_title"
+    static let shareAlertMessage = "share_alert_message"
+    static let successfulShareAlertTitle = "successful_share_alert_title"
 }

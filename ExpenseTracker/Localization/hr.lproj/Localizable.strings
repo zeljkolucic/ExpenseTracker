@@ -50,4 +50,6 @@
 "date_of_birth_error_message" = "Morate imati preko 13 godina!";
 "password_too_weak" = "Lozinka je slaba!";
 "non_matching_passwords" = "Lozinke se ne podudaraju!";
-"Electricity" = "Električna energija";
+"share_alert_title" = "Podelite sa prijateljem";
+"share_alert_message" = "Email korisnika sa kojim želite da podelite svoje mesečne transakcije:";
+"successful_share_alert_title" = "Uspešno ste podelili svoje mesečne transakcije sa drugim korisnikom.";

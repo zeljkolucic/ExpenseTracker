@@ -10,7 +10,6 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class FirestoreTransactionsRepository: TransactionsRepository {
-    
     private let store = Firestore.firestore()
     private let collectionPath = "monthlyTransactions"
     private let subcollectionPath = "transactions"
@@ -76,8 +75,25 @@ class FirestoreTransactionsRepository: TransactionsRepository {
         }
     }
     
-    func shareMonthlyTransactions(withUser email: String, completion: @escaping (Result<(), Error>) -> Void) {
-        
+    func shareMonthlyTransactions(withUser email: String, ownerEmail: String, month: String, completion: @escaping (Result<(), Error>) -> Void) {
+        store.collection(collectionPath).whereField("ownerEmail", isEqualTo: ownerEmail).whereField("month", isEqualTo: month).getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            
+            guard let querySnapshot = querySnapshot else {
+                return
+            }
+            
+            for document in querySnapshot.documents {
+                if var viewers = document.get("viewers") as? [String] {
+                    viewers.append(email)
+                    document.reference.updateData([
+                        "viewers": viewers
+                    ])
+                }
+            }
+        }
     }
     
     func getSharedMonthlyTransactions(withUser email: String, completion: @escaping (Result<[FirestoreMonthlyTransactions], Error>) -> Void) {
@@ -100,5 +116,4 @@ class FirestoreTransactionsRepository: TransactionsRepository {
             completion(.success(transactions))
         }
     }
-    
 }
