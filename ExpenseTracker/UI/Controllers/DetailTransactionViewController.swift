@@ -95,6 +95,7 @@ class DetailTransactionViewController: UIViewController {
         }
         
         valueTextField.text = String(viewModel.value)
+        currencyLabel.text = "RSD"
     }
     
     private func configureDoneBarButton() {
@@ -125,14 +126,6 @@ class DetailTransactionViewController: UIViewController {
         valueTextField.keyboardType = .decimalPad
         valueTextField.returnKeyType = .done
         valueTextField.borderStyle = .none
-        
-        let toolbar = UIToolbar()
-        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissKeyboard))
-        let spacingBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneDatePickerToolbarButton))
-        toolbar.items = [cancelBarButton, spacingBarButton, doneBarButton]
-        toolbar.sizeToFit()
-        valueTextField.inputAccessoryView = toolbar
     }
     
     // MARK: - Actions
@@ -272,12 +265,15 @@ class DetailTransactionViewController: UIViewController {
     }
     
     private func presentValueAlert() {
-        let alertController = UIAlertController(title: Strings.errorAlertTitle.localized, message: Strings.valueAlertMessage.localized, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: Strings.ok.localized, style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            self.valueTextField.text = String(self.viewModel.value)
-        }))
-        present(alertController, animated: true)
+        let title = Strings.errorAlertTitle.localized
+        let message = Strings.valueAlertMessage.localized
+        let actions = [
+            UIAlertAction(title: Strings.ok.localized, style: .default, handler: { [weak self] _ in
+                guard let self = self else { return }
+                self.valueTextField.text = String(self.viewModel.value)
+            })
+        ]
+        presentAlert(title: title, message: message, actions: actions)
     }
 
 }
