@@ -55,12 +55,6 @@ class UserAssembly: Assembly {
             return TransactionsViewModel(repository: transactionsRepository, authenticationService: authenticationService)
         }
         
-        container.register(StatisticsViewModel.self) { resolver in
-            let userRepository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
-            return StatisticsViewModel(authenticationService: authenticationService)
-        }
-        
         // MARK: - View Controllers
         
         container.storyboardInitCompleted(LoginViewController.self) { resolver, viewController in
@@ -97,14 +91,6 @@ class UserAssembly: Assembly {
             let viewModel = resolver.resolve(TransactionDetailViewModel.self) ?? TransactionDetailViewModel(repository: repository)
             viewController.viewModel = viewModel
         }
-        
-        container.storyboardInitCompleted(StatisticsViewController.self) { resolver, viewController in
-            let userRepository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
-            let viewModel = resolver.resolve(StatisticsViewModel.self) ?? StatisticsViewModel(authenticationService: authenticationService)
-            viewController.viewModel = viewModel
-        }
-        
     }
     
 }

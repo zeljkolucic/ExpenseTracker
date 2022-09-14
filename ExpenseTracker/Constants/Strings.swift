@@ -49,4 +49,6 @@ struct Strings {
     static let shareAlertTitle = "share_alert_title"
     static let shareAlertMessage = "share_alert_message"
     static let successfulShareAlertTitle = "successful_share_alert_title"
+    static let expensesByCategory = "expenses_by_category"
+    static let expensesByMonth = "expenses_by_month"
 }

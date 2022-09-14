@@ -53,3 +53,5 @@
 "share_alert_title" = "Share with a friend";
 "share_alert_message" = "Email of the user you want to share your monhtly expenses with:";
 "successful_share_alert_title" = "You have successfuly shared your monthly expenses with another user.";
+"expenses_by_category" = "Expenses by category";
+"expenses_by_month" = "Expenses by month";

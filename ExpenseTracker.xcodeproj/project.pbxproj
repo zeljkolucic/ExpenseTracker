@@ -70,11 +70,15 @@
 		E450711D28A537FB0077EB88 /* FirestoreUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711C28A537FB0077EB88 /* FirestoreUser.swift */; };
 		E450711F28A539110077EB88 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450711E28A539110077EB88 /* TransactionsRepository.swift */; };
 		E450712228A539E10077EB88 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450712128A539E10077EB88 /* AuthenticationService.swift */; };
+		E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */; };
+		E47F76EF28D27D3200314C41 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */; };
 		E4C4987D28CFE78D00EEFBC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */; };
+		E4E6043F28D2812A00AC71C8 /* StatisticsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */; };
 		E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */; };
 		E4F4FFBB28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */; };
 		E4F4FFC028D1359800B9170A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBF28D1359800B9170A /* Array+Extension.swift */; };
 		E4F4FFC228D2632600B9170A /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFC128D2632600B9170A /* SharedAssembly.swift */; };
+		E4F4FFC528D277F400B9170A /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E4F4FFC428D277F400B9170A /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +155,9 @@
 		E450711C28A537FB0077EB88 /* FirestoreUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUser.swift; sourceTree = "<group>"; };
 		E450711E28A539110077EB88 /* TransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
 		E450712128A539E10077EB88 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesViewController.swift; sourceTree = "<group>"; };
+		E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
+		E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembly.swift; sourceTree = "<group>"; };
 		E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingViewController.swift; sourceTree = "<group>"; };
 		E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMonthlyTransactions.swift; sourceTree = "<group>"; };
 		E4F4FFBF28D1359800B9170A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -164,6 +171,7 @@
 			files = (
 				E42DA5FC28A533B1001264CC /* FirebaseAuth in Frameworks */,
 				E42DA5FE28A533B1001264CC /* FirebaseFirestore in Frameworks */,
+				E4F4FFC528D277F400B9170A /* Charts in Frameworks */,
 				E42DA60028A533B1001264CC /* FirebaseFirestoreSwift in Frameworks */,
 				E450711128A5369D0077EB88 /* Swinject in Frameworks */,
 				E450711428A536BB0077EB88 /* SwinjectStoryboard in Frameworks */,
@@ -270,6 +278,8 @@
 				67F7487A28883495001CB439 /* SharedTransactionsViewController.swift */,
 				67259A642889830900B39712 /* CategoriesViewController.swift */,
 				E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */,
+				E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */,
+				E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +424,7 @@
 				E450711628A536D50077EB88 /* SwinjectStoryboard+Extension.swift */,
 				E450711828A5373D0077EB88 /* UserAssembly.swift */,
 				E4F4FFC128D2632600B9170A /* SharedAssembly.swift */,
+				E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -459,6 +470,7 @@
 				E450711028A5369D0077EB88 /* Swinject */,
 				E450711328A536BB0077EB88 /* SwinjectStoryboard */,
 				E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */,
+				E4F4FFC428D277F400B9170A /* Charts */,
 			);
 			productName = ExpenseTracker;
 			productReference = 670A80D5287BFE6300606DEA /* ExpenseTracker.app */;
@@ -516,6 +528,7 @@
 				E450710F28A5369D0077EB88 /* XCRemoteSwiftPackageReference "Swinject" */,
 				E450711228A536BB0077EB88 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
 				E4C4987B28CFE78D00EEFBC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				E4F4FFC328D277F400B9170A /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 670A80D6287BFE6300606DEA /* Products */;
 			projectDirPath = "";
@@ -560,10 +573,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47F76EF28D27D3200314C41 /* ExpensesByCategoryViewController.swift in Sources */,
 				6785D26A288162D1008881B4 /* DetailTransactionViewController.swift in Sources */,
 				E450711D28A537FB0077EB88 /* FirestoreUser.swift in Sources */,
 				67DF68D7287DBABA00F205F7 /* UIViewController+Extension.swift in Sources */,
 				6785D25E28814EDF008881B4 /* MonthCollectionViewCell.swift in Sources */,
+				E4E6043F28D2812A00AC71C8 /* StatisticsAssembly.swift in Sources */,
 				E4F4FFBB28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift in Sources */,
 				67CCFF90288F1DA10074223E /* StatisticsViewModel.swift in Sources */,
 				6729B037287C1B84003F3259 /* LoginViewController.swift in Sources */,
@@ -596,6 +611,7 @@
 				67259A662889830900B39712 /* CategoriesViewController.swift in Sources */,
 				6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */,
 				6720105828896619003FF257 /* Date+Extension.swift in Sources */,
+				E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */,
 				6785D2612881509D008881B4 /* UICollectionView+Extension.swift in Sources */,
 				67C89554288AA3810022F905 /* FirestoreTransaction.swift in Sources */,
 				6729B04C287D63AB003F3259 /* GenderButton.swift in Sources */,
@@ -936,6 +952,14 @@
 				kind = branch;
 			};
 		};
+		E4F4FFC328D277F400B9170A /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -968,6 +992,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4C4987B28CFE78D00EEFBC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		E4F4FFC428D277F400B9170A /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4F4FFC328D277F400B9170A /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

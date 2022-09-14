@@ -15,6 +15,21 @@ class StatisticsViewController: UIViewController {
     
     var viewModel: StatisticsViewModel!
     
+    struct Option {
+        let title: String
+        let description: String? = nil
+        let completion: () -> ()
+    }
+    
+    private lazy var options = [
+        Option(title: Strings.expensesByCategory.localized, completion: {
+            self.navigateToExpensesByCategories()
+        }),
+        Option(title: Strings.expensesByMonth.localized, completion: {
+            self.navigateToMonthlyExpenses()
+        })
+    ]
+    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -67,6 +82,14 @@ class StatisticsViewController: UIViewController {
             }
         }
     }
+    
+    private func navigateToExpensesByCategories() {
+        performSegue(withIdentifier: "StatisticsToExpensesByCategorySegue", sender: nil)
+    }
+    
+    private func navigateToMonthlyExpenses() {
+        performSegue(withIdentifier: "StatisticsToMonthlyExpensesSegue", sender: nil)
+    }
 }
 
 // MARK: - Table View Delegate and Data Source
@@ -74,7 +97,7 @@ class StatisticsViewController: UIViewController {
 extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,14 +105,16 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = "Expenses by month"
-        cell.descriptionLabel.text = "Check out your expenses based on month"
+        let option = options[indexPath.row]
+        cell.titleLabel.text = option.title
+        cell.descriptionLabel.text = option.description
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let option = options[indexPath.row]
+        option.completion()
     }
     
 }
