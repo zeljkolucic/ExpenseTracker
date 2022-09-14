@@ -50,3 +50,4 @@
 "date_of_birth_error_message" = "You must be over 13!";
 "password_too_weak" = "Password is too weak!";
 "non_matching_passwords" = "Passwords do not match!";
+"Electricity" = "Electricity";

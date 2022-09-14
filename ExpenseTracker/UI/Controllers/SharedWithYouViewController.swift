@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SharedWithYouViewController: UIViewController {
+class SharedWithYouViewController: DataLoadingViewController {
 
     // MARK: - Properties
     
@@ -23,6 +23,8 @@ class SharedWithYouViewController: UIViewController {
         title = Strings.sharedWithYouTitle.localized
         configureNavigationBar()
         configureTableView()
+        
+        getSharedMonthlyTransactions()
     }
     
     // MARK: - Configuration
@@ -63,6 +65,29 @@ class SharedWithYouViewController: UIViewController {
             }
         }
     }
+    
+    func getSharedMonthlyTransactions() {
+        presentLoadingView()
+        viewModel.getSharedMonthlyTransactions { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.dismissLoadingView()
+                
+                switch result {
+                case .success:
+                    self.tableView.reloadData()
+                    
+                case .failure:
+                    let title = Strings.warningAlertTitle.localized
+                    let actions = [
+                        UIAlertAction(title: Strings.ok.localized, style: .default)
+                    ]
+                    self.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - Table View Delegate and Data Source
@@ -70,7 +95,7 @@ class SharedWithYouViewController: UIViewController {
 extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.monhtlyTransactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,8 +103,9 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
             return UITableViewCell()
         }
         
-        cell.userLabel.text = "Zeljko Lucic"
-        cell.monthLabel.text = "June 2022"
+        let monthlyTransactionsList = viewModel.monhtlyTransactions[indexPath.row]
+        cell.userLabel.text = monthlyTransactionsList.ownerName
+        cell.monthLabel.text = monthlyTransactionsList.prettyDateFormatMonth
         
         return cell
     }

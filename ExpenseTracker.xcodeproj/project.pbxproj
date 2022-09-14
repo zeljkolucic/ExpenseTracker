@@ -74,6 +74,7 @@
 		E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */; };
 		E4F4FFBB28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */; };
 		E4F4FFC028D1359800B9170A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBF28D1359800B9170A /* Array+Extension.swift */; };
+		E4F4FFC228D2632600B9170A /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFC128D2632600B9170A /* SharedAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingViewController.swift; sourceTree = "<group>"; };
 		E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMonthlyTransactions.swift; sourceTree = "<group>"; };
 		E4F4FFBF28D1359800B9170A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		E4F4FFC128D2632600B9170A /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +413,7 @@
 			children = (
 				E450711628A536D50077EB88 /* SwinjectStoryboard+Extension.swift */,
 				E450711828A5373D0077EB88 /* UserAssembly.swift */,
+				E4F4FFC128D2632600B9170A /* SharedAssembly.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				673EA70D2886D108004A532F /* StatisticsTableViewCell.swift in Sources */,
 				6785D26328815AE9008881B4 /* SharedWithYouViewController.swift in Sources */,
 				E450712228A539E10077EB88 /* AuthenticationService.swift in Sources */,
+				E4F4FFC228D2632600B9170A /* SharedAssembly.swift in Sources */,
 				E450711728A536D50077EB88 /* SwinjectStoryboard+Extension.swift in Sources */,
 				67DF68BF287D764700F205F7 /* SFSymbols.swift in Sources */,
 				67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */,

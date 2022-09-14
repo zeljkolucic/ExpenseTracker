@@ -11,4 +11,5 @@ protocol TransactionsRepository {
     func getMonthlyTransactions(email: String, completion: @escaping (Result<[FirestoreMonthlyTransactions], Error>) -> Void)
     func getTransactions(in monthlyTransactions: FirestoreMonthlyTransactions, completion: @escaping (Result<[FirestoreTransaction], Error>) -> Void)
     func add(transaction: FirestoreTransaction, completion: @escaping ((Result<(), Error>) -> Void))
+    func getSharedMonthlyTransactions(withUser email: String, completion: @escaping (Result<[FirestoreMonthlyTransactions], Error>) -> Void)
 }

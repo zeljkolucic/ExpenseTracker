@@ -12,7 +12,8 @@ extension SwinjectStoryboard {
     
     class func setup() {
         let _ = Assembler([
-            UserAssembly()
+            UserAssembly(),
+            SharedAssembly()
         ], container: defaultContainer)
     }
     

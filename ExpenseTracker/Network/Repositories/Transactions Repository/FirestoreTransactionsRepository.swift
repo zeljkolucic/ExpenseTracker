@@ -76,4 +76,29 @@ class FirestoreTransactionsRepository: TransactionsRepository {
         }
     }
     
+    func shareMonthlyTransactions(withUser email: String, completion: @escaping (Result<(), Error>) -> Void) {
+        
+    }
+    
+    func getSharedMonthlyTransactions(withUser email: String, completion: @escaping (Result<[FirestoreMonthlyTransactions], Error>) -> Void) {
+        store.collection(collectionPath).whereField("viewers", arrayContains: email).addSnapshotListener { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let querySnapshot = querySnapshot else {
+                let error = NSError(domain: "Query snapshot is nil.", code: 400)
+                completion(.failure(error))
+                return
+            }
+            
+            let transactions = querySnapshot.documents.compactMap { document in
+                try? document.data(as: FirestoreMonthlyTransactions.self)
+            }
+
+            completion(.success(transactions))
+        }
+    }
+    
 }
