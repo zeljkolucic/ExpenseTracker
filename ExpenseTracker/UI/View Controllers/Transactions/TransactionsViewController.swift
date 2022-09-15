@@ -135,7 +135,7 @@ class TransactionsViewController: DataLoadingViewController {
         presentLoadingView()
         if let selectedIndexPath = selectedIndexPath {
             let monthlyTransactions = viewModel.monthlyTransactions[selectedIndexPath.item]
-            totalValueLabel.text = "Total: \(monthlyTransactions.total)"
+            totalValueLabel.text = "Total: \(String(format: "%.2f", monthlyTransactions.total))"
             
             viewModel.getTransactions(in: monthlyTransactions) { [weak self] result in
                 guard let self = self else { return }
@@ -298,9 +298,29 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
             let message = Strings.deleteAlertMessage.localized
             let actions = [
                 UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .default),
-                UIAlertAction(title: Strings.yes.localized, style: .destructive)
+                UIAlertAction(title: Strings.yes.localized, style: .destructive) { [weak self] _ in
+                    self?.deleteTransaction(at: indexPath)
+                }
             ]
             presentAlert(title: title, message: message, actions: actions)
+        }
+    }
+    
+    private func deleteTransaction(at indexPath: IndexPath) {
+        self.viewModel.delete(index: indexPath.row) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                break
+                
+            case .failure:
+                let title = Strings.errorAlertTitle.localized
+                let actions = [
+                    UIAlertAction(title: Strings.ok.localized, style: .default)
+                ]
+                self.presentAlert(title: title, actions: actions)
+            }
         }
     }
 }

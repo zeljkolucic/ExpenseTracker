@@ -107,6 +107,35 @@ class FirestoreTransactionsRepository: TransactionsRepository {
         }
     }
     
+    func delete(transaction: FirestoreTransaction, ownerEmail: String, month: String, completion: @escaping (Result<(), Error>) -> Void) {
+        store.collection(collectionPath).whereField("ownerEmail", isEqualTo: ownerEmail).whereField("month", isEqualTo: month).getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let querySnapshot = querySnapshot else {
+                return
+            }
+            
+            let monthlyTransactionsLists = querySnapshot.documents.compactMap { document in
+                try? document.data(as: FirestoreMonthlyTransactions.self)
+            }
+            
+            let store = self.store
+            let collectionPath = self.collectionPath
+            let subcollectionPath = self.subcollectionPath
+            
+            if !monthlyTransactionsLists.isEmpty, let monthlyTransactionsList = monthlyTransactionsLists.first, let monthlyTransactionsListId = monthlyTransactionsList.id, let transactionId = transaction.id {
+                store.collection(collectionPath).document(monthlyTransactionsListId).collection(subcollectionPath).document(transactionId).delete()
+
+                let totalValue = monthlyTransactionsList.total - transaction.value
+                self.updateTotalValue(for: monthlyTransactionsListId, newValue: totalValue)
+                completion(.success(()))
+            }
+        }
+    }
+    
     private func updateTotalValue(for monthlyTransactionsDocumentId: String, newValue: Float) {
         store.collection(collectionPath).document(monthlyTransactionsDocumentId).updateData([
             "total": newValue

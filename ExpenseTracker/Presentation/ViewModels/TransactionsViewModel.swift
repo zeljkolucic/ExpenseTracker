@@ -60,6 +60,17 @@ class TransactionsViewModel {
         repository.shareMonthlyTransactions(withUser: email, ownerEmail: ownerEmail, month: month, completion: completion)
     }
     
+    func delete(index: Int, completion: @escaping (Result<(), Error>) -> Void) {
+        guard let ownerEmail = authenticationService.email else {
+            completion(.failure(NSError()))
+            return
+        }
+        
+        let transaction = transactions[index]
+        let month = transaction.date.convertToYearMonthFormat()
+        repository.delete(transaction: transaction, ownerEmail: ownerEmail, month: month, completion: completion)
+    }
+    
     func signOut(completion: @escaping (Result<(), Error>) -> Void) {
         authenticationService.signOut(completion: completion)
     }
