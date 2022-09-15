@@ -128,10 +128,15 @@ class FirestoreTransactionsRepository: TransactionsRepository {
             
             if !monthlyTransactionsLists.isEmpty, let monthlyTransactionsList = monthlyTransactionsLists.first, let monthlyTransactionsListId = monthlyTransactionsList.id, let transactionId = transaction.id {
                 store.collection(collectionPath).document(monthlyTransactionsListId).collection(subcollectionPath).document(transactionId).delete()
-
-                let totalValue = monthlyTransactionsList.total - transaction.value
-                self.updateTotalValue(for: monthlyTransactionsListId, newValue: totalValue)
-                completion(.success(()))
+                
+                // If deleting the last document, then the whole collection needs to be deleted
+                if monthlyTransactionsLists.count == 1 {
+                    store.collection(collectionPath).document(monthlyTransactionsListId).delete()
+                } else {
+                    let totalValue = monthlyTransactionsList.total - transaction.value
+                    self.updateTotalValue(for: monthlyTransactionsListId, newValue: totalValue)
+                    completion(.success(()))
+                }
             }
         }
     }

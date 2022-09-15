@@ -233,6 +233,24 @@ class TransactionsViewController: DataLoadingViewController {
         }
     }
     
+    private func deleteTransaction(at indexPath: IndexPath) {
+        self.viewModel.delete(index: indexPath.row) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                break
+                
+            case .failure:
+                let title = Strings.errorAlertTitle.localized
+                let actions = [
+                    UIAlertAction(title: Strings.ok.localized, style: .default)
+                ]
+                self.presentAlert(title: title, actions: actions)
+            }
+        }
+    }
+    
     private func signOut() {
         viewModel.signOut { [weak self] result in
             guard let self = self else { return }
@@ -303,24 +321,6 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
                 }
             ]
             presentAlert(title: title, message: message, actions: actions)
-        }
-    }
-    
-    private func deleteTransaction(at indexPath: IndexPath) {
-        self.viewModel.delete(index: indexPath.row) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success:
-                break
-                
-            case .failure:
-                let title = Strings.errorAlertTitle.localized
-                let actions = [
-                    UIAlertAction(title: Strings.ok.localized, style: .default)
-                ]
-                self.presentAlert(title: title, actions: actions)
-            }
         }
     }
 }
