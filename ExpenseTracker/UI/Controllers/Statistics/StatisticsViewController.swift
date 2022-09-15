@@ -94,6 +94,8 @@ class StatisticsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StatisticsToExpensesByCategorySegue", let viewController = segue.destination as? ExpensesByCategoryViewController {
             viewController.viewModel = viewModel
+        } else if segue.identifier == "StatisticsToMonthlyExpensesSegue", let viewController = segue.destination as? MonthlyExpensesViewController {
+            viewController.viewModel = viewModel
         }
     }
 }

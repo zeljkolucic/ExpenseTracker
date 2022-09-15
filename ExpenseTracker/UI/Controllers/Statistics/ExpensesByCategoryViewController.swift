@@ -26,6 +26,7 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = Strings.charts.localized
         configureCollectionView()
         configureTableView()
         configureCharts()
@@ -39,6 +40,7 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
         collectionView.register(MonthCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
     
     private func configureTableView() {

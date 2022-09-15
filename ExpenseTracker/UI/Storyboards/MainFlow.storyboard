@@ -120,10 +120,27 @@
                     <view key="view" contentMode="scaleToFill" id="Q5X-Tw-3sS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWY-yD-9tg">
+                                <rect key="frame" x="0.0" y="92" width="414" height="480"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="GJr-79-3Wt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="e2F-fl-wl1"/>
                         <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="e2F-fl-wl1" firstAttribute="trailing" secondItem="NWY-yD-9tg" secondAttribute="trailing" id="cWN-rF-OeX"/>
+                            <constraint firstItem="NWY-yD-9tg" firstAttribute="top" secondItem="e2F-fl-wl1" secondAttribute="top" id="eH9-Os-zot"/>
+                            <constraint firstItem="NWY-yD-9tg" firstAttribute="leading" secondItem="e2F-fl-wl1" secondAttribute="leading" id="lhB-fb-JKM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8kW-iN-PeB"/>
+                    <connections>
+                        <outlet property="chartContainerView" destination="NWY-yD-9tg" id="C8P-kK-spy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XkN-In-u0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

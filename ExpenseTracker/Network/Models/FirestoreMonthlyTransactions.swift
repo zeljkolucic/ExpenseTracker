@@ -13,6 +13,7 @@ struct FirestoreMonthlyTransactions: Identifiable, Codable {
     var month: String
     var ownerName: String
     var ownerEmail: String
+    var total: Float
     
     var prettyDateFormatMonth: String {
         return month.convertToPrettyDateFormat()

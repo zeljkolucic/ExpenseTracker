@@ -31,10 +31,10 @@ extension UIColor {
     }
     
     func colorPalette(for numberOfColors: Int) -> [UIColor] {
-        let step = CGFloat(numberOfColors) - 1
+        let step = CGFloat(numberOfColors)
         var colors: [UIColor] = [self]
         
-        for _ in 0..<numberOfColors {
+        for _ in 0..<numberOfColors - 1 {
             guard let lastColor = colors.last else {
                 return colors
             }
