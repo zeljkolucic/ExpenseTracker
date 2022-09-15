@@ -112,9 +112,11 @@ class TransactionsViewController: DataLoadingViewController {
                 case .success:
                     self.collectionView.reloadData()
                     
-                    let item = self.viewModel.monthlyTransactions.count - 1
-                    self.selectedIndexPath = IndexPath(item: item, section: .zero)
-                    self.selectCollectionViewLastItem()
+                    if self.selectedIndexPath == nil {
+                        let item = self.viewModel.monthlyTransactions.count - 1
+                        self.selectedIndexPath = IndexPath(item: item, section: .zero)
+                        self.selectCollectionViewLastItem()
+                    }
                     
                     self.getTransactions()
                     

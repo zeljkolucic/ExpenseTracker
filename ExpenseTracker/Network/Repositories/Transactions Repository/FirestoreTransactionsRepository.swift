@@ -86,7 +86,7 @@ class FirestoreTransactionsRepository: TransactionsRepository {
                     let monthlyTransactionsList = FirestoreMonthlyTransactions(
                         month: month,
                         ownerEmail: ownerEmail,
-                        total: .zero
+                        total: transaction.value
                     )
                     
                     let documentReference = try store.collection(collectionPath).addDocument(from: monthlyTransactionsList)
@@ -94,6 +94,9 @@ class FirestoreTransactionsRepository: TransactionsRepository {
                     
                 } else if let monthlyTransactionsList = monthlyTransactionsLists.first, let documentId = monthlyTransactionsList.id {
                     _ = try store.collection(collectionPath).document(documentId).collection(subcollectionPath).addDocument(from: transaction)
+                    
+                    let totalValue = monthlyTransactionsList.total + transaction.value
+                    self.updateTotalValue(for: documentId, newValue: totalValue)
                 }
                 
                 completion(.success(()))
@@ -104,8 +107,10 @@ class FirestoreTransactionsRepository: TransactionsRepository {
         }
     }
     
-    private func add(_ transaction: FirestoreTransaction, in documentReference: QueryDocumentSnapshot?) {
-        
+    private func updateTotalValue(for monthlyTransactionsDocumentId: String, newValue: Float) {
+        store.collection(collectionPath).document(monthlyTransactionsDocumentId).updateData([
+            "total": newValue
+        ])
     }
     
     func shareMonthlyTransactions(withUser email: String, ownerEmail: String, month: String, completion: @escaping (Result<(), Error>) -> Void) {

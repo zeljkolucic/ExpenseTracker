@@ -94,7 +94,6 @@ class DetailTransactionViewController: UIViewController {
             break
         }
         
-        valueTextField.text = String(viewModel.transaction.value)
         currencyLabel.text = "RSD"
     }
     
@@ -139,6 +138,7 @@ class DetailTransactionViewController: UIViewController {
             configureEditBarButtons()
             
         case .add:
+            setTransactionValue()
             viewModel.addTransaction { [weak self] result in
                 guard let self = self else { return }
                 
@@ -365,12 +365,7 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
 extension DetailTransactionViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let textValue = valueTextField.text, let value = Float(textValue) else {
-            presentValueAlert()
-            return
-        }
-        
-        viewModel.transaction.value = value
+        setTransactionValue()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -383,6 +378,14 @@ extension DetailTransactionViewController: UITextFieldDelegate {
         return true
     }
     
+    private func setTransactionValue() {
+        guard let textValue = valueTextField.text, let value = Float(textValue) else {
+            presentValueAlert()
+            return
+        }
+        
+        viewModel.transaction.value = value
+    }
 }
 
 // MARK: - Picker View Delegate and Data Source
