@@ -12,3 +12,13 @@ extension Array where Element == FirestoreMonthlyTransactions {
         return self.sorted { $0.month < $1.month }
     }
 }
+
+extension Array where Element == FirestoreTransaction {
+    func sortedAscending() -> Array {
+        return self.sorted { $0.date < $1.date }
+    }
+    
+    func sortedDescending() -> Array {
+        return self.sorted { $0.date > $1.date }
+    }
+}

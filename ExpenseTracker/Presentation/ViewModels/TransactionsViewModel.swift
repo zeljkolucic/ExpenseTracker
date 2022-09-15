@@ -44,7 +44,7 @@ class TransactionsViewModel {
         repository.getTransactions(in: monthlyTransactions) { result in
             switch result {
             case .success(let transactions):
-                self.transactions = transactions
+                self.transactions = transactions.sortedDescending()
                 completion(.success(()))
                 
             case .failure(let error):

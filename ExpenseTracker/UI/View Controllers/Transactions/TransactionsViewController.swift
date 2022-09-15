@@ -79,7 +79,7 @@ class TransactionsViewController: DataLoadingViewController {
         collectionView.register(MonthCollectionViewCell.self)
     }
     
-    private func selectCollectionViewLastItem() {
+    private func selectCollectionViewItem() {
         if let indexPath = selectedIndexPath {
             collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .right)
@@ -115,7 +115,7 @@ class TransactionsViewController: DataLoadingViewController {
                     if self.selectedIndexPath == nil {
                         let item = self.viewModel.monthlyTransactions.count - 1
                         self.selectedIndexPath = IndexPath(item: item, section: .zero)
-                        self.selectCollectionViewLastItem()
+                        self.selectCollectionViewItem()
                     }
                     
                     self.getTransactions()
@@ -146,6 +146,15 @@ class TransactionsViewController: DataLoadingViewController {
                     switch result {
                     case .success:
                         self.tableView.reloadData()
+                        
+                        // When new transaction is added, table view is reloaded and monthlyTransactions which the new transaction belongs to is shown, therefore its collection view cell ought to be selected
+                        if !self.viewModel.transactions.isEmpty, let transaction = self.viewModel.transactions.first {
+                            let month = transaction.date.convertToYearMonthFormat()
+                            if let index = self.viewModel.monthlyTransactions.firstIndex(where: { $0.month == month }) {
+                                self.selectedIndexPath = IndexPath(row: index, section: 0)
+                                self.selectCollectionViewItem()
+                            }
+                        }
                         
                     case .failure:
                         let title = Strings.warningAlertTitle.localized
