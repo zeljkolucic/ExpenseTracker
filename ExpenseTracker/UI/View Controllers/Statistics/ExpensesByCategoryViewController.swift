@@ -19,7 +19,8 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
     
     var viewModel: StatisticsViewModel!
     
-    var selectedIndexPath: IndexPath?
+    private var chartView = PieChartView()
+    private var selectedIndexPath: IndexPath?
     
     // MARK: - View Controller Lifecycle
     
@@ -29,7 +30,7 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
         title = Strings.charts.localized
         configureCollectionView()
         configureTableView()
-        configureCharts()
+        addChartsAsSubview()
         
         getMonthlyTransactions()
     }
@@ -44,6 +45,7 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
     }
     
     private func configureTableView() {
+        tableView.register(CategoryTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -55,32 +57,37 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
         }
     }
     
-    private func configureCharts() {
-        let chartView = PieChartView()
+    private func addChartsAsSubview() {
         chartContainerView.addSubview(chartView)
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.topAnchor.constraint(equalTo: chartContainerView.topAnchor).isActive = true
         chartView.leadingAnchor.constraint(equalTo: chartContainerView.leadingAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: chartContainerView.bottomAnchor).isActive = true
         chartView.trailingAnchor.constraint(equalTo: chartContainerView.trailingAnchor).isActive = true
-        
-        chartView.holeColor = .clear
+    }
     
-        let chartDataSet = PieChartDataSet(entries: [
-            PieChartDataEntry(value: 20.0),
-            PieChartDataEntry(value: 30.0, label: "Utilities"),
-            PieChartDataEntry(value: 40.0),
-            PieChartDataEntry(value: 60.0),
-            PieChartDataEntry(value: 50.0)
-        ])
+    private func configureCharts() {
+        var dataEntries = [PieChartDataEntry]()
+        for category in viewModel.categories {
+            let value = Double(category.value)
+            let label = category.title
+            let dataEntry = PieChartDataEntry(value: value, label: label)
+            dataEntries.append(dataEntry)
+        }
+    
+        let chartDataSet = PieChartDataSet(entries: dataEntries)
         
         let step = chartDataSet.entries.count
         let colors = UIColor.systemBlue.colorPalette(for: step)
         chartDataSet.colors = colors
         chartDataSet.label = .none
+        chartView.holeColor = .clear
         
         let chartData = PieChartData(dataSet: chartDataSet)
         chartView.data = chartData
+        
+        chartView.data?.notifyDataChanged()
+        chartView.notifyDataSetChanged()
     }
     
     func getMonthlyTransactions() {
@@ -98,7 +105,7 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
                     self.selectedIndexPath = IndexPath(item: item, section: .zero)
                     self.selectCollectionViewLastItem()
                     
-                    // TODO: - Fetch transactions for the selected month
+                    self.getTransactions()
                     
                 case .failure:
                     let title = Strings.errorAlertTitle.localized
@@ -106,6 +113,35 @@ class ExpensesByCategoryViewController: DataLoadingViewController {
                         UIAlertAction(title: Strings.ok.localized, style: .default)
                     ]
                     self.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
+    }
+    
+    private func getTransactions() {
+        presentLoadingView()
+        if let selectedIndexPath = selectedIndexPath {
+            let monthlyTransactions = viewModel.monthlyTransactions[selectedIndexPath.item]
+            totalValueLabel.text = "Total: \(String(format: "%.2f", monthlyTransactions.total)) RSD"
+            
+            viewModel.getTransactions(in: monthlyTransactions) { [weak self] result in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.async {
+                    self.dismissLoadingView()
+                    
+                    switch result {
+                    case .success:
+                        self.configureCharts()
+                        self.tableView.reloadData()
+                        
+                    case .failure:
+                        let title = Strings.warningAlertTitle.localized
+                        let actions = [
+                            UIAlertAction(title: Strings.ok.localized, style: .default)
+                        ]
+                        self.presentAlert(title: title, actions: actions)
+                    }
                 }
             }
         }
@@ -132,7 +168,7 @@ extension ExpensesByCategoryViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-        // TODO: - Fetch transactions for the selected month
+        getTransactions()
     }
 }
 
@@ -140,11 +176,24 @@ extension ExpensesByCategoryViewController: UICollectionViewDelegate, UICollecti
 
 extension ExpensesByCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(CategoryTableViewCell.self, at: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        let category = viewModel.categories[indexPath.row]
+        
+        let step = viewModel.categories.count
+        let colors = UIColor.systemBlue.colorPalette(for: step)
+        
+        cell.titleLabel.text = category.title
+        cell.detailsLabel.text = String(format: "%.2f", category.value)
+        cell.color = colors[indexPath.row]
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

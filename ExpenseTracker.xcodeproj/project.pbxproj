@@ -73,8 +73,11 @@
 		E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */; };
 		E47F76EF28D27D3200314C41 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */; };
 		E4C4987D28CFE78D00EEFBC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */; };
+		E4D6A8C728D3E93800B801C0 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */; };
+		E4D6A8C828D3E93800B801C0 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */; };
 		E4E6043F28D2812A00AC71C8 /* StatisticsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */; };
 		E4E6044128D29F6300AC71C8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6044028D29F6300AC71C8 /* UIColor+Extension.swift */; };
+		E4E6044C28D3E0E200AC71C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6044B28D3E0E200AC71C8 /* Category.swift */; };
 		E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */; };
 		E4F4FFBB28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */; };
 		E4F4FFC028D1359800B9170A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBF28D1359800B9170A /* Array+Extension.swift */; };
@@ -158,8 +161,11 @@
 		E450712128A539E10077EB88 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesViewController.swift; sourceTree = "<group>"; };
 		E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
+		E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembly.swift; sourceTree = "<group>"; };
 		E4E6044028D29F6300AC71C8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E4E6044B28D3E0E200AC71C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingViewController.swift; sourceTree = "<group>"; };
 		E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMonthlyTransactions.swift; sourceTree = "<group>"; };
 		E4F4FFBF28D1359800B9170A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -320,6 +326,8 @@
 				6785D26D2881976A008881B4 /* TransactionDetailTableViewCell.xib */,
 				673EA70B2886D108004A532F /* StatisticsTableViewCell.swift */,
 				673EA70C2886D108004A532F /* StatisticsTableViewCell.xib */,
+				E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */,
+				E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				6720105528895601003FF257 /* MethodOfPayment.swift */,
+				E4E6044B28D3E0E200AC71C8 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -591,6 +600,7 @@
 				67C89548288A9BBD0022F905 /* GoogleService-Info.plist in Resources */,
 				6739A9C828809CAF00B3807B /* MainFlow.storyboard in Resources */,
 				6785D25F28814EDF008881B4 /* MonthCollectionViewCell.xib in Resources */,
+				E4D6A8C828D3E93800B801C0 /* CategoryTableViewCell.xib in Resources */,
 				6785D26F2881976A008881B4 /* TransactionDetailTableViewCell.xib in Resources */,
 				670A80E5287BFE6600606DEA /* LaunchScreen.storyboard in Resources */,
 				673EA70E2886D108004A532F /* StatisticsTableViewCell.xib in Resources */,
@@ -637,6 +647,7 @@
 				67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */,
 				E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */,
 				67DF68D2287DA5D400F205F7 /* Binding.swift in Sources */,
+				E4E6044C28D3E0E200AC71C8 /* Category.swift in Sources */,
 				67CCFF92288F1E540074223E /* SharedWithYouViewModel.swift in Sources */,
 				6720105628895602003FF257 /* MethodOfPayment.swift in Sources */,
 				67DF68C1287D809800F205F7 /* Strings.swift in Sources */,
@@ -654,6 +665,7 @@
 				67DF68D0287DA5AA00F205F7 /* RegistrationViewModel.swift in Sources */,
 				67259A662889830900B39712 /* CategoriesViewController.swift in Sources */,
 				6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */,
+				E4D6A8C728D3E93800B801C0 /* CategoryTableViewCell.swift in Sources */,
 				6720105828896619003FF257 /* Date+Extension.swift in Sources */,
 				E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */,
 				6785D2612881509D008881B4 /* UICollectionView+Extension.swift in Sources */,
