@@ -15,15 +15,14 @@ class StatisticsAssembly: Assembly {
         container.register(StatisticsViewModel.self) { resolver in
             let userRepository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
             let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
-            return StatisticsViewModel(authenticationService: authenticationService)
+            let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
+            return StatisticsViewModel(authenticationService: authenticationService, repository: repository)
         }
         
         // MARK: - View Controller
         
         container.storyboardInitCompleted(StatisticsViewController.self) { resolver, viewController in
-            let userRepository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
-            let viewModel = resolver.resolve(StatisticsViewModel.self) ?? StatisticsViewModel(authenticationService: authenticationService)
+            let viewModel = resolver.resolve(StatisticsViewModel.self)
             viewController.viewModel = viewModel
         }
     }

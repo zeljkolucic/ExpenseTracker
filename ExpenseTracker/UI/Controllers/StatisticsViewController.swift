@@ -90,6 +90,12 @@ class StatisticsViewController: UIViewController {
     private func navigateToMonthlyExpenses() {
         performSegue(withIdentifier: "StatisticsToMonthlyExpensesSegue", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StatisticsToExpensesByCategorySegue", let viewController = segue.destination as? ExpensesByCategoryViewController {
+            viewController.viewModel = viewModel
+        }
+    }
 }
 
 // MARK: - Table View Delegate and Data Source
