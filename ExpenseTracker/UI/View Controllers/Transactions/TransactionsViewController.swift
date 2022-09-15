@@ -133,6 +133,7 @@ class TransactionsViewController: DataLoadingViewController {
         presentLoadingView()
         if let selectedIndexPath = selectedIndexPath {
             let monthlyTransactions = viewModel.monthlyTransactions[selectedIndexPath.item]
+            totalValueLabel.text = "Total: \(monthlyTransactions.total)"
             
             viewModel.getTransactions(in: monthlyTransactions) { [weak self] result in
                 guard let self = self else { return }
