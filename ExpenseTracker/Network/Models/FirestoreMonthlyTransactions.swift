@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 struct FirestoreMonthlyTransactions: Identifiable, Codable {
     @DocumentID var id: String?
     var month: String
-    var ownerName: String
     var ownerEmail: String
     var total: Float
     

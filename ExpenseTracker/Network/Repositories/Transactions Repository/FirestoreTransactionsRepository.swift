@@ -61,18 +61,51 @@ class FirestoreTransactionsRepository: TransactionsRepository {
         }
     }
     
-    func add(transaction: FirestoreTransaction, completion: @escaping ((Result<(), Error>) -> Void)) {
-        do {
-            _ = try store.collection(collectionPath).addDocument(from: transaction, completion: { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
+    func add(transaction: FirestoreTransaction, ownerEmail: String, month: String, completion: @escaping (Result<(), Error>) -> Void) {
+        store.collection(collectionPath).whereField("ownerEmail", isEqualTo: ownerEmail).whereField("month", isEqualTo: month).getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let querySnapshot = querySnapshot else {
+                return
+            }
+            
+            let monthlyTransactionsLists = querySnapshot.documents.compactMap { document in
+                try? document.data(as: FirestoreMonthlyTransactions.self)
+            }
+            
+            let store = self.store
+            let collectionPath = self.collectionPath
+            let subcollectionPath = self.subcollectionPath
+            
+            do {
+                // If there are no `monthlyTransactionsLists` for the given user and month, one needs to be created first
+                if monthlyTransactionsLists.isEmpty {
+                    let monthlyTransactionsList = FirestoreMonthlyTransactions(
+                        month: month,
+                        ownerEmail: ownerEmail,
+                        total: .zero
+                    )
+                    
+                    let documentReference = try store.collection(collectionPath).addDocument(from: monthlyTransactionsList)
+                    _ = try documentReference.collection(subcollectionPath).addDocument(from: transaction)
+                    
+                } else if let monthlyTransactionsList = monthlyTransactionsLists.first, let documentId = monthlyTransactionsList.id {
+                    _ = try store.collection(collectionPath).document(documentId).collection(subcollectionPath).addDocument(from: transaction)
                 }
-            })
-        } catch {
-            completion(.failure(error))
+                
+                completion(.success(()))
+                
+            } catch {
+                completion(.failure(error))
+            }
         }
+    }
+    
+    private func add(_ transaction: FirestoreTransaction, in documentReference: QueryDocumentSnapshot?) {
+        
     }
     
     func shareMonthlyTransactions(withUser email: String, ownerEmail: String, month: String, completion: @escaping (Result<(), Error>) -> Void) {

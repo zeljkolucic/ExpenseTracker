@@ -44,8 +44,9 @@ class UserAssembly: Assembly {
         }
         
         container.register(TransactionDetailViewModel.self) { resolver in
+            let authenticationService = SwinjectStoryboard.provideAuthenticationService()
             let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            return TransactionDetailViewModel(repository: repository)
+            return TransactionDetailViewModel(authenticationService: authenticationService, repository: repository)
         }
         
         container.register(TransactionsViewModel.self) { resolver in
@@ -58,37 +59,27 @@ class UserAssembly: Assembly {
         // MARK: - View Controllers
         
         container.storyboardInitCompleted(LoginViewController.self) { resolver, viewController in
-            let repository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: repository)
-            let viewModel = resolver.resolve(LoginViewModel.self) ?? LoginViewModel(authenticationService: authenticationService)
+            let viewModel = resolver.resolve(LoginViewModel.self)
             viewController.viewModel = viewModel
         }
         
         container.storyboardInitCompleted(FirstStepRegistrationViewController.self) { resolver, viewController in
-            let repository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: repository)
-            let viewModel = resolver.resolve(RegistrationViewModel.self) ?? RegistrationViewModel(authenticationService: authenticationService)
+            let viewModel = resolver.resolve(RegistrationViewModel.self)
             viewController.viewModel = viewModel
         }
         
         container.storyboardInitCompleted(SecondStepRegistrationViewController.self) { resolver, viewController in
-            let repository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: repository)
-            let viewModel = resolver.resolve(RegistrationViewModel.self) ?? RegistrationViewModel(authenticationService: authenticationService)
+            let viewModel = resolver.resolve(RegistrationViewModel.self)
             viewController.viewModel = viewModel
         }
         
         container.storyboardInitCompleted(TransactionsViewController.self) { resolver, viewController in
-            let transactionsRepository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            let userRepository = resolver.resolve(UserRepository.self) ?? FirestoreUserRepository()
-            let authenticationService = resolver.resolve(AuthenticationService.self) ?? FirebaseAuthenticationService(userRepository: userRepository)
-            let viewModel = resolver.resolve(TransactionsViewModel.self) ?? TransactionsViewModel(repository: transactionsRepository, authenticationService: authenticationService)
+            let viewModel = resolver.resolve(TransactionsViewModel.self)
             viewController.viewModel = viewModel
         }
         
         container.storyboardInitCompleted(DetailTransactionViewController.self) { resolver, viewController in
-            let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            let viewModel = resolver.resolve(TransactionDetailViewModel.self) ?? TransactionDetailViewModel(repository: repository)
+            let viewModel = resolver.resolve(TransactionDetailViewModel.self)
             viewController.viewModel = viewModel
         }
     }

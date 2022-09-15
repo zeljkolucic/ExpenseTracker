@@ -8,20 +8,24 @@
 import Foundation
 
 class TransactionDetailViewModel {
-    var value: Float
-    var category: String
-    var subcategory: String
-    var date: Date
-    var methodOfPayment: MethodOfPayment
-    
+    private let authenticationService: AuthenticationService
     private let repository: TransactionsRepository
     
-    init(repository: TransactionsRepository, value: Float = 0.0, category: String = "", subcategory: String = "", date: Date = Date.now, methodOfPayment: MethodOfPayment = .cash) {
+    var transaction: FirestoreTransaction
+    
+    init(authenticationService: AuthenticationService, repository: TransactionsRepository, transaction: FirestoreTransaction = FirestoreTransaction(value: 0.0, date: .now, category: "Food", subcategory: "Groceries", methodOfPayment: MethodOfPayment.cash.localized)) {
+        self.authenticationService = authenticationService
         self.repository = repository
-        self.value = value
-        self.category = category
-        self.subcategory = subcategory
-        self.date = date
-        self.methodOfPayment = methodOfPayment
+        self.transaction = transaction
+    }
+    
+    func addTransaction(completion: @escaping (Result<(), Error>) -> Void) {
+        guard let email = authenticationService.email else {
+            completion(.failure(NSError()))
+            return
+        }
+        
+        let month = transaction.date.convertToYearMonthFormat()
+        repository.add(transaction: transaction, ownerEmail: email, month: month, completion: completion)
     }
 }

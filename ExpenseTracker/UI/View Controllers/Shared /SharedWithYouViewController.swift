@@ -104,7 +104,7 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         let monthlyTransactionsList = viewModel.monhtlyTransactions[indexPath.row]
-        cell.userLabel.text = monthlyTransactionsList.ownerName
+        cell.userLabel.text = monthlyTransactionsList.ownerEmail
         cell.monthLabel.text = monthlyTransactionsList.prettyDateFormatMonth
         
         return cell

@@ -8,6 +8,11 @@
 import Foundation
 
 extension Date {
+    func convertToYearMonthFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMM"
+        return dateFormatter.string(from: self)
+    }
     
     func convertToDateFormatString() -> String {
         let dateFormatter = DateFormatter()
@@ -26,5 +31,4 @@ extension Date {
         let components = calendar.dateComponents([.year], from: self, to: date)
         return components.year ?? 0
     }
-    
 }

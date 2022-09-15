@@ -94,7 +94,7 @@ class DetailTransactionViewController: UIViewController {
             break
         }
         
-        valueTextField.text = String(viewModel.value)
+        valueTextField.text = String(viewModel.transaction.value)
         currencyLabel.text = "RSD"
     }
     
@@ -139,7 +139,25 @@ class DetailTransactionViewController: UIViewController {
             configureEditBarButtons()
             
         case .add:
-            dismiss(animated: true)
+            viewModel.addTransaction { [weak self] result in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        self.dismiss(animated: true)
+                        
+                    case .failure:
+                        let title = Strings.errorAlertTitle.localized
+                        let actions = [
+                            UIAlertAction(title: Strings.ok.localized, style: .default, handler: { _ in
+                                self.dismiss(animated: true)
+                            })
+                        ]
+                        self.presentAlert(title: title, actions: actions)
+                    }
+                }
+            }
             
         default:
             break
@@ -182,7 +200,7 @@ class DetailTransactionViewController: UIViewController {
     }
     
     @objc private func didTapDoneDatePickerToolbarButton() {
-        viewModel.date = datePicker.date
+        viewModel.transaction.date = datePicker.date
         dismissDatePicker()
         tableView.reloadData()
     }
@@ -194,7 +212,7 @@ class DetailTransactionViewController: UIViewController {
     @objc private func didTapDoneMethodOfPaymentToolbarButton() {
         let methodOfPaymentIndex = methodOfPaymentPicker.selectedRow(inComponent: 0)
         let methodOfPayment = MethodOfPayment.allCases[methodOfPaymentIndex]
-        viewModel.methodOfPayment = methodOfPayment
+        viewModel.transaction.methodOfPayment = methodOfPayment.localized
         dismissMethodOfPaymentPicker()
         tableView.reloadData()
     }
@@ -234,7 +252,7 @@ class DetailTransactionViewController: UIViewController {
         datePickerToolbar.bottomAnchor.constraint(equalTo: datePicker.topAnchor).isActive = true
         datePickerToolbar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
-        datePicker.date = viewModel.date
+        datePicker.date = viewModel.transaction.date
     }
     
     private func dismissDatePicker() {
@@ -270,7 +288,7 @@ class DetailTransactionViewController: UIViewController {
         let actions = [
             UIAlertAction(title: Strings.ok.localized, style: .default, handler: { [weak self] _ in
                 guard let self = self else { return }
-                self.valueTextField.text = String(self.viewModel.value)
+                self.valueTextField.text = String(self.viewModel.transaction.value)
             })
         ]
         presentAlert(title: title, message: message, actions: actions)
@@ -295,22 +313,22 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
         case 0:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
             cell.titleLabel.text = Strings.category.localized
-            cell.subtitleLabel.text = viewModel.category.localized
+            cell.subtitleLabel.text = viewModel.transaction.category.localized
             
         case 1:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
             cell.titleLabel.text = Strings.category.localized
-            cell.subtitleLabel.text = viewModel.category.localized
+            cell.subtitleLabel.text = viewModel.transaction.category.localized
             
         case 2:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.calendar)
             cell.titleLabel.text = Strings.date.localized
-            cell.subtitleLabel.text = viewModel.date.convertToDateAndTimeFormatString()
+            cell.subtitleLabel.text = viewModel.transaction.date.convertToDateAndTimeFormatString()
             
         case 3:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
             cell.titleLabel.text = Strings.methodOfPayment.localized
-            cell.subtitleLabel.text = viewModel.methodOfPayment.localized
+            cell.subtitleLabel.text = viewModel.transaction.methodOfPayment.localized
             
         default:
             break
@@ -352,7 +370,7 @@ extension DetailTransactionViewController: UITextFieldDelegate {
             return
         }
         
-        viewModel.value = value
+        viewModel.transaction.value = value
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -361,7 +379,7 @@ extension DetailTransactionViewController: UITextFieldDelegate {
             return false
         }
         
-        viewModel.value = value
+        viewModel.transaction.value = value
         return true
     }
     
