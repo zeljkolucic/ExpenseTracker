@@ -16,6 +16,8 @@ class SharedTransactionsViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var totalValueLabel: UILabel!
     
+    var viewModel: SharedTransactionsViewModel!
+    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -24,13 +26,15 @@ class SharedTransactionsViewController: UIViewController {
         configureNavigationBar()
         configureTableView()
         configureLayout()
+        
+        getTransactions()
     }
     
     // MARK: - Configuration
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Zeljko Lucic"
+        navigationItem.title = viewModel.monthlyTransactionsList.ownerEmail
     }
     
     private func configureTableView() {
@@ -43,13 +47,28 @@ class SharedTransactionsViewController: UIViewController {
     }
     
     private func configureLayout() {
+        monthLabel.text = viewModel.monthlyTransactionsList.prettyDateFormatMonth
+        
         let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = containerView.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         containerView.insertSubview(blurEffectView, at: 0)
+        
+        totalValueLabel.text = String("Total: \(viewModel.monthlyTransactionsList.total)")
     }
     
+    private func getTransactions() {
+        viewModel.getTransactions { [weak self] result in
+            switch result {
+            case .success:
+                self?.tableView.reloadData()
+                
+            case .failure:
+                break
+            }
+        }
+    }
 }
 
 // MARK: - Table View Delegate and Data Source
@@ -57,7 +76,7 @@ class SharedTransactionsViewController: UIViewController {
 extension SharedTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,20 +84,25 @@ extension SharedTransactionsViewController: UITableViewDelegate, UITableViewData
             return UITableViewCell()
         }
         
-        cell.categoryLabel.text = "Electricity"
-        cell.subcategoryLabel.text = "Utilities"
-        cell.dateLabel.text = "Jun 27, 2022"
-        cell.valueLabel.text = "-2397.0 RSD"
+        let transaction = viewModel.transactions[indexPath.row]
+        cell.categoryLabel.text = transaction.category
+        cell.subcategoryLabel.text = transaction.subcategory
+        cell.dateLabel.text = transaction.date.convertToDateAndTimeFormatString()
+        cell.valueLabel.text = String(transaction.value)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let viewController = DetailTransactionViewController(nibName: "DetailTransactionViewController", bundle: nil)
+        
+        let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(DetailTransactionViewController.self) else { return }
+        viewController.viewModel.transaction = viewModel.transactions[indexPath.row]
         viewController.state = .view
-        let navigationViewController = UINavigationController(rootViewController: viewController)
-        present(navigationViewController, animated: true)
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true)
     }
     
 }

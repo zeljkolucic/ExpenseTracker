@@ -112,8 +112,16 @@ extension SharedWithYouViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let monthlyTransactionsList = viewModel.monhtlyTransactions[indexPath.row]
+        
         let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(SharedTransactionsViewController.self) else { return }
+        
+        let transactionsRepository = FirestoreTransactionsRepository()
+        let viewModel = SharedTransactionsViewModel(transactionsRepository: transactionsRepository, monthlyTransactionsList: monthlyTransactionsList)
+        viewController.viewModel = viewModel
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
