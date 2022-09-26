@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="1678" y="1182"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="za2-u6-zvy">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" id="h7r-pY-7Rm" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="h7r-pY-7Rm" customClass="MainTabBarController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gL4-GZ-sdN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

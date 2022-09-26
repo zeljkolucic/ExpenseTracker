@@ -78,6 +78,7 @@
 		E4D2B5C328DCEE2300D93F69 /* FirestoreSubcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C228DCEE2300D93F69 /* FirestoreSubcategory.swift */; };
 		E4D2B5C528DCEF9800D93F69 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C428DCEF9800D93F69 /* Category.swift */; };
 		E4D2B5C728E25C1100D93F69 /* SharedTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C628E25C1100D93F69 /* SharedTransactionsViewModel.swift */; };
+		E4D2B5C928E2665100D93F69 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C828E2665100D93F69 /* MainTabBarController.swift */; };
 		E4D6A8C728D3E93800B801C0 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */; };
 		E4D6A8C828D3E93800B801C0 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */; };
 		E4E6043F28D2812A00AC71C8 /* StatisticsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */; };
@@ -170,6 +171,7 @@
 		E4D2B5C228DCEE2300D93F69 /* FirestoreSubcategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreSubcategory.swift; sourceTree = "<group>"; };
 		E4D2B5C428DCEF9800D93F69 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E4D2B5C628E25C1100D93F69 /* SharedTransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTransactionsViewModel.swift; sourceTree = "<group>"; };
+		E4D2B5C828E2665100D93F69 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembly.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				E4E6044528D2AAB000AC71C8 /* Shared  */,
 				E4E6044228D2AA8800AC71C8 /* Statistics */,
 				E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */,
+				E4D2B5C828E2665100D93F69 /* MainTabBarController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				67CCFF92288F1E540074223E /* SharedWithYouViewModel.swift in Sources */,
 				6720105628895602003FF257 /* MethodOfPayment.swift in Sources */,
 				67DF68C1287D809800F205F7 /* Strings.swift in Sources */,
+				E4D2B5C928E2665100D93F69 /* MainTabBarController.swift in Sources */,
 				67201051288844E9003FF257 /* TransactionDetailViewModel.swift in Sources */,
 				6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */,
 				E4D2B5C328DCEE2300D93F69 /* FirestoreSubcategory.swift in Sources */,
