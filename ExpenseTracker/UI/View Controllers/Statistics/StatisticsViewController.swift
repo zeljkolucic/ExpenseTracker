@@ -18,14 +18,15 @@ class StatisticsViewController: UIViewController {
     struct Option {
         let title: String
         let description: String? = nil
+        let imageName: String
         let completion: () -> ()
     }
     
     private lazy var options = [
-        Option(title: Strings.expensesByCategory.localized, completion: {
+        Option(title: Strings.expensesByCategory.localized, imageName: SFSymbols.pieChart, completion: {
             self.navigateToExpensesByCategories()
         }),
-        Option(title: Strings.expensesByMonth.localized, completion: {
+        Option(title: Strings.expensesByMonth.localized, imageName: SFSymbols.chart, completion: {
             self.navigateToMonthlyExpenses()
         })
     ]
@@ -116,6 +117,7 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         let option = options[indexPath.row]
         cell.titleLabel.text = option.title
         cell.descriptionLabel.text = option.description
+        cell.accessoryImageView.image = UIImage(systemName: option.imageName)
         
         return cell
     }

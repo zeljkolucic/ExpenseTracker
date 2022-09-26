@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,12 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-cW-mfc" userLabel="Container View">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="160"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Image" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-Yb-XM3">
-                                <rect key="frame" x="240" y="10" width="140" height="130"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart.pie.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-Yb-XM3">
+                                <rect key="frame" x="240" y="10.5" width="140" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="1Bz-EU-ygk"/>
+                                    <constraint firstAttribute="height" constant="140" id="Pdv-zH-p3D"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-9B-xzE">
@@ -31,7 +33,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz7-0F-2eq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz7-0F-2eq">
                                 <rect key="frame" x="10" y="43" width="370" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,7 +48,7 @@
                             <constraint firstAttribute="trailing" secondItem="lQo-9B-xzE" secondAttribute="trailing" constant="10" id="aVc-vS-fQI"/>
                             <constraint firstAttribute="trailing" secondItem="Y7Z-Yb-XM3" secondAttribute="trailing" constant="10" id="gS1-9P-qHM"/>
                             <constraint firstItem="lQo-9B-xzE" firstAttribute="leading" secondItem="b6r-cW-mfc" secondAttribute="leading" constant="10" id="h1U-DJ-tpm"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jz7-0F-2eq" secondAttribute="bottom" constant="10" id="kaJ-Cc-h4l"/>
+                            <constraint firstItem="Y7Z-Yb-XM3" firstAttribute="centerY" secondItem="b6r-cW-mfc" secondAttribute="centerY" id="jgV-aC-F0s"/>
                             <constraint firstItem="jz7-0F-2eq" firstAttribute="top" secondItem="lQo-9B-xzE" secondAttribute="bottom" constant="4" id="ne1-Nj-p2w"/>
                             <constraint firstItem="lQo-9B-xzE" firstAttribute="top" secondItem="b6r-cW-mfc" secondAttribute="top" constant="10" id="uxl-ae-uMQ"/>
                             <constraint firstItem="jz7-0F-2eq" firstAttribute="leading" secondItem="b6r-cW-mfc" secondAttribute="leading" constant="10" id="w3a-xD-tVQ"/>
@@ -68,10 +70,10 @@
                 <outlet property="descriptionLabel" destination="jz7-0F-2eq" id="ZEb-mU-9kl"/>
                 <outlet property="titleLabel" destination="lQo-9B-xzE" id="7FL-iN-PoS"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="37.5"/>
+            <point key="canvasLocation" x="132" y="41"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Logo Image" width="94" height="94"/>
+        <image name="chart.pie.fill" catalog="system" width="128" height="123"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@ struct SFSymbols {
     static let edit = "pencil"
     static let delete = "trash"
     static let chart = "chart.bar.fill"
+    static let pieChart = "chart.pie.fill"
     static let list = "list.bullet"
     static let folder = "folder.fill"
     static let dollar = "dollarsign.circle.fill"
