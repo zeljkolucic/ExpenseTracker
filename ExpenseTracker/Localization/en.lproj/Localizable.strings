@@ -34,6 +34,7 @@
 "shared_with_you_title" = "Shared with you";
 "delete_alert_message" = "Are you sure you want to delete this transaction?";
 "statistics_title" = "Statistics";
+"value" = "Value";
 "category" = "Category";
 "subcategory" = "Subcategory";
 "date" = "Date";

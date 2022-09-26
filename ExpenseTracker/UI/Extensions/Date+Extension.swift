@@ -26,6 +26,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func convertToSimpleDateFormatString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d/MM/yyyy hh:mm a"
+        return dateFormatter.string(from: self)
+    }
+    
     func yearsSince(_ date: Date) -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year], from: self, to: date)

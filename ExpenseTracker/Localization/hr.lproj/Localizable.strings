@@ -34,6 +34,7 @@
 "shared_with_you_title" = "Deljeno sa Vama";
 "delete_alert_message" = "Da li ste sigurni da želite da obrišete datu transakciju?";
 "statistics_title" = "Statistika";
+"value" = "Vrednost";
 "category" = "Kategorija";
 "subcategory" = "Potkategorija";
 "date" = "Datum";

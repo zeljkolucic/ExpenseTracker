@@ -179,8 +179,8 @@ class TransactionsViewController: DataLoadingViewController {
         let shareAction = UIAlertAction(title: Strings.shareActionSheetTitle.localized, style: .default) { [weak self] _ in
             self?.shareMonthlyTransactionsPrompt()
         }
-        let exportAction = UIAlertAction(title: Strings.exportAlertActionTitle.localized, style: .default) { _ in
-            
+        let exportAction = UIAlertAction(title: Strings.exportAlertActionTitle.localized, style: .default) { [weak self] _ in
+            self?.exportAsCsv()
         }
         let cancelAction = UIAlertAction(title: Strings.cancelAlertActionTitle.localized, style: .cancel)
         
@@ -189,6 +189,31 @@ class TransactionsViewController: DataLoadingViewController {
         actionSheet.addAction(cancelAction)
         
         present(actionSheet, animated: true)
+    }
+    
+    private func exportAsCsv() {
+        if let index = selectedIndexPath?.row {
+            viewModel.saveCsv(for: index) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(let fileName):
+                    let title = "Uspešno ste sačuvali .csv fajl pod nazivom \(fileName)."
+                    let actions = [
+                        UIAlertAction(title: Strings.ok.localized, style: .default)
+                    ]
+                    self.presentAlert(title: title, actions: actions)
+                    
+                case .failure:
+                    let title = Strings.errorAlertTitle.localized
+                    let actions = [
+                        UIAlertAction(title: Strings.ok.localized, style: .default)
+                    ]
+                    self.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
+        
     }
     
     private func shareMonthlyTransactionsPrompt() {

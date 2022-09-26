@@ -75,4 +75,34 @@ class TransactionsViewModel {
         authenticationService.signOut(completion: completion)
     }
     
+    func saveCsv(for monthlyTransactionListIndex: Int, completion: @escaping (Result<String, Error>) -> Void) {
+        let headers = [Strings.value, Strings.date, Strings.category, Strings.subcategory, Strings.methodOfPayment]
+        var fileContent: String = headers.joined(separator: ",").appending(";")
+        
+        for transaction in transactions {
+            let row = String(transaction.value).appending(",")
+                .appending(transaction.date.convertToSimpleDateFormatString()).appending(",")
+                .appending(transaction.category).appending(",")
+                .appending(transaction.subcategory).appending(",")
+                .appending(transaction.methodOfPayment).appending(";")
+            
+            fileContent.append("\n")
+            fileContent.append(row)
+        }
+        
+        let fileManager = FileManager.default
+        do {
+            let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+            
+            let monthlyTransactionsList = monthlyTransactions[monthlyTransactionListIndex]
+            let fileName = monthlyTransactionsList.ownerEmail.appending("_").appending(monthlyTransactionsList.month)
+            let fileURL = path.appendingPathComponent("\(fileName).csv")
+            try fileContent.write(to: fileURL, atomically: true, encoding: .utf8)
+            
+            completion(.success(fileName))
+            
+        } catch {
+            completion(.failure(error))
+        }
+    }
 }

@@ -37,6 +37,7 @@ struct Strings {
     static let sharedWithYouTitle = "shared_with_you_title"
     static let deleteAlertMessage = "delete_alert_message"
     static let statisticsTitle = "statistics_title"
+    static let value = "value"
     static let category = "category"
     static let subcategory = "subcategory"
     static let date = "date"
