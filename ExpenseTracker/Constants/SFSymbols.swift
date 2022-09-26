@@ -16,4 +16,8 @@ struct SFSymbols {
     static let chart = "chart.bar.fill"
     static let list = "list.bullet"
     static let folder = "folder.fill"
+    static let dollar = "dollarsign.circle.fill"
+    static let creditCard = "creditcard"
+    static let starList = "list.star"
+    static let star = "star"
 }

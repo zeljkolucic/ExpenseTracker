@@ -9,13 +9,16 @@ import Foundation
 
 class TransactionDetailViewModel {
     private let authenticationService: AuthenticationService
-    private let repository: TransactionsRepository
+    private let transactionsRepository: TransactionsRepository
+    private let categoriesRepository: CategoriesRepository
     
     var transaction: FirestoreTransaction
+    var subcategories = [FirestoreSubcategory]()
     
-    init(authenticationService: AuthenticationService, repository: TransactionsRepository, transaction: FirestoreTransaction = FirestoreTransaction(value: 0.0, date: .now, category: "Food", subcategory: "Groceries", methodOfPayment: MethodOfPayment.cash.localized)) {
+    init(authenticationService: AuthenticationService, transactionsRepository: TransactionsRepository, categoriesRepository: CategoriesRepository, transaction: FirestoreTransaction = FirestoreTransaction(value: 0.0, date: .now, category: "Food", subcategory: "Groceries", methodOfPayment: MethodOfPayment.cash.localized)) {
         self.authenticationService = authenticationService
-        self.repository = repository
+        self.transactionsRepository = transactionsRepository
+        self.categoriesRepository = categoriesRepository
         self.transaction = transaction
     }
     
@@ -26,6 +29,27 @@ class TransactionDetailViewModel {
         }
         
         let month = transaction.date.convertToYearMonthFormat()
-        repository.add(transaction: transaction, ownerEmail: email, month: month, completion: completion)
+        transactionsRepository.add(transaction: transaction, ownerEmail: email, month: month, completion: completion)
+    }
+    
+    func getSubcategories(completion: @escaping (Result<(), Error>) -> Void) {
+        categoriesRepository.getSubcategories { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let subcategories):
+                self.subcategories = subcategories
+                
+                if !subcategories.isEmpty {
+                    self.transaction.subcategory = subcategories[0].name
+                    self.transaction.category = subcategories[0].category
+                }
+                
+                completion(.success(()))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

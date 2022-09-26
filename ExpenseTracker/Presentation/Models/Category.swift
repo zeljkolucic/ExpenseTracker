@@ -2,7 +2,7 @@
 //  Category.swift
 //  ExpenseTracker
 //
-//  Created by Zeljko Lucic on 16.9.22..
+//  Created by Zeljko Lucic on 22.9.22..
 //
 
 import Foundation

@@ -114,23 +114,28 @@ class FirstStepRegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func didTapNextButton() {
-        viewModel.verifyFirstStepRegistrationData { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success:
-                let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
-                guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
-                viewController.viewModel = self.viewModel
-                self.navigationController?.pushViewController(viewController, animated: true)
-                
-            case .failure(let error):
-                let title = Strings.errorAlertTitle.localized
-                let message = error.localizedDescription.localized
-                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
-                self.presentAlert(title: title, message: message, actions: actions)
-            }
-        }
+//        viewModel.verifyFirstStepRegistrationData { [weak self] result in
+//            guard let self = self else { return }
+//            
+//            switch result {
+//            case .success:
+//                let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
+//                guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
+//                viewController.viewModel = self.viewModel
+//                self.navigationController?.pushViewController(viewController, animated: true)
+//                
+//            case .failure(let error):
+//                let title = Strings.errorAlertTitle.localized
+//                let message = error.localizedDescription.localized
+//                let actions = [UIAlertAction(title: Strings.ok.localized, style: .default)]
+//                self.presentAlert(title: title, message: message, actions: actions)
+//            }
+//        }
+        
+        let storyboard = UIStoryboard(name: "LoginAndRegisterFlow", bundle: .main)
+        guard let viewController = storyboard.instantiateViewController(SecondStepRegistrationViewController.self) else { return }
+        viewController.viewModel = self.viewModel
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func didTapGenderButton(_ sender: UIButton) {

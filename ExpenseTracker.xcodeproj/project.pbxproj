@@ -73,11 +73,14 @@
 		E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */; };
 		E47F76EF28D27D3200314C41 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */; };
 		E4C4987D28CFE78D00EEFBC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4C4987C28CFE78D00EEFBC7 /* IQKeyboardManagerSwift */; };
+		E4D2B5BF28DCEDC600D93F69 /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5BE28DCEDC600D93F69 /* CategoriesRepository.swift */; };
+		E4D2B5C128DCEDFB00D93F69 /* FirestoreCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C028DCEDFB00D93F69 /* FirestoreCategoriesRepository.swift */; };
+		E4D2B5C328DCEE2300D93F69 /* FirestoreSubcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C228DCEE2300D93F69 /* FirestoreSubcategory.swift */; };
+		E4D2B5C528DCEF9800D93F69 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2B5C428DCEF9800D93F69 /* Category.swift */; };
 		E4D6A8C728D3E93800B801C0 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */; };
 		E4D6A8C828D3E93800B801C0 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */; };
 		E4E6043F28D2812A00AC71C8 /* StatisticsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */; };
 		E4E6044128D29F6300AC71C8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6044028D29F6300AC71C8 /* UIColor+Extension.swift */; };
-		E4E6044C28D3E0E200AC71C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6044B28D3E0E200AC71C8 /* Category.swift */; };
 		E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */; };
 		E4F4FFBB28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */; };
 		E4F4FFC028D1359800B9170A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4FFBF28D1359800B9170A /* Array+Extension.swift */; };
@@ -161,11 +164,14 @@
 		E450712128A539E10077EB88 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		E47F76EC28D27BA600314C41 /* MonthlyExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesViewController.swift; sourceTree = "<group>"; };
 		E47F76EE28D27D3200314C41 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
+		E4D2B5BE28DCEDC600D93F69 /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
+		E4D2B5C028DCEDFB00D93F69 /* FirestoreCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCategoriesRepository.swift; sourceTree = "<group>"; };
+		E4D2B5C228DCEE2300D93F69 /* FirestoreSubcategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreSubcategory.swift; sourceTree = "<group>"; };
+		E4D2B5C428DCEF9800D93F69 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E4D6A8C528D3E93800B801C0 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		E4D6A8C628D3E93800B801C0 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAssembly.swift; sourceTree = "<group>"; };
 		E4E6044028D29F6300AC71C8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		E4E6044B28D3E0E200AC71C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E4F4FFB828D10FB700B9170A /* DataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingViewController.swift; sourceTree = "<group>"; };
 		E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMonthlyTransactions.swift; sourceTree = "<group>"; };
 		E4F4FFBF28D1359800B9170A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				67C89553288AA3810022F905 /* FirestoreTransaction.swift */,
 				E450711C28A537FB0077EB88 /* FirestoreUser.swift */,
 				E4F4FFBA28D12C4F00B9170A /* FirestoreMonthlyTransactions.swift */,
+				E4D2B5C228DCEE2300D93F69 /* FirestoreSubcategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +342,7 @@
 		67C89550288AA1100022F905 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				E4AFBFB028DCED9B00136942 /* Categories Repository */,
 				E4C4987928CFBE4800EEFBC7 /* Transactions Repository */,
 				E4C4987A28CFBE5A00EEFBC7 /* User Repository */,
 			);
@@ -345,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				6720105528895601003FF257 /* MethodOfPayment.swift */,
-				E4E6044B28D3E0E200AC71C8 /* Category.swift */,
+				E4D2B5C428DCEF9800D93F69 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,6 +441,15 @@
 				E4E6043E28D2812A00AC71C8 /* StatisticsAssembly.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		E4AFBFB028DCED9B00136942 /* Categories Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E4D2B5C028DCEDFB00D93F69 /* FirestoreCategoriesRepository.swift */,
+				E4D2B5BE28DCEDC600D93F69 /* CategoriesRepository.swift */,
+			);
+			path = "Categories Repository";
 			sourceTree = "<group>";
 		};
 		E4C4987928CFBE4800EEFBC7 /* Transactions Repository */ = {
@@ -647,12 +664,12 @@
 				67CCFF8E288EBA420074223E /* FirestoreUserRepository.swift in Sources */,
 				E4F4FFB928D10FB700B9170A /* DataLoadingViewController.swift in Sources */,
 				67DF68D2287DA5D400F205F7 /* Binding.swift in Sources */,
-				E4E6044C28D3E0E200AC71C8 /* Category.swift in Sources */,
 				67CCFF92288F1E540074223E /* SharedWithYouViewModel.swift in Sources */,
 				6720105628895602003FF257 /* MethodOfPayment.swift in Sources */,
 				67DF68C1287D809800F205F7 /* Strings.swift in Sources */,
 				67201051288844E9003FF257 /* TransactionDetailViewModel.swift in Sources */,
 				6729B047287D5E7A003F3259 /* FirstStepRegistrationViewController.swift in Sources */,
+				E4D2B5C328DCEE2300D93F69 /* FirestoreSubcategory.swift in Sources */,
 				67CCFF8C288EAB860074223E /* FirebaseAuthenticationService.swift in Sources */,
 				6729B04F287D688D003F3259 /* RoundedTextField.swift in Sources */,
 				6785D26E2881976A008881B4 /* TransactionDetailTableViewCell.swift in Sources */,
@@ -665,6 +682,8 @@
 				67DF68D0287DA5AA00F205F7 /* RegistrationViewModel.swift in Sources */,
 				67259A662889830900B39712 /* CategoriesViewController.swift in Sources */,
 				6785D27128819A33008881B4 /* UIStoryboard+Extension.swift in Sources */,
+				E4D2B5BF28DCEDC600D93F69 /* CategoriesRepository.swift in Sources */,
+				E4D2B5C528DCEF9800D93F69 /* Category.swift in Sources */,
 				E4D6A8C728D3E93800B801C0 /* CategoryTableViewCell.swift in Sources */,
 				6720105828896619003FF257 /* Date+Extension.swift in Sources */,
 				E47F76ED28D27BA700314C41 /* MonthlyExpensesViewController.swift in Sources */,
@@ -676,6 +695,7 @@
 				67F7487B28883495001CB439 /* SharedTransactionsViewController.swift in Sources */,
 				670A80D9287BFE6400606DEA /* AppDelegate.swift in Sources */,
 				E450711928A5373D0077EB88 /* UserAssembly.swift in Sources */,
+				E4D2B5C128DCEDFB00D93F69 /* FirestoreCategoriesRepository.swift in Sources */,
 				E450711F28A539110077EB88 /* TransactionsRepository.swift in Sources */,
 				670A80DB287BFE6400606DEA /* SceneDelegate.swift in Sources */,
 				6739A9CE28809E1400B3807B /* TransactionTableViewCell.swift in Sources */,

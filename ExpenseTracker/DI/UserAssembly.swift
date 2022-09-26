@@ -22,6 +22,10 @@ class UserAssembly: Assembly {
             FirestoreTransactionsRepository()
         }
         
+        container.register(CategoriesRepository.self) { _ in
+            FirestoreCategoriesRepository()
+        }
+        
         // MARK: - Services
         
         container.register(AuthenticationService.self) { resolver in
@@ -45,8 +49,9 @@ class UserAssembly: Assembly {
         
         container.register(TransactionDetailViewModel.self) { resolver in
             let authenticationService = SwinjectStoryboard.provideAuthenticationService()
-            let repository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
-            return TransactionDetailViewModel(authenticationService: authenticationService, repository: repository)
+            let transactionsRepository = resolver.resolve(TransactionsRepository.self) ?? FirestoreTransactionsRepository()
+            let categoriesRepository = resolver.resolve(CategoriesRepository.self) ?? FirestoreCategoriesRepository()
+            return TransactionDetailViewModel(authenticationService: authenticationService, transactionsRepository: transactionsRepository, categoriesRepository: categoriesRepository)
         }
         
         container.register(TransactionsViewModel.self) { resolver in

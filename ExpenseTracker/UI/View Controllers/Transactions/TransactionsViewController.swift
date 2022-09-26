@@ -112,7 +112,7 @@ class TransactionsViewController: DataLoadingViewController {
                 case .success:
                     self.collectionView.reloadData()
                     
-                    if self.selectedIndexPath == nil {
+                    if self.selectedIndexPath == nil && self.viewModel.monthlyTransactions.count != .zero {
                         let item = self.viewModel.monthlyTransactions.count - 1
                         self.selectedIndexPath = IndexPath(item: item, section: .zero)
                         self.selectCollectionViewItem()
@@ -133,7 +133,7 @@ class TransactionsViewController: DataLoadingViewController {
     
     private func getTransactions() {
         presentLoadingView()
-        if let selectedIndexPath = selectedIndexPath {
+        if let selectedIndexPath = selectedIndexPath, selectedIndexPath.item < viewModel.monthlyTransactions.count {
             let monthlyTransactions = viewModel.monthlyTransactions[selectedIndexPath.item]
             totalValueLabel.text = "Total: \(String(format: "%.2f", monthlyTransactions.total))"
             
@@ -165,6 +165,9 @@ class TransactionsViewController: DataLoadingViewController {
                     }
                 }
             }
+        } else {
+            selectedIndexPath = nil
+            dismissLoadingView()
         }
     }
     
@@ -304,6 +307,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         
         let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(DetailTransactionViewController.self) else { return }
+        viewController.viewModel.transaction = viewModel.transactions[indexPath.row]
         viewController.state = .edit
         
         let navigationViewController = UINavigationController(rootViewController: viewController)

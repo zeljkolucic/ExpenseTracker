@@ -13,17 +13,20 @@ class CategoriesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var selectedIndexPath: IndexPath!
+    var selectedIndexPath: IndexPath?
+    private let reuseIdentifier = "SubcategoryCell"
+    
+    var viewModel: TransactionDetailViewModel!
     
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        selectedIndexPath = IndexPath(row: 0, section: 0)
 
         configureNavigationBar()
         configureTableView()
+        
+        getSubcategories()
     }
     
     // MARK: - Configuration
@@ -35,42 +38,67 @@ class CategoriesViewController: UIViewController {
     }
     
     private func configureTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SubcategoryCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func getSubcategories() {
+        viewModel.getSubcategories { [weak self] result in
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self?.tableView.reloadData()
+                    self?.selectedIndexPath = IndexPath(row: .zero, section: .zero)
+                    
+                case .failure:
+                    let title = Strings.errorAlertTitle.localized
+                    let actions = [
+                        UIAlertAction(title: Strings.ok.localized, style: .default, handler: { _ in
+                            self?.navigationController?.popViewController(animated: true)
+                        })
+                    ]
+                    self?.presentAlert(title: title, actions: actions)
+                }
+            }
+        }
     }
     
     // MARK: - Actions
     
     @objc private func didTapDoneButton() {
+        if let selectedIndexPath = selectedIndexPath {
+            let subcategory = viewModel.subcategories[selectedIndexPath.row]
+            viewModel.transaction.category = subcategory.category
+            viewModel.transaction.subcategory = subcategory.name
+        }
+        
         navigationController?.popViewController(animated: true)
     }
-
 }
 
 // MARK: - Table View Delegate and Data Source
 
 extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.subcategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SubcategoryCell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) else {
             return UITableViewCell()
         }
         
-        var content = cell.defaultContentConfiguration()
-        content.image = UIImage(systemName: "star")
-        content.text = "Subcategory"
-        cell.contentConfiguration = content
+        let subcategory = viewModel.subcategories[indexPath.row]
         
-        if selectedIndexPath == indexPath {
+        var content = cell.defaultContentConfiguration()
+        content.text = subcategory.name
+        cell.contentConfiguration = content
+        cell.backgroundColor = .clear
+        
+        if subcategory.name == viewModel.transaction.subcategory {
+            selectedIndexPath = indexPath
             cell.accessoryType = .checkmark
         }
         
@@ -80,12 +108,12 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let previouslySelectedCell = tableView.cellForRow(at: selectedIndexPath), let selectedCell = tableView.cellForRow(at: indexPath) else { return }
+        guard let selectedIndexPath = selectedIndexPath, let previouslySelectedCell = tableView.cellForRow(at: selectedIndexPath), let selectedCell = tableView.cellForRow(at: indexPath) else { return }
         
         previouslySelectedCell.accessoryType = .none
         selectedCell.accessoryType = .checkmark
         
-        selectedIndexPath = indexPath
+        self.selectedIndexPath = indexPath
     }
     
 }

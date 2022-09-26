@@ -17,7 +17,6 @@ class DetailTransactionViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var valueTextField: UITextField!
-    @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     private lazy var datePicker: UIDatePicker = {
@@ -71,6 +70,11 @@ class DetailTransactionViewController: UIViewController {
         configureTextField()
         dismissKeyboardWhenTouchOutside()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Configuration
     
@@ -93,8 +97,6 @@ class DetailTransactionViewController: UIViewController {
         default:
             break
         }
-        
-        currencyLabel.text = "RSD"
     }
     
     private func configureDoneBarButton() {
@@ -110,7 +112,7 @@ class DetailTransactionViewController: UIViewController {
         let deleteBarButton = UIBarButtonItem(image: deleteImage, style: .plain, target: self, action: #selector(didTapDeleteButton))
         deleteBarButton.tintColor = .systemRed
         
-        navigationItem.rightBarButtonItems = [deleteBarButton, editBarButton]
+        navigationItem.rightBarButtonItems = [deleteBarButton]
     }
     
     private func configureTableView() {
@@ -238,6 +240,7 @@ class DetailTransactionViewController: UIViewController {
     private func presentCategoriesViewController() {
         let storyboard = UIStoryboard(name: "MainFlow", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(CategoriesViewController.self) else { return }
+        viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -311,14 +314,14 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
         
         switch indexPath.row {
         case 0:
-            cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
+            cell.detailImageView.image = UIImage(systemName: SFSymbols.starList)
             cell.titleLabel.text = Strings.category.localized
             cell.subtitleLabel.text = viewModel.transaction.category.localized
             
         case 1:
-            cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
-            cell.titleLabel.text = Strings.category.localized
-            cell.subtitleLabel.text = viewModel.transaction.category.localized
+            cell.detailImageView.image = UIImage(systemName: SFSymbols.star)
+            cell.titleLabel.text = Strings.subcategory.localized
+            cell.subtitleLabel.text = viewModel.transaction.subcategory.localized
             
         case 2:
             cell.detailImageView.image = UIImage(systemName: SFSymbols.calendar)
@@ -326,7 +329,7 @@ extension DetailTransactionViewController: UITableViewDelegate, UITableViewDataS
             cell.subtitleLabel.text = viewModel.transaction.date.convertToDateAndTimeFormatString()
             
         case 3:
-            cell.detailImageView.image = UIImage(systemName: SFSymbols.edit)
+            cell.detailImageView.image = UIImage(systemName: SFSymbols.creditCard)
             cell.titleLabel.text = Strings.methodOfPayment.localized
             cell.subtitleLabel.text = viewModel.transaction.methodOfPayment.localized
             
@@ -379,6 +382,10 @@ extension DetailTransactionViewController: UITextFieldDelegate {
     }
     
     private func setTransactionValue() {
+        if let textValue = valueTextField.text, textValue.isEmpty {
+            valueTextField.text = String(viewModel.transaction.value)
+        }
+        
         guard let textValue = valueTextField.text, let value = Float(textValue) else {
             presentValueAlert()
             return

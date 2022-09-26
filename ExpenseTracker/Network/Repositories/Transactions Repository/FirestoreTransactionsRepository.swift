@@ -86,7 +86,8 @@ class FirestoreTransactionsRepository: TransactionsRepository {
                     let monthlyTransactionsList = FirestoreMonthlyTransactions(
                         month: month,
                         ownerEmail: ownerEmail,
-                        total: transaction.value
+                        total: transaction.value,
+                        viewers: []
                     )
                     
                     let documentReference = try store.collection(collectionPath).addDocument(from: monthlyTransactionsList)
